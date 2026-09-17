@@ -127,14 +127,10 @@ Distribué sous licence **MIT**. Voir [LICENSE](LICENSE) pour plus de détails.
 
 ---
 
-```
 
-**Pour l'utiliser :**
-1. Copiez tout le bloc ci-dessus (le bouton « Copier » en haut à droite du bloc fait ça en un clic)
-2. Sur GitHub : `Add file` → `Create new file` → nommez-le `README.md` → collez → `Commit`
-3. Les blocs de code sont en indentation (compatible partout), le README s'affichera parfaitement
+## SCREENSHOTS 
 
-```
+<img width="1800" height="1024" alt="Screenshot 2026-09-17 at 22-44-53 7 Simulations · Énergie Hydraulique Renouvelable" src="https://github.com/user-attachments/assets/046c6126-61dd-490b-a80a-565990b37520" />
 
 ---
 
