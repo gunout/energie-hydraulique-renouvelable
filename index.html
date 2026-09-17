@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>5 Simulations · Énergie Hydraulique Renouvelable</title>
+<title>6 Simulations · Énergie Hydraulique Renouvelable</title>
 <style>
   html,body{height:100%}
   body{margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
@@ -38,8 +38,8 @@
     <header class="shell-header">
       <div class="logo">⚡</div>
       <div>
-        <h1>Énergie Hydraulique Renouvelable · 5 Simulations Interactives</h1>
-        <p>STEP réversible · Bélier hydraulique · Double réseau + pompe · Double réseau + bélier · Circuit fermé gravitaire</p>
+        <h1>Énergie Hydraulique Renouvelable · 6 Simulations Interactives</h1>
+        <p>STEP réversible · Bélier hydraulique · Double réseau + pompe · Double réseau + bélier · Circuit fermé gravitaire · Croix "X" optimisée</p>
       </div>
     </header>
     <nav class="tabs" id="tabs">
@@ -48,6 +48,7 @@
       <button class="tab" data-tab="2"><span class="num">3</span>Double réseau + pompe</button>
       <button class="tab" data-tab="3"><span class="num">4</span>Double réseau + bélier</button>
       <button class="tab" data-tab="4"><span class="num">5</span>Circuit fermé gravitaire</button>
+      <button class="tab" data-tab="5"><span class="num">6</span>Croix "X" optimisée</button>
     </nav>
     <div class="frames" id="frames"></div>
   </div>
@@ -1083,7 +1084,7 @@
   </template>
 
   <!-- ================================================================
-       SIMULATION 5 · CIRCUIT FERMÉ GRAVITAIRE (NOUVEAU)
+       SIMULATION 5 · CIRCUIT FERMÉ GRAVITAIRE
        ================================================================ -->
   <template id="tpl-4">
     <div class="wrap">
@@ -1480,7 +1481,547 @@
   </template>
 
   <!-- ================================================================
-       SHARED CSS + INITIALISATION DES 5 IFRAMES
+       SIMULATION 6 · CROIX "X" À DEUX COULEURS · OPTIMISÉE ÉLECTRICITÉ
+       ================================================================ -->
+  <template id="tpl-5">
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <div class="logo">✕</div>
+          <div>
+            <h1>Schéma en "X" · Deux Couleurs · Optimisé pour l'Électricité</h1>
+            <p>Réseau cyan (A→B) &nbsp;·&nbsp; Réseau orange (B→A) &nbsp;·&nbsp; Deux turbines indépendantes · Charge réglable pour maximiser la puissance</p>
+          </div>
+        </div>
+      </header>
+      <div class="layout">
+        <div class="stage">
+          <svg viewBox="0 0 900 780" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0d2136"/><stop offset="55%" stop-color="#0a1725"/><stop offset="100%" stop-color="#061019"/>
+              </linearGradient>
+              <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#16232f"/><stop offset="100%" stop-color="#0a121a"/>
+              </linearGradient>
+              <linearGradient id="waterG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8ceaff"/><stop offset="35%" stop-color="#2fa8e0"/><stop offset="100%" stop-color="#0f4a77"/>
+              </linearGradient>
+              <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6d8093"/><stop offset="45%" stop-color="#4a5c6e"/><stop offset="100%" stop-color="#2a3743"/>
+              </linearGradient>
+              <linearGradient id="concreteTop" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#9aafc2"/><stop offset="100%" stop-color="#6d8093"/>
+              </linearGradient>
+              <linearGradient id="pipeCyan" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#a5eaff"/><stop offset="50%" stop-color="#3a9dcf"/><stop offset="100%" stop-color="#0e3a5a"/>
+              </linearGradient>
+              <linearGradient id="pipeOrange" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffd9a5"/><stop offset="50%" stop-color="#cc7a2a"/><stop offset="100%" stop-color="#5a3010"/>
+              </linearGradient>
+              <clipPath id="clipA"><rect x="76" y="260" width="248" height="400"/></clipPath>
+              <clipPath id="clipB"><rect x="576" y="260" width="248" height="400"/></clipPath>
+              <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <rect x="0" y="0" width="900" height="780" fill="url(#sky)"/>
+            <rect x="0" y="720" width="900" height="60" fill="url(#ground)"/>
+            <line x1="0" y1="720" x2="900" y2="720" stroke="#2a4257" stroke-width="2"/>
+
+            <!-- TITRES -->
+            <text x="200" y="32" text-anchor="middle" font-size="14" font-weight="700"
+                  fill="#7d9ab3" letter-spacing="1.8">RÉSERVOIR A</text>
+            <text x="700" y="32" text-anchor="middle" font-size="14" font-weight="700"
+                  fill="#7d9ab3" letter-spacing="1.8">RÉSERVOIR B</text>
+            <text x="450" y="32" text-anchor="middle" font-size="11" font-weight="700"
+                  fill="#5f7d94" letter-spacing="1.4">MÊME HAUTEUR · DEUX RÉSEAUX EN "X"</text>
+
+            <!-- Ligne d'altitude -->
+            <line x1="60" y1="260" x2="840" y2="260"
+                  stroke="#5fd0ff" stroke-width="1.2" stroke-dasharray="6 8" opacity=".25"/>
+            <text x="450" y="252" text-anchor="middle" font-size="9.5" font-weight="700"
+                  fill="#5f7d94" letter-spacing="1.4">MÊME ALTITUDE DE RÉFÉRENCE</text>
+
+            <!-- RÉSERVOIR A -->
+            <g>
+              <path d="M 60 240 L 76 260 L 324 260 L 340 240 L 360 220 L 80 220 Z"
+                    fill="url(#concreteTop)" stroke="#0a121a" stroke-width="1.6"/>
+              <rect x="76" y="260" width="248" height="400"
+                    fill="url(#concrete)" stroke="#0a121a" stroke-width="1.8"/>
+              <line x1="76" y1="260" x2="76" y2="660" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
+              <line x1="324" y1="260" x2="324" y2="660" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
+              <g clip-path="url(#clipA)">
+                <rect id="waterA" x="76" y="340" width="248" height="320" fill="url(#waterG)"/>
+                <path id="waveA" d="M 76 360 Q 120 352, 170 360 T 270 360 T 370 360 L 370 380 L 76 380 Z"
+                      fill="#ffffff" opacity=".07">
+                  <animateTransform attributeName="transform" type="translate"
+                    values="0 0; 10 0; 0 0" dur="3.4s" repeatCount="indefinite"/>
+                </path>
+              </g>
+              <line id="surfA" x1="76" y1="340" x2="324" y2="340"
+                    stroke="#bdf0ff" stroke-width="1.8" opacity=".6"/>
+              <circle cx="340" cy="380" r="7" fill="#0e2a40" stroke="#5fd0ff" stroke-width="2"/>
+              <circle cx="340" cy="560" r="7" fill="#3a2010" stroke="#ffa94d" stroke-width="2"/>
+            </g>
+
+            <!-- RÉSERVOIR B -->
+            <g>
+              <path d="M 560 240 L 576 260 L 824 260 L 840 240 L 860 220 L 580 220 Z"
+                    fill="url(#concreteTop)" stroke="#0a121a" stroke-width="1.6"/>
+              <rect x="576" y="260" width="248" height="400"
+                    fill="url(#concrete)" stroke="#0a121a" stroke-width="1.8"/>
+              <line x1="576" y1="260" x2="576" y2="660" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
+              <line x1="824" y1="260" x2="824" y2="660" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
+              <g clip-path="url(#clipB)">
+                <rect id="waterB" x="576" y="340" width="248" height="320" fill="url(#waterG)"/>
+                <path id="waveB" d="M 576 360 Q 620 352, 670 360 T 770 360 T 870 360 L 870 380 L 576 380 Z"
+                      fill="#ffffff" opacity=".07">
+                  <animateTransform attributeName="transform" type="translate"
+                    values="0 0; -8 0; 0 0" dur="3.9s" repeatCount="indefinite"/>
+                </path>
+              </g>
+              <line id="surfB" x1="576" y1="340" x2="824" y2="340"
+                    stroke="#bdf0ff" stroke-width="1.8" opacity=".6"/>
+              <circle cx="560" cy="380" r="7" fill="#3a2010" stroke="#ffa94d" stroke-width="2"/>
+              <circle cx="560" cy="560" r="7" fill="#0e2a40" stroke="#5fd0ff" stroke-width="2"/>
+            </g>
+
+            <!-- RÉSEAU 2 (ORANGE) · B_haut → A_bas -->
+            <g>
+              <line x1="340" y1="560" x2="560" y2="380"
+                    stroke="#0a121a" stroke-width="32" stroke-linecap="round"/>
+              <line x1="340" y1="560" x2="560" y2="380"
+                    stroke="url(#pipeOrange)" stroke-width="26" stroke-linecap="round"/>
+              <line x1="340" y1="560" x2="560" y2="380"
+                    stroke="#4a2508" stroke-width="14" stroke-linecap="round"/>
+              <line id="flow2" x1="340" y1="560" x2="560" y2="380"
+                    stroke="#ffa94d" stroke-width="7" stroke-linecap="round"
+                    stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
+              <text x="386" y="510" font-size="10" font-weight="700" fill="#ffa94d"
+                    letter-spacing="1.1" transform="rotate(-40 386 510)">RÉSEAU 2 · B→A</text>
+            </g>
+
+            <!-- RÉSEAU 1 (CYAN) · A_haut → B_bas -->
+            <g>
+              <line x1="340" y1="380" x2="560" y2="560"
+                    stroke="#0a121a" stroke-width="32" stroke-linecap="round"/>
+              <line x1="340" y1="380" x2="560" y2="560"
+                    stroke="url(#pipeCyan)" stroke-width="26" stroke-linecap="round"/>
+              <line x1="340" y1="380" x2="560" y2="560"
+                    stroke="#0e2a40" stroke-width="14" stroke-linecap="round"/>
+              <line id="flow1" x1="340" y1="380" x2="560" y2="560"
+                    stroke="#5fd0ff" stroke-width="7" stroke-linecap="round"
+                    stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
+              <text x="386" y="440" font-size="10" font-weight="700" fill="#5fd0ff"
+                    letter-spacing="1.1" transform="rotate(40 386 440)">RÉSEAU 1 · A→B</text>
+            </g>
+
+            <!-- MARQUEUR DE CROISEMENT -->
+            <g>
+              <circle cx="450" cy="470" r="18" fill="none"
+                      stroke="#5fd0ff" stroke-width="1.5" stroke-dasharray="3 5" opacity=".55"/>
+              <circle cx="450" cy="470" r="26" fill="none"
+                      stroke="#ffa94d" stroke-width="1.2" stroke-dasharray="3 6" opacity=".4"/>
+              <circle cx="450" cy="470" r="4" fill="#dbe7f3"/>
+            </g>
+
+            <!-- TURBINE 1 (cyan) -->
+            <g>
+              <circle cx="384" cy="416" r="34" fill="#0a1520" stroke="#0a121a" stroke-width="3"/>
+              <circle cx="384" cy="416" r="30" fill="#0a1520" stroke="#5fd0ff" stroke-width="2.5"/>
+              <g id="rotor1">
+                <line x1="384" y1="391" x2="384" y2="441" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="359" y1="416" x2="409" y2="416" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="366" y1="398" x2="402" y2="434" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="402" y1="398" x2="366" y2="434" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
+              </g>
+              <circle cx="384" cy="416" r="6" fill="#5fd0ff"/>
+              <text x="384" y="466" text-anchor="middle" font-size="9" font-weight="700"
+                    fill="#5fd0ff" letter-spacing="1">T1</text>
+            </g>
+
+            <!-- TURBINE 2 (orange) -->
+            <g>
+              <circle cx="516" cy="416" r="34" fill="#0a1520" stroke="#0a121a" stroke-width="3"/>
+              <circle cx="516" cy="416" r="30" fill="#0a1520" stroke="#ffa94d" stroke-width="2.5"/>
+              <g id="rotor2">
+                <line x1="516" y1="391" x2="516" y2="441" stroke="#ffa94d" stroke-width="4" stroke-linecap="round"/>
+                <line x1="491" y1="416" x2="541" y2="416" stroke="#ffa94d" stroke-width="4" stroke-linecap="round"/>
+                <line x1="498" y1="398" x2="534" y2="434" stroke="#ffa94d" stroke-width="4" stroke-linecap="round"/>
+                <line x1="534" y1="398" x2="498" y2="434" stroke="#ffa94d" stroke-width="4" stroke-linecap="round"/>
+              </g>
+              <circle cx="516" cy="416" r="6" fill="#ffa94d"/>
+              <text x="516" y="466" text-anchor="middle" font-size="9" font-weight="700"
+                    fill="#ffa94d" letter-spacing="1">T2</text>
+            </g>
+
+            <!-- CÂBLES ÉLECTRIQUES -->
+            <g>
+              <path d="M 384 450 Q 384 620, 450 690"
+                    fill="none" stroke="#1a2e1a" stroke-width="6" stroke-linecap="round"/>
+              <path id="cable1" d="M 384 450 Q 384 620, 450 690"
+                    fill="none" stroke="#42e39b" stroke-width="3" stroke-linecap="round"
+                    stroke-dasharray="10 12" filter="url(#softGlow)"/>
+
+              <path d="M 516 450 Q 516 620, 450 690"
+                    fill="none" stroke="#2e1a0a" stroke-width="6" stroke-linecap="round"/>
+              <path id="cable2" d="M 516 450 Q 516 620, 450 690"
+                    fill="none" stroke="#42e39b" stroke-width="3" stroke-linecap="round"
+                    stroke-dasharray="10 12" filter="url(#softGlow)"/>
+            </g>
+
+            <!-- RÉSEAU ÉLECTRIQUE -->
+            <g>
+              <rect x="390" y="690" width="120" height="60" rx="14"
+                    fill="#0d1b28" stroke="#2b4d68" stroke-width="2"/>
+              <path d="M450 704 L 438 740 M 450 704 L 462 740 M 442 726 L 458 726"
+                    stroke="#42e39b" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <circle cx="450" cy="700" r="4" fill="#42e39b" class="pulse"/>
+              <text x="450" y="768" text-anchor="middle" font-size="10.5" font-weight="700"
+                    fill="#8fb8d4" letter-spacing="1.6">RÉSEAU ÉLECTRIQUE</text>
+            </g>
+
+            <!-- PUISSANCE INSTANTANÉE -->
+            <g>
+              <rect x="330" y="60" width="240" height="58" rx="14"
+                    fill="#0a1622" stroke="#1f3a52" stroke-width="1.4"/>
+              <text x="450" y="80" text-anchor="middle" font-size="9.5" font-weight="700"
+                    fill="#5f7d94" letter-spacing="1.6">PRODUCTION INSTANTANÉE</text>
+              <text id="powerBig" x="450" y="106" text-anchor="middle" font-size="17" font-weight="800"
+                    fill="#42e39b" letter-spacing="1">0.0 kW</text>
+            </g>
+
+            <!-- LÉGENDE -->
+            <g>
+              <rect x="20" y="620" width="220" height="60" rx="12"
+                    fill="#0a1622" stroke="#1f3a52" stroke-width="1.2" opacity=".9"/>
+              <circle cx="40" cy="642" r="6" fill="#5fd0ff"/>
+              <text x="54" y="646" font-size="10.5" font-weight="700" fill="#8fb0c8">Réseau 1 · cyan · A→B</text>
+              <circle cx="40" cy="666" r="6" fill="#ffa94d"/>
+              <text x="54" y="670" font-size="10.5" font-weight="700" fill="#8fb0c8">Réseau 2 · orange · B→A</text>
+            </g>
+          </svg>
+        </div>
+        <aside class="panel">
+          <div class="card">
+            <h2>Contrôles</h2>
+            <div class="btn-row" style="margin-bottom:8px">
+              <button class="btn active" id="btnPause">⏸ Pause</button>
+              <button class="btn kick" id="btnKick">⚡ Recharger Δh</button>
+            </div>
+            <button class="reset" id="reset" style="width:100%">↺ Réinitialiser</button>
+          </div>
+
+          <div class="card">
+            <h2 style="color:var(--cyan)">Charge Turbine 1 · Réseau Cyan</h2>
+            <input type="range" id="load1" min="0" max="100" value="50">
+            <div class="range-row">
+              <span>0 %</span><b id="load1Val" style="color:var(--cyan)">50 %</b><span>100 %</span>
+            </div>
+            <div style="margin-top:10px;height:6px;border-radius:6px;background:#0a1622;border:1px solid #16293a;overflow:hidden;position:relative">
+              <i id="eff1Bar" style="display:block;height:100%;width:50%;background:linear-gradient(90deg,#1a7fb8,#5fd0ff);transition:width .1s"></i>
+              <div style="position:absolute;top:0;bottom:0;width:8px;left:calc(50% - 4px);background:rgba(66,227,155,.35);border-left:1px solid rgba(66,227,155,.7);border-right:1px solid rgba(66,227,155,.7)"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:3px">
+              <span>Rendement T1</span>
+              <span style="color:var(--green)">Optimal ≈ 50 %</span>
+              <b id="eff1" style="color:var(--cyan)">—</b>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 style="color:var(--orange)">Charge Turbine 2 · Réseau Orange</h2>
+            <input type="range" id="load2" min="0" max="100" value="50">
+            <div class="range-row">
+              <span>0 %</span><b id="load2Val" style="color:var(--orange)">50 %</b><span>100 %</span>
+            </div>
+            <div style="margin-top:10px;height:6px;border-radius:6px;background:#0a1622;border:1px solid #16293a;overflow:hidden;position:relative">
+              <i id="eff2Bar" style="display:block;height:100%;width:50%;background:linear-gradient(90deg,#b86f1a,#ffa94d);transition:width .1s"></i>
+              <div style="position:absolute;top:0;bottom:0;width:8px;left:calc(50% - 4px);background:rgba(66,227,155,.35);border-left:1px solid rgba(66,227,155,.7);border-right:1px solid rgba(66,227,155,.7)"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:3px">
+              <span>Rendement T2</span>
+              <span style="color:var(--green)">Optimal ≈ 50 %</span>
+              <b id="eff2" style="color:var(--orange)">—</b>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Mesures</h2>
+            <div class="stats">
+              <div class="stat hl"><span>Q1 (cyan)</span><b id="sQ1">0 L/s</b></div>
+              <div class="stat or"><span>Q2 (orange)</span><b id="sQ2">0 L/s</b></div>
+              <div class="stat gr" style="grid-column:1/-1"><span>Puissance totale</span><b id="sPtot" style="font-size:18px">0.00 kW</b></div>
+              <div class="stat"><span>Δh A–B</span><b id="sDh">0.0 %</b></div>
+              <div class="stat gr"><span>Énergie produite</span><b id="sE">0.00 kWh</b></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Niveaux des réservoirs</h2>
+            <div class="level">
+              <div class="level-head"><span>▲ Réservoir A</span><b id="lvA">95.0 %</b></div>
+              <div class="bar"><i id="barA" style="width:95%"></i></div>
+            </div>
+            <div class="level">
+              <div class="level-head"><span>▲ Réservoir B</span><b id="lvB">75.0 %</b></div>
+              <div class="bar right"><i id="barB" style="width:75%"></i></div>
+            </div>
+            <div class="simtime"><span>Temps simulé</span><b id="sTime">00:00</b></div>
+          </div>
+
+          <div class="info">
+            <span class="ic">OPTIMISATION</span>
+            Ajustez les <b>charges T1 et T2</b> autour de <b>50 %</b> pour maximiser la puissance. En dessous, la turbine « patine » ; au-dessus, elle freine trop le débit. Le rendement suit une courbe en cloche, avec un pic marqué sur la barre verte.
+          </div>
+
+          <div class="info" style="background:linear-gradient(135deg,#2a1010,#1a0a0a);border-color:#5a2020;color:#e0b0b0">
+            <span class="ic" style="background:var(--red);color:#1a0505">LIMITE PHYSIQUE</span>
+            Les deux réseaux puisent dans <b style="color:var(--red)">le même Δh</b> : quand les niveaux s'égalisent, plus rien ne coule. Cliquez sur <b style="color:var(--red)">⚡ Recharger Δh</b> pour remonter A et baisser B — c'est l'apport externe nécessaire (pluie, pompage, etc.).
+          </div>
+        </aside>
+      </div>
+    </div>
+    <script>
+    (function(){
+      "use strict";
+
+      /* ============================================================
+         PARAMÈTRES PHYSIQUES
+         ============================================================ */
+      const H_REAL      = 50;
+      const C_FLOW      = 30;
+      const CAP         = 1000000;
+      const TIME_SCALE  = 60;
+
+      const A_CONN_1 = 70, B_CONN_1 = 25;
+      const A_CONN_2 = 25, B_CONN_2 = 70;
+
+      /* ============================================================
+         ÉTAT
+         ============================================================ */
+      const initial = () => ({
+        running: true,
+        levelA: 95,
+        levelB: 75,
+        load1: 50,
+        load2: 50,
+        q1: 0,
+        q2: 0,
+        p1: 0,
+        p2: 0,
+        energy: 0,
+        simTime: 0,
+        dash1: 0,
+        dash2: 0,
+        cable1: 0,
+        cable2: 0,
+        rot1: 0,
+        rot2: 0
+      });
+      let S = initial();
+
+      /* ============================================================
+         DOM
+         ============================================================ */
+      const $ = id => document.getElementById(id);
+      const D = {
+        waterA:  $('waterA'), waterB: $('waterB'),
+        surfA:   $('surfA'),  surfB:  $('surfB'),
+        flow1:   $('flow1'),  flow2:  $('flow2'),
+        cable1:  $('cable1'), cable2: $('cable2'),
+        rotor1:  $('rotor1'), rotor2: $('rotor2'),
+        powerBig:$('powerBig'),
+        sQ1:     $('sQ1'),    sQ2:    $('sQ2'),
+        sPtot:   $('sPtot'),  sDh:    $('sDh'), sE: $('sE'),
+        lvA:     $('lvA'),    lvB:    $('lvB'),
+        barA:    $('barA'),   barB:   $('barB'),
+        sTime:   $('sTime'),
+        load1:   $('load1'),  load1Val: $('load1Val'),
+        load2:   $('load2'),  load2Val: $('load2Val'),
+        eff1:    $('eff1'),   eff2:   $('eff2'),
+        eff1Bar: $('eff1Bar'),eff2Bar:$('eff2Bar')
+      };
+
+      /* ============================================================
+         UTILITAIRES
+         ============================================================ */
+      const clamp = (v,a,b) => Math.min(b, Math.max(a,v));
+      const lerp  = (a,b,t) => a + (b-a)*t;
+      const fmtTime = s => {
+        const h = Math.floor(s/3600);
+        const m = Math.floor((s%3600)/60);
+        return String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0');
+      };
+
+      /* ============================================================
+         PHYSIQUE
+         ============================================================ */
+      function step(dt) {
+        if (!S.running) return;
+
+        const pipe1 = S.levelA > A_CONN_1 && S.levelB > B_CONN_1;
+        const pipe2 = S.levelA > A_CONN_2 && S.levelB > B_CONN_2;
+
+        const dh_m = (S.levelA - S.levelB) / 100 * H_REAL;
+        const dh_abs = Math.abs(dh_m);
+        const sign = dh_m >= 0 ? 1 : -1;
+
+        const Qnat = C_FLOW * Math.sqrt(dh_abs);
+
+        const Q1t = pipe1 ? Qnat * (1 - 0.20 * S.load1) * sign : 0;
+        const Q2t = pipe2 ? Qnat * (1 - 0.20 * S.load2) * sign : 0;
+
+        S.q1 = lerp(S.q1, Q1t, Math.min(1, dt*3));
+        S.q2 = lerp(S.q2, Q2t, Math.min(1, dt*3));
+
+        const eta1 = pipe1 ? 0.90 * Math.sin(Math.PI * S.load1) : 0;
+        const eta2 = pipe2 ? 0.90 * Math.sin(Math.PI * S.load2) : 0;
+
+        S.p1 = 9.81 * Math.abs(S.q1/1000) * dh_abs * eta1;
+        S.p2 = 9.81 * Math.abs(S.q2/1000) * dh_abs * eta2;
+
+        const dtSim = dt * TIME_SCALE;
+        const volOut = (S.q1 + S.q2) * dtSim;
+        S.levelA = clamp(S.levelA - volOut / CAP * 100, 0, 100);
+        S.levelB = clamp(S.levelB + volOut / CAP * 100, 0, 100);
+
+        S.energy += (S.p1 + S.p2) * dtSim / 3600;
+
+        S.simTime += dtSim;
+      }
+
+      /* ============================================================
+         RENDU
+         ============================================================ */
+      function render(dt) {
+        const yA = 660 - S.levelA/100 * 400;
+        D.waterA.setAttribute('y', yA.toFixed(1));
+        D.waterA.setAttribute('height', (660-yA).toFixed(1));
+        D.surfA.setAttribute('y1', yA.toFixed(1));
+        D.surfA.setAttribute('y2', yA.toFixed(1));
+
+        const yB = 660 - S.levelB/100 * 400;
+        D.waterB.setAttribute('y', yB.toFixed(1));
+        D.waterB.setAttribute('height', (660-yB).toFixed(1));
+        D.surfB.setAttribute('y1', yB.toFixed(1));
+        D.surfB.setAttribute('y2', yB.toFixed(1));
+
+        S.dash1 -= S.q1 * 0.5 * dt * 60;
+        S.dash2 -= S.q2 * 0.5 * dt * 60;
+        D.flow1.setAttribute('stroke-dashoffset', S.dash1.toFixed(1));
+        D.flow2.setAttribute('stroke-dashoffset', S.dash2.toFixed(1));
+        D.flow1.setAttribute('opacity', clamp(0.15 + Math.abs(S.q1)/5, 0.15, 1));
+        D.flow2.setAttribute('opacity', clamp(0.15 + Math.abs(S.q2)/5, 0.15, 1));
+
+        const spin1 = Math.min(720, Math.abs(S.q1) * 6);
+        const spin2 = Math.min(720, Math.abs(S.q2) * 6);
+        S.rot1 += Math.sign(S.q1) * spin1 * dt;
+        S.rot2 += Math.sign(S.q2) * spin2 * dt;
+        D.rotor1.setAttribute('transform', `rotate(${S.rot1.toFixed(1)} 384 416)`);
+        D.rotor2.setAttribute('transform', `rotate(${S.rot2.toFixed(1)} 516 416)`);
+
+        S.cable1 -= (S.p1 > 0.01 ? 1 : 0) * 60 * dt;
+        S.cable2 -= (S.p2 > 0.01 ? 1 : 0) * 60 * dt;
+        D.cable1.setAttribute('stroke-dashoffset', S.cable1.toFixed(1));
+        D.cable2.setAttribute('stroke-dashoffset', S.cable2.toFixed(1));
+        D.cable1.setAttribute('opacity', S.p1 > 0.01 ? clamp(0.3 + S.p1/30, 0.3, 1) : 0.08);
+        D.cable2.setAttribute('opacity', S.p2 > 0.01 ? clamp(0.3 + S.p2/30, 0.3, 1) : 0.08);
+
+        D.sQ1.textContent = S.q1.toFixed(1) + ' L/s';
+        D.sQ2.textContent = S.q2.toFixed(1) + ' L/s';
+        const ptot = S.p1 + S.p2;
+        D.sPtot.textContent = ptot.toFixed(2) + ' kW';
+        D.powerBig.textContent = ptot.toFixed(1) + ' kW';
+        D.powerBig.setAttribute('fill', ptot > 0.5 ? '#42e39b' : '#5f7d94');
+
+        const dh = S.levelA - S.levelB;
+        D.sDh.textContent = Math.abs(dh).toFixed(2) + ' %';
+        D.sE.textContent  = S.energy.toFixed(3) + ' kWh';
+
+        D.lvA.textContent = S.levelA.toFixed(1) + ' %';
+        D.lvB.textContent = S.levelB.toFixed(1) + ' %';
+        D.barA.style.width = S.levelA + '%';
+        D.barB.style.width = S.levelB + '%';
+        D.sTime.textContent = fmtTime(S.simTime);
+
+        const eta1 = 0.90 * Math.sin(Math.PI * S.load1);
+        const eta2 = 0.90 * Math.sin(Math.PI * S.load2);
+        D.eff1.textContent = (eta1 * 100).toFixed(0) + ' %';
+        D.eff2.textContent = (eta2 * 100).toFixed(0) + ' %';
+        D.eff1Bar.style.width = (eta1 / 0.90 * 100).toFixed(0) + '%';
+        D.eff2Bar.style.width = (eta2 / 0.90 * 100).toFixed(0) + '%';
+      }
+
+      /* ============================================================
+         BOUCLE
+         ============================================================ */
+      let last = 0;
+      function loop(now) {
+        if (!last) last = now;
+        let dt = (now - last) / 1000;
+        last = now;
+        dt = Math.min(dt, 0.05);
+        step(dt);
+        render(dt);
+        requestAnimationFrame(loop);
+      }
+
+      /* ============================================================
+         INTERFACE
+         ============================================================ */
+      $('btnPause').addEventListener('click', e => {
+        S.running = !S.running;
+        e.currentTarget.textContent = S.running ? '⏸ Pause' : '▶ Reprendre';
+      });
+
+      $('btnKick').addEventListener('click', () => {
+        S.levelA = clamp(S.levelA + 20, 0, 100);
+        S.levelB = clamp(S.levelB - 20, 0, 100);
+        S.running = true;
+        $('btnPause').textContent = '⏸ Pause';
+      });
+
+      $('reset').addEventListener('click', () => {
+        S = initial();
+        last = 0;
+        $('btnPause').textContent = '⏸ Pause';
+        D.load1.value = 50; D.load2.value = 50;
+        D.load1.dispatchEvent(new Event('input'));
+        D.load2.dispatchEvent(new Event('input'));
+        render(0);
+      });
+
+      D.load1.addEventListener('input', e => {
+        S.load1 = +e.target.value / 100;
+        D.load1Val.textContent = e.target.value + ' %';
+        const pct = e.target.value;
+        e.target.style.background =
+          `linear-gradient(90deg, var(--cyan) 0%, var(--cyan) ${pct}%, #16293a ${pct}%, #16293a 100%)`;
+      });
+      D.load1.dispatchEvent(new Event('input'));
+
+      D.load2.addEventListener('input', e => {
+        S.load2 = +e.target.value / 100;
+        D.load2Val.textContent = e.target.value + ' %';
+        const pct = e.target.value;
+        e.target.style.background =
+          `linear-gradient(90deg, var(--orange) 0%, var(--orange) ${pct}%, #16293a ${pct}%, #16293a 100%)`;
+      });
+      D.load2.dispatchEvent(new Event('input'));
+
+      requestAnimationFrame(loop);
+    })();
+    </script>
+  </template>
+
+  <!-- ================================================================
+       SHARED CSS + INITIALISATION DES 6 IFRAMES
        ================================================================ -->
   <script>
   (function(){
@@ -1517,6 +2058,8 @@ header p{margin:3px 0 0;font-size:12.5px;color:var(--muted)}
   border-color:var(--cyan);color:var(--cyan);
   box-shadow:0 0 20px rgba(95,208,255,.2),inset 0 0 14px rgba(95,208,255,.06)}
 .btn.stop.active{border-color:var(--red);color:var(--red);box-shadow:0 0 20px rgba(255,107,107,.2)}
+.btn.kick{background:linear-gradient(180deg,#3a2810,#2a1e08);border-color:var(--orange);color:var(--orange)}
+.btn.kick:hover{box-shadow:0 0 20px rgba(255,169,77,.3)}
 .modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .mode-btn.wide{grid-column:1/-1}
 .mode-btn .ico{font-size:14px;line-height:1}
@@ -1572,7 +2115,7 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;
 .dot.g{background:var(--green);box-shadow:0 0 8px rgba(66,227,155,.6)}
 .dot.o{background:var(--orange);box-shadow:0 0 8px rgba(255,169,77,.6)}
 .dot.c{background:var(--cyan);box-shadow:0 0 8px rgba(95,208,255,.6)}
-#rotor,#rotorTurb,#rotorPump{transform-box:fill-box;transform-origin:center}
+#rotor,#rotorTurb,#rotorPump,#rotor1,#rotor2{transform-box:fill-box;transform-origin:center}
 .pulse{animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
 .phase-badge{display:flex;align-items:center;gap:10px;background:#0a1622;border:1px solid #1f3a52;
@@ -1585,7 +2128,7 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;
 
     const frames = document.getElementById('frames');
     const iframes = [];
-    const TOTAL = 5;
+    const TOTAL = 6;
 
     for (let i = 0; i < TOTAL; i++) {
       const tpl = document.getElementById('tpl-' + i);
