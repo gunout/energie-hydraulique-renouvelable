@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>6 Simulations · Énergie Hydraulique Renouvelable</title>
+<title>7 Simulations · Énergie Hydraulique Renouvelable</title>
 <style>
   html,body{height:100%}
   body{margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
@@ -26,6 +26,7 @@
   .tab .num{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;
     border-radius:7px;background:rgba(95,208,255,.15);font-size:11px;font-weight:800}
   .tab.active .num{background:#5fd0ff;color:#04121c}
+  .tab.tri .num{background:linear-gradient(90deg,#0055A4 0 33%,#fff 33% 66%,#EF4135 66% 100%);color:transparent}
   .frames{position:relative}
   .sim-frame{width:100%;border:0;display:block;height:calc(100vh - 180px);min-height:860px;
     background:#04080d;border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.55)}
@@ -38,8 +39,8 @@
     <header class="shell-header">
       <div class="logo">⚡</div>
       <div>
-        <h1>Énergie Hydraulique Renouvelable · 6 Simulations Interactives</h1>
-        <p>STEP réversible · Bélier hydraulique · Double réseau + pompe · Double réseau + bélier · Circuit fermé gravitaire · Croix "X" optimisée</p>
+        <h1>Énergie Hydraulique Renouvelable · 7 Simulations Interactives</h1>
+        <p>STEP réversible · Bélier hydraulique · Double réseau + pompe · Double réseau + bélier · Circuit fermé gravitaire · Croix "X" optimisée · Circuit fermé tricolore 🇫🇷</p>
       </div>
     </header>
     <nav class="tabs" id="tabs">
@@ -49,6 +50,7 @@
       <button class="tab" data-tab="3"><span class="num">4</span>Double réseau + bélier</button>
       <button class="tab" data-tab="4"><span class="num">5</span>Circuit fermé gravitaire</button>
       <button class="tab" data-tab="5"><span class="num">6</span>Croix "X" optimisée</button>
+      <button class="tab tri" data-tab="6"><span class="num">7</span>Circuit fermé · Tricolore</button>
     </nav>
     <div class="frames" id="frames"></div>
   </div>
@@ -89,8 +91,6 @@
             <path d="M 10 580 L 60 212 L 410 212 L 480 580" fill="none" stroke="#31506a" stroke-width="2" opacity=".7"/>
             <g clip-path="url(#clipUp)"><rect id="waterUp" x="74" y="79" width="312" height="130" fill="url(#waterUpG)"/></g>
             <path d="M 46 44 L 74 44 L 74 209 L 386 209 L 386 44 L 414 44 L 414 229 L 46 229 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.5"/>
-            <line x1="60" y1="44" x2="60" y2="224" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
-            <line x1="400" y1="44" x2="400" y2="224" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
             <path d="M 360 214 L 600 560" stroke="#131e29" stroke-width="32" stroke-linecap="round" fill="none"/>
             <path d="M 360 214 L 600 560" stroke="#33475b" stroke-width="26" stroke-linecap="round" fill="none"/>
             <path id="flowLine" d="M 360 214 L 600 560" stroke="#5fd0ff" stroke-width="11" stroke-linecap="round" fill="none" stroke-dasharray="16 18" opacity=".9" filter="url(#glow)"/>
@@ -109,8 +109,6 @@
             <text x="588" y="600" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5fd0ff" letter-spacing="1.2" opacity=".85">TURBINE · ALTERNATEUR</text>
             <g clip-path="url(#clipDown)"><rect id="waterDown" x="74" y="664" width="652" height="16" fill="url(#waterDownG)"/></g>
             <path d="M 46 596 L 74 596 L 74 680 L 726 680 L 726 596 L 754 596 L 754 694 L 46 694 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.5"/>
-            <line x1="60" y1="596" x2="60" y2="689" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
-            <line x1="740" y1="596" x2="740" y2="689" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
             <path d="M 690 512 C 812 512 800 372 790 196" fill="none" stroke="#1c3143" stroke-width="8" stroke-linecap="round"/>
             <path id="cableFlow" d="M 690 512 C 812 512 800 372 790 196" fill="none" stroke="#42e39b" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="12 14" filter="url(#glow)"/>
             <g>
@@ -120,21 +118,16 @@
               <text x="790" y="178" text-anchor="middle" font-size="15" font-weight="700" fill="#8fb8d4" letter-spacing="1.6">RÉSEAU</text>
             </g>
             <text x="230" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR SUPÉRIEUR</text>
-            <text x="230" y="256" text-anchor="middle" font-size="11" font-weight="600" fill="#5f7d94" letter-spacing="1.2">BASSIN AMONT</text>
-            <text x="332" y="356" text-anchor="end" font-size="11.5" font-weight="700" fill="#5f7d94" letter-spacing="1.2">CONDUITE</text>
-            <text x="332" y="374" text-anchor="end" font-size="11.5" font-weight="700" fill="#5f7d94" letter-spacing="1.2">FORCÉE</text>
             <text x="400" y="724" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR INFÉRIEUR · BASSIN AVAL</text>
-            <text x="848" y="404" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5f7d94" letter-spacing="1.2">LIGNE HT</text>
-            <text x="848" y="422" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5f7d94" letter-spacing="1.2">INTERCONNEXION</text>
           </svg>
         </div>
         <aside class="panel">
           <div class="card">
             <h2>Mode de fonctionnement</h2>
             <div class="modes">
-              <button class="mode-btn active" data-mode="turbine"><span class="ico">⚡</span> Turbinage</button>
-              <button class="mode-btn" data-mode="pump"><span class="ico">⬆</span> Pompage</button>
-              <button class="mode-btn wide" data-mode="idle"><span class="ico">⏸</span> Arrêt</button>
+              <button class="mode-btn active" data-mode="turbine"><span>⚡</span> Turbinage</button>
+              <button class="mode-btn" data-mode="pump"><span>⬆</span> Pompage</button>
+              <button class="mode-btn wide" data-mode="idle"><span>⏸</span> Arrêt</button>
             </div>
             <label class="switch"><input type="checkbox" id="auto"><span>Cycle automatique (turbine ⇄ pompe)</span></label>
           </div>
@@ -175,9 +168,13 @@
         openingVal:$('openingVal'),auto:$('auto')};
       const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
       const fmtTime=s=>{const h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');};
+      function setMode(mode){
+        S.mode=mode;
+        document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));
+      }
       function step(dt){
-        const head=Math.max(0,30+S.levelUp*1.1-S.levelDown*0.3); S.head=head;
-        const of=S.opening/100; let q=0,power=0;
+        const head=Math.max(0,30+S.levelUp*1.1-S.levelDown*0.3);S.head=head;
+        const of=S.opening/100;let q=0,power=0;
         if(S.mode==='turbine'&&of>0&&S.levelUp>0.2){q=CV*of*Math.sqrt(head);power=G*q*head*ETA_T/1000;}
         else if(S.mode==='pump'&&of>0&&S.levelDown>0.2&&S.levelUp<100){q=CV*0.8*of*Math.sqrt(head);power=-(G*q*head/ETA_P/1000);}
         const dtSim=dt*TIME_SCALE,dV=q*dtSim;
@@ -215,32 +212,22 @@
         el.sPower.textContent=(S.power>=0?'+':'−')+Math.abs(S.power).toFixed(1)+' MW';
         el.sEnergy.textContent=S.energy.toFixed(1)+' MWh';
         el.powerBox.classList.toggle('warn',S.power<-0.2);
-        el.sPower.style.color=S.power<-0.2?'var(--orange)':'var(--cyan)';
         el.lvUp.textContent=S.levelUp.toFixed(1)+' %';
         el.lvDown.textContent=S.levelDown.toFixed(1)+' %';
-        el.barUp.style.width=S.levelUp+'%';
-        el.barDown.style.width=S.levelDown+'%';
+        el.barUp.style.width=S.levelUp+'%';el.barDown.style.width=S.levelDown+'%';
         el.sTime.textContent=fmtTime(S.simTime);
       }
       let last=0;
       function loop(now){
-        if(!last)last=now;
-        let dt=(now-last)/1000;last=now;dt=Math.min(dt,0.06);
+        if(!last)last=now;let dt=(now-last)/1000;last=now;dt=Math.min(dt,0.06);
         step(dt);render(dt);requestAnimationFrame(loop);
       }
-      function setMode(mode){
-        S.mode=mode;
-        document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));
-      }
       document.querySelectorAll('.mode-btn').forEach(btn=>{
-        btn.addEventListener('click',()=>{
-          if(btn.dataset.mode==='idle'){S.mode='idle';document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode==='idle'));}
-          else setMode(btn.dataset.mode);
-        });
+        btn.addEventListener('click',()=>setMode(btn.dataset.mode));
       });
       el.opening.addEventListener('input',e=>{
         S.opening=+e.target.value;el.openingVal.textContent=S.opening+' %';
-        e.target.style.background=`linear-gradient(90deg, var(--cyan) 0%, var(--cyan) ${S.opening}%, #16293a ${S.opening}%, #16293a 100%)`;
+        e.target.style.background=`linear-gradient(90deg,var(--cyan) 0%,var(--cyan) ${S.opening}%,#16293a ${S.opening}%,#16293a 100%)`;
       });
       el.opening.dispatchEvent(new Event('input'));
       el.auto.addEventListener('change',e=>{S.auto=e.target.checked;if(S.auto&&S.mode==='idle')setMode('turbine');});
@@ -263,7 +250,7 @@
           <div class="logo">🔁</div>
           <div>
             <h1>Bélier Hydraulique · Cycle Haut → Bas → Haut</h1>
-            <p>Remontée d'eau sans pompe électrique · Uniquement la force de la chute d'eau et le coup de bélier</p>
+            <p>Remontée d'eau sans pompe électrique · Uniquement la force de la chute et le coup de bélier</p>
           </div>
         </div>
       </header>
@@ -279,7 +266,6 @@
               <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6d8093"/><stop offset="45%" stop-color="#4a5c6e"/><stop offset="100%" stop-color="#2a3743"/></linearGradient>
               <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5b6d7f"/><stop offset="40%" stop-color="#3d4f61"/><stop offset="100%" stop-color="#1e2a35"/></linearGradient>
               <linearGradient id="metalLight" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7a8fa3"/><stop offset="100%" stop-color="#3d4f61"/></linearGradient>
-              <linearGradient id="gaugeGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f2233"/><stop offset="100%" stop-color="#061019"/></linearGradient>
               <clipPath id="clipUp"><rect x="62" y="48" width="344" height="152"/></clipPath>
               <clipPath id="clipDown"><rect x="494" y="594" width="358" height="112"/></clipPath>
               <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -289,92 +275,38 @@
             <rect x="0" y="560" width="900" height="180" fill="url(#ground)"/>
             <line x1="0" y1="560" x2="900" y2="560" stroke="#2a4257" stroke-width="2"/>
             <path d="M 0 560 L 80 300 L 460 300 L 560 560 Z" fill="url(#rock)" opacity=".85"/>
-            <path d="M 0 560 L 80 300 L 460 300 L 560 560" fill="none" stroke="#31506a" stroke-width="2" opacity=".5"/>
-            <path d="M 200 -5 C 190 15, 210 25, 200 45" stroke="#5fd0ff" stroke-width="4" fill="none" opacity=".55" stroke-dasharray="6 8" filter="url(#softGlow)">
-              <animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.6s" repeatCount="indefinite"/>
-            </path>
-            <text x="212" y="18" font-size="9.5" font-weight="700" fill="#5f7d94" letter-spacing="1">APPORT NATUREL</text>
-            <g>
-              <g clip-path="url(#clipUp)">
-                <rect id="waterUp" x="62" y="48" width="344" height="152" fill="url(#waterUpG)"/>
-                <path d="M 62 60 Q 110 52, 160 60 T 260 60 T 360 60 T 460 60 L 460 80 L 62 80 Z" fill="#ffffff" opacity=".07">
-                  <animateTransform attributeName="transform" type="translate" values="0 0; 12 0; 0 0" dur="3.2s" repeatCount="indefinite"/>
-                </path>
-              </g>
-              <path d="M 46 40 L 62 40 L 62 200 L 406 200 L 406 40 L 422 40 L 422 216 L 46 216 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
-              <line x1="54" y1="40" x2="54" y2="212" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line x1="414" y1="40" x2="414" y2="212" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line id="surfaceUp" x1="62" y1="48" x2="406" y2="48" stroke="#bdf0ff" stroke-width="1.6" opacity=".5"/>
-            </g>
-            <g>
-              <path d="M 150 200 L 150 512" stroke="#0a121a" stroke-width="30" stroke-linecap="round" fill="none"/>
-              <path d="M 150 200 L 150 512" stroke="#2a3f52" stroke-width="24" stroke-linecap="round" fill="none"/>
-              <path d="M 150 200 L 150 512" stroke="#08131e" stroke-width="16" stroke-linecap="round" fill="none"/>
-              <path id="driveFlow" d="M 150 200 L 150 512" stroke="#5fd0ff" stroke-width="9" stroke-linecap="round" fill="none" stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
-              <rect x="136" y="206" width="28" height="16" rx="4" fill="#4a5c6e" stroke="#0a121a" stroke-width="1.4"/>
-              <rect x="143" y="194" width="14" height="14" rx="3" fill="#5fd0ff" opacity=".85"/>
-            </g>
+            <g clip-path="url(#clipUp)"><rect id="waterUp" x="62" y="48" width="344" height="152" fill="url(#waterUpG)"/></g>
+            <path d="M 46 40 L 62 40 L 62 200 L 406 200 L 406 40 L 422 40 L 422 216 L 46 216 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
+            <line id="surfaceUp" x1="62" y1="48" x2="406" y2="48" stroke="#bdf0ff" stroke-width="1.6" opacity=".5"/>
+            <path d="M 150 200 L 150 512" stroke="#0a121a" stroke-width="30" stroke-linecap="round" fill="none"/>
+            <path d="M 150 200 L 150 512" stroke="#2a3f52" stroke-width="24" stroke-linecap="round" fill="none"/>
+            <path id="driveFlow" d="M 150 200 L 150 512" stroke="#5fd0ff" stroke-width="9" stroke-linecap="round" fill="none" stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
             <g>
               <rect x="90" y="510" width="290" height="130" rx="16" fill="url(#metalGrad)" stroke="#0a121a" stroke-width="3"/>
-              <rect x="104" y="524" width="262" height="102" rx="10" fill="#08131e" stroke="#2a4257" stroke-width="1.6"/>
               <rect id="pumpWater" x="110" y="530" width="250" height="90" rx="7" fill="#124a6e" opacity=".55"/>
-              <rect x="110" y="530" width="70" height="90" rx="6" fill="none" stroke="#2a4257" stroke-width="1.2" stroke-dasharray="4 4" opacity=".5"/>
               <g id="wasteValve">
                 <rect x="200" y="618" width="62" height="8" rx="2" fill="#4a5c6e"/>
-                <g id="wasteFlap">
-                  <rect x="202" y="626" width="58" height="10" rx="3" fill="url(#metalLight)" stroke="#0a121a" stroke-width="1.2"/>
-                  <circle cx="202" cy="631" r="3" fill="#8ea4b8"/><circle cx="260" cy="631" r="3" fill="#8ea4b8"/>
-                </g>
-                <path d="M 230 640 Q 230 650, 230 658" stroke="#6d8093" stroke-width="2" fill="none" opacity=".5"/>
+                <g id="wasteFlap"><rect x="202" y="626" width="58" height="10" rx="3" fill="url(#metalLight)" stroke="#0a121a" stroke-width="1.2"/></g>
               </g>
               <g id="deliveryValve">
                 <circle cx="320" cy="524" r="11" fill="#08131e" stroke="#4a5c6e" stroke-width="2"/>
                 <circle id="deliveryBall" cx="320" cy="522" r="7" fill="url(#metalLight)" stroke="#0a121a" stroke-width="1.2"/>
               </g>
-              <g>
-                <rect x="280" y="418" width="80" height="94" rx="40" fill="url(#metalGrad)" stroke="#0a121a" stroke-width="2.5"/>
-                <rect x="288" y="426" width="64" height="78" rx="32" fill="#08131e" stroke="#2a4257" stroke-width="1.2"/>
-                <rect id="airLevel" x="288" y="470" width="64" height="34" fill="#124a6e" opacity=".5"/>
-                <g>
-                  <circle cx="320" cy="462" r="23" fill="url(#gaugeGrad)" stroke="#4a5c6e" stroke-width="2"/>
-                  <path d="M 304 462 A 16 16 0 0 1 336 462" fill="none" stroke="#2a4257" stroke-width="2.5"/>
-                  <path d="M 308 452 A 16 16 0 0 1 332 452" fill="none" stroke="#1a3a52" stroke-width="1.5"/>
-                  <line id="gaugeNeedle" x1="320" y1="462" x2="320" y2="448" stroke="#ffa94d" stroke-width="2.5" stroke-linecap="round"/>
-                  <circle cx="320" cy="462" r="3" fill="#8ea4b8"/>
-                  <path d="M 332 452 A 16 16 0 0 1 336 462" fill="none" stroke="#ff6b6b" stroke-width="2.5" opacity=".6"/>
-                </g>
-              </g>
+              <rect x="280" y="418" width="80" height="94" rx="40" fill="url(#metalGrad)" stroke="#0a121a" stroke-width="2.5"/>
+              <rect id="airLevel" x="288" y="470" width="64" height="34" fill="#124a6e" opacity=".5"/>
+              <circle cx="320" cy="462" r="23" fill="#0f2233" stroke="#4a5c6e" stroke-width="2"/>
+              <line id="gaugeNeedle" x1="320" y1="462" x2="320" y2="448" stroke="#ffa94d" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="320" cy="462" r="3" fill="#8ea4b8"/>
               <text x="235" y="668" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5fd0ff" letter-spacing="1.4">BÉLIER HYDRAULIQUE</text>
             </g>
-            <g>
-              <path d="M 320 418 L 320 200" stroke="#0a121a" stroke-width="30" stroke-linecap="round" fill="none"/>
-              <path d="M 320 418 L 320 200" stroke="#2a3f52" stroke-width="24" stroke-linecap="round" fill="none"/>
-              <path d="M 320 418 L 320 200" stroke="#08131e" stroke-width="16" stroke-linecap="round" fill="none"/>
-              <path id="deliveryFlow" d="M 320 418 L 320 200" stroke="#42e39b" stroke-width="9" stroke-linecap="round" fill="none" stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
-              <rect x="306" y="330" width="28" height="16" rx="4" fill="#4a5c6e" stroke="#0a121a" stroke-width="1.4"/>
-              <polygon points="312,334 328,338 312,342" fill="#42e39b" opacity=".7"/>
-            </g>
-            <g>
-              <path d="M 360 580 L 500 580 L 500 640" stroke="#0a121a" stroke-width="26" stroke-linecap="round" fill="none"/>
-              <path d="M 360 580 L 500 580 L 500 640" stroke="#2a3f52" stroke-width="20" stroke-linecap="round" fill="none"/>
-              <path d="M 360 580 L 500 580 L 500 640" stroke="#08131e" stroke-width="13" stroke-linecap="round" fill="none"/>
-              <path id="wasteFlow" d="M 360 580 L 500 580 L 500 640" stroke="#ffa94d" stroke-width="7" stroke-linecap="round" fill="none" stroke-dasharray="12 16" opacity=".9" filter="url(#softGlow)"/>
-            </g>
-            <g>
-              <g clip-path="url(#clipDown)">
-                <rect id="waterDown" x="494" y="594" width="358" height="112" fill="url(#waterDownG)"/>
-                <path d="M 494 606 Q 550 598, 600 606 T 700 606 T 800 606 T 900 606 L 900 630 L 494 630 Z" fill="#ffffff" opacity=".06">
-                  <animateTransform attributeName="transform" type="translate" values="0 0; 10 0; 0 0" dur="4s" repeatCount="indefinite"/>
-                </path>
-              </g>
-              <path d="M 480 580 L 494 580 L 494 706 L 852 706 L 852 580 L 866 580 L 866 720 L 480 720 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
-              <line x1="487" y1="580" x2="487" y2="716" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line x1="859" y1="580" x2="859" y2="716" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line id="surfaceDown" x1="494" y1="700" x2="852" y2="700" stroke="#bdf0ff" stroke-width="1.6" opacity=".4"/>
-            </g>
+            <path d="M 320 418 L 320 200" stroke="#0a121a" stroke-width="30" stroke-linecap="round" fill="none"/>
+            <path d="M 320 418 L 320 200" stroke="#2a3f52" stroke-width="24" stroke-linecap="round" fill="none"/>
+            <path id="deliveryFlow" d="M 320 418 L 320 200" stroke="#42e39b" stroke-width="9" stroke-linecap="round" fill="none" stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
+            <path id="wasteFlow" d="M 360 580 L 500 580 L 500 640" stroke="#ffa94d" stroke-width="7" stroke-linecap="round" fill="none" stroke-dasharray="12 16" opacity=".9" filter="url(#softGlow)"/>
+            <g clip-path="url(#clipDown)"><rect id="waterDown" x="494" y="594" width="358" height="112" fill="url(#waterDownG)"/></g>
+            <path d="M 480 580 L 494 580 L 494 706 L 852 706 L 852 580 L 866 580 L 866 720 L 480 720 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
+            <line id="surfaceDown" x1="494" y1="700" x2="852" y2="700" stroke="#bdf0ff" stroke-width="1.6" opacity=".4"/>
             <text x="234" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR SUPÉRIEUR</text>
-            <text x="150" y="300" text-anchor="middle" font-size="10" font-weight="700" fill="#5f7d94" letter-spacing="1.2" transform="rotate(-90 150 300)">CONDUITE MOTRICE</text>
-            <text x="320" y="300" text-anchor="middle" font-size="10" font-weight="700" fill="#5f7d94" letter-spacing="1.2" transform="rotate(-90 320 300)">CONDUITE DE REFOULEMENT</text>
             <text x="660" y="736" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR INFÉRIEUR · RÉCEPTION</text>
             <g>
               <rect x="600" y="40" width="270" height="66" rx="16" fill="#0a1622" stroke="#1f3a52" stroke-width="1.6"/>
@@ -393,13 +325,9 @@
           </div>
           <div class="card">
             <h2>Réglages</h2>
-            <div style="font-size:11.5px;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between">
-              <span>Ouverture vanne motrice</span><b id="openingVal" style="color:var(--cyan)">65 %</b>
-            </div>
+            <div class="range-row" style="margin:0 0 4px"><span>Ouverture vanne motrice</span><b id="openingVal">65 %</b></div>
             <input type="range" id="opening" min="10" max="100" value="65">
-            <div style="font-size:11.5px;color:var(--muted);margin:12px 0 6px;display:flex;justify-content:space-between">
-              <span>Vitesse d'animation</span><b id="speedVal" style="color:var(--cyan)">1.0×</b>
-            </div>
+            <div class="range-row" style="margin:12px 0 4px"><span>Vitesse d'animation</span><b id="speedVal">1.0×</b></div>
             <input type="range" id="speed" min="0.2" max="2.5" step="0.1" value="1">
           </div>
           <div class="card">
@@ -421,7 +349,7 @@
           </div>
           <div class="info">
             <span class="ic">INFO</span>
-            <b>Bélier hydraulique</b> — aucune pompe électrique. L'eau qui descend acquiert de la vitesse, puis un clapet se ferme brutalement : c'est le <b>coup de bélier</b>. La surpression ouvre le clapet de refoulement et pousse une partie de l'eau <b>plus haut que la source</b>. Le reste s'écoule vers le réservoir bas.
+            <b>Bélier hydraulique</b> — aucune pompe électrique. Le coup de bélier pousse une partie de l'eau <b>plus haut que la source</b>.
           </div>
           <button class="reset" id="reset">↺ Réinitialiser la simulation</button>
         </aside>
@@ -445,15 +373,10 @@
       const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
       const lerp=(a,b,t)=>a+(b-a)*t;
       const fmtTime=s=>{const h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');};
-      function updatePhase(dt){
-        S.phaseTime+=dt*S.speed;
-        if(S.phaseTime>=PHASE_DUR[S.phase]){
-          S.phaseTime-=PHASE_DUR[S.phase];S.phase=(S.phase+1)%4;
-          if(S.phase===1){S.cycles++;S.hammerFlash=1;}
-        }
-      }
       function step(dt){
         if(!S.running){S.driveFlow*=.92;S.pumpFlow*=.92;S.wasteFlow*=.92;return;}
+        S.phaseTime+=dt*S.speed;
+        if(S.phaseTime>=PHASE_DUR[S.phase]){S.phaseTime-=PHASE_DUR[S.phase];S.phase=(S.phase+1)%4;if(S.phase===1){S.cycles++;S.hammerFlash=1;}}
         const of=S.opening/100,headFactor=.4+S.levelUp/100*.6;
         const qDrive=Q_MAX*of*headFactor,qPump=qDrive*ETA,qWaste=qDrive*(1-ETA);
         S.driveFlow=lerp(S.driveFlow,qDrive,Math.min(1,dt*6));
@@ -461,12 +384,10 @@
         S.wasteFlow=lerp(S.wasteFlow,qWaste,Math.min(1,dt*6));
         const dtSim=dt*TIME_SCALE;
         const volDrive=qDrive*dtSim,volPump=qPump*dtSim,volWaste=qWaste*dtSim;
-        const naturalIn=volDrive-volPump;
-        S.levelUp+=(-volDrive+volPump+naturalIn)/CAP_UP*100;
+        S.levelUp+=(-volDrive+volPump+(volDrive-volPump))/CAP_UP*100;
         S.levelDown+=volWaste/CAP_DOWN*100;
         S.levelUp=clamp(S.levelUp,2,100);S.levelDown=clamp(S.levelDown,2,98);
         S.volDrive+=volDrive;S.volPumped+=volPump;S.simTime+=dtSim;
-        updatePhase(dt);
         const tP=[.18,.92,.72,.32][S.phase];
         S.pressure=lerp(S.pressure,tP,Math.min(1,dt*18));
         const wT=[1,0,0,.55][S.phase],dT=[0,.75,1,0][S.phase];
@@ -481,8 +402,9 @@
         const hDown=8+S.levelDown/100*104;
         D.waterDown.setAttribute('y',706-hDown);D.waterDown.setAttribute('height',hDown);
         D.surfaceDown.setAttribute('y1',706-hDown);D.surfaceDown.setAttribute('y2',706-hDown);
-        const driveSpeed=S.running?S.driveFlow*2.2:0,pumpSpeed=S.running?S.pumpFlow*3.4:0,wasteSpeed=S.running?S.wasteFlow*2.6:0;
-        S.driveDash-=driveSpeed*dt*60;S.deliveryDash-=pumpSpeed*dt*60;S.wasteDash-=wasteSpeed*dt*60;
+        S.driveDash-=(S.running?S.driveFlow*2.2:0)*dt*60;
+        S.deliveryDash-=(S.running?S.pumpFlow*3.4:0)*dt*60;
+        S.wasteDash-=(S.running?S.wasteFlow*2.6:0)*dt*60;
         D.driveFlow.setAttribute('stroke-dashoffset',S.driveDash.toFixed(1));
         D.deliveryFlow.setAttribute('stroke-dashoffset',S.deliveryDash.toFixed(1));
         D.wasteFlow.setAttribute('stroke-dashoffset',S.wasteDash.toFixed(1));
@@ -490,9 +412,7 @@
         D.deliveryFlow.setAttribute('opacity',S.running?clamp(.2+S.pumpFlow/12,.15,1):.1);
         D.wasteFlow.setAttribute('opacity',S.running?clamp(.2+S.wasteFlow/30,.15,1):.1);
         const ph=90*(.55+S.pressure*.5);
-        D.pumpWater.setAttribute('height',ph.toFixed(1));
-        D.pumpWater.setAttribute('y',(620-ph).toFixed(1));
-        D.pumpWater.setAttribute('opacity',(.35+S.pressure*.45).toFixed(2));
+        D.pumpWater.setAttribute('height',ph.toFixed(1));D.pumpWater.setAttribute('y',(620-ph).toFixed(1));
         D.wasteFlap.setAttribute('transform',`rotate(${(S.wasteOpen*38).toFixed(1)} 202 631)`);
         D.deliveryBall.setAttribute('cy',(522-S.deliveryOpen*9).toFixed(1));
         D.deliveryBall.setAttribute('fill',S.deliveryOpen>.5?'#42e39b':'url(#metalLight)');
@@ -500,18 +420,16 @@
         S.gaugeAngle=lerp(S.gaugeAngle,targetAngle,Math.min(1,dt*14));
         D.gaugeNeedle.setAttribute('transform',`rotate(${S.gaugeAngle.toFixed(1)} 320 462)`);
         D.airLevel.setAttribute('y',(470+(1-S.pressure)*20).toFixed(1));
-        const phaseNames=['ACCÉLÉRATION','COUP DE BÉLIER','REFOULEMENT','DÉTENTE'];
-        const phaseColors=['#5fd0ff','#ffa94d','#42e39b','#7d9ab3'];
-        D.phaseLabel.textContent=phaseNames[S.phase];
-        D.phaseLabel.setAttribute('fill',phaseColors[S.phase]);
-        D.phaseLabel.setAttribute('opacity',S.hammerFlash>.02?(.4+S.hammerFlash*.6).toFixed(2):'1');
+        const names=['ACCÉLÉRATION','COUP DE BÉLIER','REFOULEMENT','DÉTENTE'];
+        const colors=['#5fd0ff','#ffa94d','#42e39b','#7d9ab3'];
+        D.phaseLabel.textContent=names[S.phase];
+        D.phaseLabel.setAttribute('fill',colors[S.phase]);
         D.sDrive.textContent=S.driveFlow.toFixed(1)+' L/s';
         D.sPump.textContent=S.pumpFlow.toFixed(1)+' L/s';
         D.sPress.textContent=(S.pressure*6).toFixed(1)+' bar';
         D.sCycles.textContent=S.cycles;
         D.sVol.textContent=(S.volPumped/1000).toFixed(1)+' m³';
-        const eff=S.volDrive>0?(S.volPumped/S.volDrive*100):0;
-        D.sEff.textContent=eff.toFixed(1)+' %';
+        D.sEff.textContent=(S.volDrive>0?(S.volPumped/S.volDrive*100):0).toFixed(1)+' %';
         D.lvUp.textContent=S.levelUp.toFixed(1)+' %';
         D.lvDown.textContent=S.levelDown.toFixed(1)+' %';
         D.barUp.style.width=S.levelUp+'%';D.barDown.style.width=S.levelDown+'%';
@@ -526,14 +444,13 @@
       $('btnStop').addEventListener('click',()=>{S.running=false;$('btnStop').classList.add('active');$('btnRun').classList.remove('active');});
       D.opening.addEventListener('input',e=>{
         S.opening=+e.target.value;D.openingVal.textContent=S.opening+' %';
-        const pct=S.opening;
-        e.target.style.background=`linear-gradient(90deg, var(--cyan) 0%, var(--cyan) ${pct}%, #16293a ${pct}%, #16293a 100%)`;
+        e.target.style.background=`linear-gradient(90deg,var(--cyan) 0%,var(--cyan) ${S.opening}%,#16293a ${S.opening}%,#16293a 100%)`;
       });
       D.opening.dispatchEvent(new Event('input'));
       D.speed.addEventListener('input',e=>{
         S.speed=+e.target.value;D.speedVal.textContent=S.speed.toFixed(1)+'×';
         const pct=(S.speed-.2)/2.3*100;
-        e.target.style.background=`linear-gradient(90deg, var(--cyan) 0%, var(--cyan) ${pct}%, #16293a ${pct}%, #16293a 100%)`;
+        e.target.style.background=`linear-gradient(90deg,var(--cyan) 0%,var(--cyan) ${pct}%,#16293a ${pct}%,#16293a 100%)`;
       });
       D.speed.dispatchEvent(new Event('input'));
       $('reset').addEventListener('click',()=>{
@@ -547,950 +464,92 @@
   </template>
 
   <!-- ================================================================
-       SIMULATION 3 · DOUBLE RÉSEAU + POMPE
+       SIMULATION 3 · DOUBLE RÉSEAU + POMPE  ·  SIMULATION 4 · DOUBLE RÉSEAU + BÉLIER
+       SIMULATION 5 · CIRCUIT FERMÉ GRAVITAIRE  ·  SIMULATION 6 · CROIX "X"
+       (moteur commun, rendus différents)
        ================================================================ -->
   <template id="tpl-2">
     <div class="wrap">
       <header>
-        <div class="brand">
-          <div class="logo">♻️</div>
-          <div>
-            <h1>Deux Réservoirs de Même Hauteur · Double Réseau</h1>
-            <p>Réseau supérieur gravitaire (A → B) &nbsp;·&nbsp; Réseau inférieur de refoulement par pompe (B → A) &nbsp;·&nbsp; Circulation fermée</p>
-          </div>
-        </div>
+        <div class="brand"><div class="logo">♻️</div><div>
+          <h1>Deux Réservoirs de Même Hauteur · Double Réseau + Pompe</h1>
+          <p>Réseau supérieur gravitaire (A → B) · Réseau inférieur de refoulement par pompe (B → A) · Bilan honnête</p>
+        </div></div>
       </header>
-      <div class="layout">
-        <div class="stage">
-          <svg viewBox="0 0 900 700" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d2136"/><stop offset="55%" stop-color="#0a1725"/><stop offset="100%" stop-color="#061019"/></linearGradient>
-              <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16232f"/><stop offset="100%" stop-color="#0a121a"/></linearGradient>
-              <linearGradient id="waterG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8ceaff"/><stop offset="35%" stop-color="#2fa8e0"/><stop offset="100%" stop-color="#0f4a77"/></linearGradient>
-              <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6d8093"/><stop offset="45%" stop-color="#4a5c6e"/><stop offset="100%" stop-color="#2a3743"/></linearGradient>
-              <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5b6d7f"/><stop offset="40%" stop-color="#3d4f61"/><stop offset="100%" stop-color="#1e2a35"/></linearGradient>
-              <linearGradient id="pipeTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3d4f61"/><stop offset="50%" stop-color="#26323e"/><stop offset="100%" stop-color="#1a222b"/></linearGradient>
-              <linearGradient id="pipeBot" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a4a5a"/><stop offset="50%" stop-color="#22303c"/><stop offset="100%" stop-color="#161f28"/></linearGradient>
-              <clipPath id="clipA"><rect x="64" y="234" width="272" height="232"/></clipPath>
-              <clipPath id="clipB"><rect x="564" y="234" width="272" height="232"/></clipPath>
-              <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <rect x="0" y="0" width="900" height="700" fill="url(#sky)"/>
-            <text x="200" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR A</text>
-            <text x="700" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR B</text>
-            <text x="450" y="30" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5f7d94" letter-spacing="1.4">MÊME HAUTEUR · MÊME ALTITUDE</text>
-            <rect x="0" y="480" width="900" height="220" fill="url(#ground)"/>
-            <line x1="0" y1="480" x2="900" y2="480" stroke="#2a4257" stroke-width="2"/>
-            <g>
-              <g clip-path="url(#clipA)">
-                <rect id="waterA" x="64" y="300" width="272" height="166" fill="url(#waterG)"/>
-                <path d="M 64 320 Q 110 312, 160 320 T 260 320 T 360 320 L 360 340 L 64 340 Z" fill="#ffffff" opacity=".07">
-                  <animateTransform attributeName="transform" type="translate" values="0 0; 10 0; 0 0" dur="3.4s" repeatCount="indefinite"/>
-                </path>
-              </g>
-              <path d="M 50 220 L 64 220 L 64 466 L 336 466 L 336 220 L 350 220 L 350 480 L 50 480 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
-              <line x1="57" y1="220" x2="57" y2="476" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line x1="343" y1="220" x2="343" y2="476" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line id="surfA" x1="64" y1="300" x2="336" y2="300" stroke="#bdf0ff" stroke-width="1.6" opacity=".5"/>
-            </g>
-            <g>
-              <g clip-path="url(#clipB)">
-                <rect id="waterB" x="564" y="300" width="272" height="166" fill="url(#waterG)"/>
-                <path d="M 564 320 Q 610 312, 660 320 T 760 320 T 860 320 L 860 340 L 564 340 Z" fill="#ffffff" opacity=".07">
-                  <animateTransform attributeName="transform" type="translate" values="0 0; -8 0; 0 0" dur="3.9s" repeatCount="indefinite"/>
-                </path>
-              </g>
-              <path d="M 550 220 L 564 220 L 564 466 L 836 466 L 836 220 L 850 220 L 850 480 L 550 480 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
-              <line x1="557" y1="220" x2="557" y2="476" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line x1="843" y1="220" x2="843" y2="476" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line id="surfB" x1="564" y1="300" x2="836" y2="300" stroke="#bdf0ff" stroke-width="1.6" opacity=".5"/>
-            </g>
-            <g>
-              <rect x="336" y="326" width="228" height="26" rx="13" fill="url(#pipeTop)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="342" y="332" width="216" height="14" rx="7" fill="#08131e" stroke="#2a4257" stroke-width="1"/>
-              <line id="flowTop" x1="342" y1="339" x2="558" y2="339" stroke="#42e39b" stroke-width="9" stroke-linecap="round" stroke-dasharray="12 16" opacity=".95" filter="url(#glow)"/>
-              <g>
-                <circle cx="450" cy="339" r="26" fill="#0a1520" stroke="#3d5b73" stroke-width="3"/>
-                <g id="rotorTurb">
-                  <line x1="450" y1="319" x2="450" y2="359" stroke="#42e39b" stroke-width="4" stroke-linecap="round"/>
-                  <line x1="430" y1="339" x2="470" y2="339" stroke="#42e39b" stroke-width="4" stroke-linecap="round"/>
-                  <line x1="436" y1="325" x2="464" y2="353" stroke="#42e39b" stroke-width="4" stroke-linecap="round"/>
-                  <line x1="464" y1="325" x2="436" y2="353" stroke="#42e39b" stroke-width="4" stroke-linecap="round"/>
-                </g>
-                <circle cx="450" cy="339" r="5" fill="#42e39b"/>
-              </g>
-              <text x="450" y="308" text-anchor="middle" font-size="9.5" font-weight="700" fill="#42e39b" letter-spacing="1.2">TURBINE GRAVITAIRE</text>
-              <text x="390" y="380" text-anchor="middle" font-size="9.5" font-weight="700" fill="#42e39b" letter-spacing="1" opacity=".85">A → B</text>
-              <text x="510" y="380" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5f7d94" letter-spacing="1.1">RÉSEAU SUPÉRIEUR</text>
-            </g>
-            <g>
-              <rect x="186" y="466" width="26" height="146" fill="url(#pipeBot)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="192" y="466" width="14" height="146" fill="#08131e"/>
-              <rect x="186" y="586" width="528" height="26" fill="url(#pipeBot)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="186" y="592" width="528" height="14" fill="#08131e"/>
-              <rect x="688" y="466" width="26" height="146" fill="url(#pipeBot)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="694" y="466" width="14" height="146" fill="#08131e"/>
-              <path id="flowBot" d="M 700 480 L 700 599 L 200 599 L 200 480" stroke="#ffa94d" stroke-width="9" stroke-linecap="round" fill="none" stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
-              <g>
-                <rect x="398" y="554" width="104" height="90" rx="14" fill="url(#metalGrad)" stroke="#0a121a" stroke-width="3"/>
-                <rect x="408" y="564" width="84" height="70" rx="9" fill="#08131e" stroke="#2a4257" stroke-width="1.4"/>
-                <circle cx="450" cy="599" r="28" fill="#0a1520" stroke="#ffa94d" stroke-width="3"/>
-                <g id="rotorPump">
-                  <line x1="450" y1="577" x2="450" y2="621" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/>
-                  <line x1="428" y1="599" x2="472" y2="599" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/>
-                  <line x1="434" y1="583" x2="466" y2="615" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/>
-                  <line x1="466" y1="583" x2="434" y2="615" stroke="#ffa94d" stroke-width="5" stroke-linecap="round"/>
-                </g>
-                <circle cx="450" cy="599" r="6" fill="#ffa94d"/>
-                <rect x="432" y="644" width="36" height="14" rx="4" fill="#3d4f61" stroke="#0a121a" stroke-width="1.4"/>
-                <rect x="418" y="656" width="64" height="10" rx="4" fill="#26323e" stroke="#0a121a" stroke-width="1.4"/>
-              </g>
-              <text x="450" y="686" text-anchor="middle" font-size="10" font-weight="700" fill="#ffa94d" letter-spacing="1.4">POMPE DE REFOULEMENT</text>
-              <text x="580" y="572" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffa94d" letter-spacing="1" opacity=".85">B → A</text>
-              <text x="300" y="572" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5f7d94" letter-spacing="1.1">RÉSEAU INFÉRIEUR · REFOULEMENT</text>
-            </g>
-            <g opacity=".85">
-              <path d="M 250 400 L 300 400" stroke="#42e39b" stroke-width="3" fill="none" stroke-linecap="round"/>
-              <polygon points="300,395 312,400 300,405" fill="#42e39b"/>
-              <path d="M 650 540 L 600 540" stroke="#ffa94d" stroke-width="3" fill="none" stroke-linecap="round"/>
-              <polygon points="600,535 588,540 600,545" fill="#ffa94d"/>
-            </g>
-            <g>
-              <rect x="40" y="500" width="130" height="36" rx="10" fill="#0a1622" stroke="#1f3a52" stroke-width="1.4"/>
-              <text x="105" y="516" text-anchor="middle" font-size="9" font-weight="700" fill="#5f7d94" letter-spacing="1.2">NIVEAU A</text>
-              <text id="badgeA" x="105" y="530" text-anchor="middle" font-size="13" font-weight="800" fill="#5fd0ff">60.0 %</text>
-            </g>
-            <g>
-              <rect x="730" y="500" width="130" height="36" rx="10" fill="#0a1622" stroke="#1f3a52" stroke-width="1.4"/>
-              <text x="795" y="516" text-anchor="middle" font-size="9" font-weight="700" fill="#5f7d94" letter-spacing="1.2">NIVEAU B</text>
-              <text id="badgeB" x="795" y="530" text-anchor="middle" font-size="13" font-weight="800" fill="#5fd0ff">60.0 %</text>
-            </g>
-          </svg>
-        </div>
-        <aside class="panel">
-          <div class="card">
-            <h2>Commande</h2>
-            <div class="btn-row">
-              <button class="btn active" id="btnRun">▶ Marche</button>
-              <button class="btn stop" id="btnStop">⏹ Arrêt</button>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Vitesse de la pompe</h2>
-            <input type="range" id="pumpSpeed" min="0" max="100" value="60">
-            <div class="range-row"><span>0 %</span><b id="pumpSpeedVal">60 %</b><span>100 %</span></div>
-          </div>
-          <div class="card">
-            <h2>Mesures</h2>
-            <div class="stats">
-              <div class="stat hl"><span>Débit circulation</span><b id="sFlow">0 L/s</b></div>
-              <div class="stat or"><span>Δ niveau A–B</span><b id="sDh">0.0 %</b></div>
-              <div class="stat or"><span>P<sub>pompe</sub></span><b id="sPump">0.0 kW</b></div>
-              <div class="stat gr"><span>P<sub>turbine</sub></span><b id="sTurb">0.0 kW</b></div>
-              <div class="stat hl"><span>Rendement</span><b id="sEff">—</b></div>
-              <div class="stat gr"><span>Volume échangé</span><b id="sVol">0 m³</b></div>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Niveaux des réservoirs</h2>
-            <div class="level"><div class="level-head"><span>▲ Réservoir A (amont pompe)</span><b id="lvA">60.0 %</b></div><div class="bar"><i id="barA" style="width:60%"></i></div></div>
-            <div class="level"><div class="level-head"><span>▼ Réservoir B (aspiration)</span><b id="lvB">60.0 %</b></div><div class="bar right"><i id="barB" style="width:60%"></i></div></div>
-            <div class="simtime"><span>Temps simulé</span><b id="sTime">00:00</b></div>
-          </div>
-          <div class="info">
-            <span class="ic">INFO</span>
-            Les deux réservoirs sont à la <b>même altitude</b>. La pompe (réseau <b>inférieur</b>) transfère l'eau de B vers A : A monte, B descend. Cette différence de niveau crée un <b>écoulement gravitaire</b> de A vers B dans le réseau <b>supérieur</b>, où une turbine récupère une partie de l'énergie.
-          </div>
-          <div class="legend">
-            <span><i class="dot g"></i> Réseau supérieur (A→B)</span>
-            <span><i class="dot o"></i> Réseau inférieur (B→A)</span>
-          </div>
-          <button class="reset" id="reset">↺ Réinitialiser la simulation</button>
-        </aside>
-      </div>
+      <div class="layout" data-sim="pump"></div>
     </div>
-    <script>
-    (function(){
-      "use strict";
-      const Q_MAX=5000,K_GRAV=1200,H_RES=20,ETA_PUMP=.85,ETA_TURB=.88,DH_MAX=18,TIME_SCALE=180,BASE_LEVEL=60;
-      const initial=()=>({running:true,pumpSpeed:60,levelA:BASE_LEVEL,levelB:BASE_LEVEL,dh:0,dhTarget:0,
-        qPump:0,qGrav:0,q:0,volExchanged:0,simTime:0,flowTopDash:0,flowBotDash:0,rotPump:0,rotTurb:0});
-      let S=initial();
-      const $=id=>document.getElementById(id);
-      const D={waterA:$('waterA'),waterB:$('waterB'),surfA:$('surfA'),surfB:$('surfB'),flowTop:$('flowTop'),
-        flowBot:$('flowBot'),rotorPump:$('rotorPump'),rotorTurb:$('rotorTurb'),badgeA:$('badgeA'),badgeB:$('badgeB'),
-        sFlow:$('sFlow'),sDh:$('sDh'),sPump:$('sPump'),sTurb:$('sTurb'),sEff:$('sEff'),sVol:$('sVol'),
-        lvA:$('lvA'),lvB:$('lvB'),barA:$('barA'),barB:$('barB'),sTime:$('sTime'),
-        pumpSpeed:$('pumpSpeed'),pumpSpeedVal:$('pumpSpeedVal')};
-      const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-      const lerp=(a,b,t)=>a+(b-a)*t;
-      const fmtTime=s=>{const h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');};
-      function step(dt){
-        if(!S.running){S.qPump*=.9;S.qGrav*=.9;S.q=0;return;}
-        S.qPump=S.pumpSpeed/100*Q_MAX;
-        S.dhTarget=Math.min(DH_MAX,Math.pow(S.qPump/K_GRAV,2));
-        S.dh=lerp(S.dh,S.dhTarget,Math.min(1,dt*0.9));
-        S.qGrav=K_GRAV*Math.sqrt(Math.max(0,S.dh));
-        S.q=(S.qPump+S.qGrav)/2;
-        S.levelA=BASE_LEVEL+S.dh/2;
-        S.levelB=BASE_LEVEL-S.dh/2;
-        const dtSim=dt*TIME_SCALE;
-        S.volExchanged+=S.q*dtSim/1000;
-        S.simTime+=dtSim;
-      }
-      function render(dt){
-        const hA=S.levelA/100*232;
-        D.waterA.setAttribute('y',466-hA);D.waterA.setAttribute('height',Math.max(0,hA));
-        D.surfA.setAttribute('y1',466-hA);D.surfA.setAttribute('y2',466-hA);
-        const hB=S.levelB/100*232;
-        D.waterB.setAttribute('y',466-hB);D.waterB.setAttribute('height',Math.max(0,hB));
-        D.surfB.setAttribute('y1',466-hB);D.surfB.setAttribute('y2',466-hB);
-        S.flowTopDash-=S.qGrav*0.09*dt*60;
-        S.flowBotDash+=S.qPump*0.09*dt*60;
-        D.flowTop.setAttribute('stroke-dashoffset',S.flowTopDash.toFixed(1));
-        D.flowBot.setAttribute('stroke-dashoffset',S.flowBotDash.toFixed(1));
-        D.flowTop.setAttribute('opacity',clamp(.15+S.qGrav/2500,.15,1));
-        D.flowBot.setAttribute('opacity',clamp(.15+S.qPump/2500,.15,1));
-        S.rotPump+=S.pumpSpeed/100*720*dt;
-        S.rotTurb+=Math.min(520,S.qGrav/8)*dt;
-        D.rotorPump.setAttribute('transform',`rotate(${S.rotPump.toFixed(1)} 450 599)`);
-        D.rotorTurb.setAttribute('transform',`rotate(${S.rotTurb.toFixed(1)} 450 339)`);
-        D.badgeA.textContent=S.levelA.toFixed(1)+' %';
-        D.badgeB.textContent=S.levelB.toFixed(1)+' %';
-        D.badgeA.setAttribute('fill',S.dh>.5?'#42e39b':'#5fd0ff');
-        D.badgeB.setAttribute('fill',S.dh>.5?'#ffa94d':'#5fd0ff');
-        D.sFlow.textContent=S.q.toFixed(0)+' L/s';
-        D.sDh.textContent=S.dh.toFixed(1)+' %';
-        const dh_m=S.dh/100*H_RES;
-        const pPump=9.81*(S.qPump/1000)*dh_m/ETA_PUMP;
-        const pTurb=9.81*(S.qGrav/1000)*dh_m*ETA_TURB;
-        D.sPump.textContent=pPump.toFixed(2)+' kW';
-        D.sTurb.textContent=pTurb.toFixed(2)+' kW';
-        D.sEff.textContent=(pPump>.01?(pTurb/pPump*100):0).toFixed(1)+' %';
-        D.sVol.textContent=S.volExchanged.toFixed(1)+' m³';
-        D.lvA.textContent=S.levelA.toFixed(1)+' %';
-        D.lvB.textContent=S.levelB.toFixed(1)+' %';
-        D.barA.style.width=S.levelA+'%';D.barB.style.width=S.levelB+'%';
-        D.sTime.textContent=fmtTime(S.simTime);
-      }
-      let last=0;
-      function loop(now){
-        if(!last)last=now;let dt=(now-last)/1000;last=now;dt=Math.min(dt,0.06);
-        step(dt);render(dt);requestAnimationFrame(loop);
-      }
-      $('btnRun').addEventListener('click',()=>{S.running=true;$('btnRun').classList.add('active');$('btnStop').classList.remove('active');});
-      $('btnStop').addEventListener('click',()=>{S.running=false;$('btnStop').classList.add('active');$('btnRun').classList.remove('active');});
-      D.pumpSpeed.addEventListener('input',e=>{
-        S.pumpSpeed=+e.target.value;D.pumpSpeedVal.textContent=S.pumpSpeed+' %';
-        const pct=S.pumpSpeed;
-        e.target.style.background=`linear-gradient(90deg, var(--cyan) 0%, var(--cyan) ${pct}%, #16293a ${pct}%, #16293a 100%)`;
-      });
-      D.pumpSpeed.dispatchEvent(new Event('input'));
-      $('reset').addEventListener('click',()=>{
-        S=initial();last=0;$('btnRun').classList.add('active');$('btnStop').classList.remove('active');
-        D.pumpSpeed.value=60;D.pumpSpeed.dispatchEvent(new Event('input'));render(0);
-      });
-      requestAnimationFrame(loop);
-    })();
-    </script>
+    <script>buildDoubleNetwork("pump");</script>
   </template>
 
-  <!-- ================================================================
-       SIMULATION 4 · DOUBLE RÉSEAU + BÉLIER (SANS POMPE)
-       ================================================================ -->
   <template id="tpl-3">
     <div class="wrap">
       <header>
-        <div class="brand">
-          <div class="logo">♻️</div>
-          <div>
-            <h1>Deux Réservoirs de Même Hauteur · Sans Pompe de Refoulement</h1>
-            <p>Réseau supérieur gravitaire (A→B avec turbine) &nbsp;·&nbsp; Réseau inférieur à bélier hydraulique (B→A) &nbsp;·&nbsp; Aucune pompe électrique</p>
-          </div>
-        </div>
+        <div class="brand"><div class="logo">🔁</div><div>
+          <h1>Deux Réservoirs de Même Hauteur · Double Réseau + Bélier</h1>
+          <p>Réseau supérieur gravitaire (A → B) · Refoulement par bélier hydraulique (B → A) · Sans électricité pour remonter l'eau</p>
+        </div></div>
       </header>
-      <div class="layout">
-        <div class="stage">
-          <svg viewBox="0 0 900 760" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d2136"/><stop offset="55%" stop-color="#0a1725"/><stop offset="100%" stop-color="#061019"/></linearGradient>
-              <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16232f"/><stop offset="100%" stop-color="#0a121a"/></linearGradient>
-              <linearGradient id="waterG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8ceaff"/><stop offset="35%" stop-color="#2fa8e0"/><stop offset="100%" stop-color="#0f4a77"/></linearGradient>
-              <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6d8093"/><stop offset="45%" stop-color="#4a5c6e"/><stop offset="100%" stop-color="#2a3743"/></linearGradient>
-              <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5b6d7f"/><stop offset="40%" stop-color="#3d4f61"/><stop offset="100%" stop-color="#1e2a35"/></linearGradient>
-              <linearGradient id="metalLight" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7a8fa3"/><stop offset="100%" stop-color="#3d4f61"/></linearGradient>
-              <linearGradient id="pipeTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3d4f61"/><stop offset="50%" stop-color="#26323e"/><stop offset="100%" stop-color="#1a222b"/></linearGradient>
-              <linearGradient id="pipeBot" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a4a5a"/><stop offset="50%" stop-color="#22303c"/><stop offset="100%" stop-color="#161f28"/></linearGradient>
-              <linearGradient id="gaugeGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f2233"/><stop offset="100%" stop-color="#061019"/></linearGradient>
-              <clipPath id="clipA"><rect x="64" y="214" width="272" height="252"/></clipPath>
-              <clipPath id="clipB"><rect x="564" y="214" width="272" height="252"/></clipPath>
-              <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <rect x="0" y="0" width="900" height="760" fill="url(#sky)"/>
-            <text x="200" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR A</text>
-            <text x="700" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR B</text>
-            <text x="450" y="48" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5f7d94" letter-spacing="1.4">MÊME HAUTEUR · MÊME ALTITUDE</text>
-            <rect x="0" y="480" width="900" height="280" fill="url(#ground)"/>
-            <line x1="0" y1="480" x2="900" y2="480" stroke="#2a4257" stroke-width="2"/>
-            <g>
-              <g clip-path="url(#clipA)">
-                <rect id="waterA" x="64" y="300" width="272" height="166" fill="url(#waterG)"/>
-                <path d="M 64 320 Q 110 312, 160 320 T 260 320 T 360 320 L 360 340 L 64 340 Z" fill="#ffffff" opacity=".07">
-                  <animateTransform attributeName="transform" type="translate" values="0 0; 10 0; 0 0" dur="3.4s" repeatCount="indefinite"/>
-                </path>
-              </g>
-              <path d="M 50 200 L 64 200 L 64 466 L 336 466 L 336 200 L 350 200 L 350 480 L 50 480 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
-              <line x1="57" y1="200" x2="57" y2="476" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line x1="343" y1="200" x2="343" y2="476" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line id="surfA" x1="64" y1="300" x2="336" y2="300" stroke="#bdf0ff" stroke-width="1.6" opacity=".5"/>
-            </g>
-            <g>
-              <g clip-path="url(#clipB)">
-                <rect id="waterB" x="564" y="300" width="272" height="166" fill="url(#waterG)"/>
-                <path d="M 564 320 Q 610 312, 660 320 T 760 320 T 860 320 L 860 340 L 564 340 Z" fill="#ffffff" opacity=".07">
-                  <animateTransform attributeName="transform" type="translate" values="0 0; -8 0; 0 0" dur="3.9s" repeatCount="indefinite"/>
-                </path>
-              </g>
-              <path d="M 550 200 L 564 200 L 564 466 L 836 466 L 836 200 L 850 200 L 850 480 L 550 480 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
-              <line x1="557" y1="200" x2="557" y2="476" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line x1="843" y1="200" x2="843" y2="476" stroke="#8ea4b8" stroke-width="2" opacity=".3"/>
-              <line id="surfB" x1="564" y1="300" x2="836" y2="300" stroke="#bdf0ff" stroke-width="1.6" opacity=".5"/>
-            </g>
-            <g>
-              <rect x="336" y="326" width="228" height="28" rx="14" fill="url(#pipeTop)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="342" y="332" width="216" height="16" rx="8" fill="#08131e" stroke="#2a4257" stroke-width="1"/>
-              <line id="flowTop" x1="342" y1="340" x2="558" y2="340" stroke="#42e39b" stroke-width="10" stroke-linecap="round" stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
-              <g>
-                <circle cx="450" cy="340" r="28" fill="#0a1520" stroke="#3d5b73" stroke-width="3.5"/>
-                <g id="rotorTurb">
-                  <line x1="450" y1="318" x2="450" y2="362" stroke="#42e39b" stroke-width="4.5" stroke-linecap="round"/>
-                  <line x1="428" y1="340" x2="472" y2="340" stroke="#42e39b" stroke-width="4.5" stroke-linecap="round"/>
-                  <line x1="435" y1="325" x2="465" y2="355" stroke="#42e39b" stroke-width="4.5" stroke-linecap="round"/>
-                  <line x1="465" y1="325" x2="435" y2="355" stroke="#42e39b" stroke-width="4.5" stroke-linecap="round"/>
-                </g>
-                <circle cx="450" cy="340" r="6" fill="#42e39b"/>
-              </g>
-              <text x="450" y="306" text-anchor="middle" font-size="10" font-weight="700" fill="#42e39b" letter-spacing="1.3">TURBINE GRAVITAIRE</text>
-              <text x="450" y="386" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5f7d94" letter-spacing="1.2">RÉSEAU SUPÉRIEUR · A → B</text>
-            </g>
-            <g>
-              <rect x="686" y="466" width="28" height="152" fill="url(#pipeBot)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="692" y="466" width="16" height="152" fill="#08131e"/>
-              <rect x="216" y="594" width="498" height="28" fill="url(#pipeBot)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="216" y="600" width="498" height="16" fill="#08131e"/>
-              <rect x="186" y="466" width="28" height="152" fill="url(#pipeBot)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="192" y="466" width="16" height="152" fill="#08131e"/>
-              <path id="flowBot" d="M 700 480 L 700 608 L 200 608 L 200 480" stroke="#ffa94d" stroke-width="10" stroke-linecap="round" fill="none" stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
-              <g>
-                <rect x="398" y="566" width="104" height="94" rx="14" fill="url(#metalGrad)" stroke="#0a121a" stroke-width="3"/>
-                <rect x="408" y="576" width="84" height="74" rx="9" fill="#08131e" stroke="#2a4257" stroke-width="1.4"/>
-                <rect id="ramWater" x="414" y="598" width="72" height="46" rx="6" fill="#124a6e" opacity=".55"/>
-                <rect x="422" y="490" width="56" height="80" rx="28" fill="url(#metalGrad)" stroke="#0a121a" stroke-width="2.5"/>
-                <rect x="428" y="496" width="44" height="68" rx="22" fill="#08131e" stroke="#2a4257" stroke-width="1.2"/>
-                <rect id="airLevel" x="428" y="530" width="44" height="34" fill="#124a6e" opacity=".5"/>
-                <g>
-                  <circle cx="450" cy="524" r="17" fill="url(#gaugeGrad)" stroke="#4a5c6e" stroke-width="1.8"/>
-                  <path d="M 438 524 A 12 12 0 0 1 462 524" fill="none" stroke="#2a4257" stroke-width="2"/>
-                  <line id="gaugeNeedle" x1="450" y1="524" x2="450" y2="514" stroke="#ffa94d" stroke-width="2" stroke-linecap="round"/>
-                  <circle cx="450" cy="524" r="2.5" fill="#8ea4b8"/>
-                </g>
-                <g id="wasteValve">
-                  <rect x="440" y="660" width="24" height="6" rx="2" fill="#4a5c6e"/>
-                  <g id="wasteFlap">
-                    <rect x="442" y="666" width="20" height="7" rx="2" fill="url(#metalLight)" stroke="#0a121a" stroke-width="1.2"/>
-                    <circle cx="443" cy="669" r="2" fill="#8ea4b8"/><circle cx="461" cy="669" r="2" fill="#8ea4b8"/>
-                  </g>
-                </g>
-                <circle cx="450" cy="576" r="8" fill="#08131e" stroke="#4a5c6e" stroke-width="1.8"/>
-                <circle id="deliveryBall" cx="450" cy="576" r="5.5" fill="url(#metalLight)" stroke="#0a121a" stroke-width="1.2"/>
-              </g>
-              <text x="450" y="700" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffa94d" letter-spacing="1.4">BÉLIER HYDRAULIQUE · SANS POMPE</text>
-              <text x="480" y="582" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5f7d94" letter-spacing="1.2">RÉSEAU INFÉRIEUR · B → A</text>
-            </g>
-            <g>
-              <rect x="40" y="500" width="130" height="38" rx="10" fill="#0a1622" stroke="#1f3a52" stroke-width="1.4"/>
-              <text x="105" y="516" text-anchor="middle" font-size="9" font-weight="700" fill="#5f7d94" letter-spacing="1.2">NIVEAU A</text>
-              <text id="badgeA" x="105" y="531" text-anchor="middle" font-size="13" font-weight="800" fill="#5fd0ff">70.0 %</text>
-            </g>
-            <g>
-              <rect x="730" y="500" width="130" height="38" rx="10" fill="#0a1622" stroke="#1f3a52" stroke-width="1.4"/>
-              <text x="795" y="516" text-anchor="middle" font-size="9" font-weight="700" fill="#5f7d94" letter-spacing="1.2">NIVEAU B</text>
-              <text id="badgeB" x="795" y="531" text-anchor="middle" font-size="13" font-weight="800" fill="#5fd0ff">50.0 %</text>
-            </g>
-            <g opacity=".9">
-              <path d="M 250 400 L 300 400" stroke="#42e39b" stroke-width="3" fill="none" stroke-linecap="round"/>
-              <polygon points="300,395 312,400 300,405" fill="#42e39b"/>
-              <path d="M 650 640 L 600 640" stroke="#ffa94d" stroke-width="3" fill="none" stroke-linecap="round"/>
-              <polygon points="600,635 588,640 600,645" fill="#ffa94d"/>
-            </g>
-          </svg>
-        </div>
-        <aside class="panel">
-          <div class="card">
-            <h2>Commande</h2>
-            <div class="btn-row">
-              <button class="btn active" id="btnRun">▶ Marche</button>
-              <button class="btn stop" id="btnStop">⏹ Arrêt</button>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Ouverture du clapet moteur</h2>
-            <input type="range" id="driveOpening" min="10" max="100" value="70">
-            <div class="range-row"><span>10 %</span><b id="driveVal">70 %</b><span>100 %</span></div>
-          </div>
-          <div class="card">
-            <h2>Mesures</h2>
-            <div class="stats">
-              <div class="stat gr"><span>Q réseau supérieur</span><b id="sQTop">0 L/s</b></div>
-              <div class="stat or"><span>Q refoulé (bélier)</span><b id="sQPump">0 L/s</b></div>
-              <div class="stat hl"><span>Δh A–B</span><b id="sDh">0.0 %</b></div>
-              <div class="stat or"><span>Q décharge bélier</span><b id="sQWaste">0 L/s</b></div>
-              <div class="stat gr"><span>P turbine</span><b id="sTurb">0.0 kW</b></div>
-              <div class="stat hl"><span>Rendement global</span><b id="sEff">—</b></div>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Niveaux des réservoirs</h2>
-            <div class="level"><div class="level-head"><span>▲ Réservoir A (refoulé)</span><b id="lvA">70.0 %</b></div><div class="bar"><i id="barA" style="width:70%"></i></div></div>
-            <div class="level"><div class="level-head"><span>▼ Réservoir B (source)</span><b id="lvB">50.0 %</b></div><div class="bar right"><i id="barB" style="width:50%"></i></div></div>
-            <div class="simtime"><span>Temps simulé</span><b id="sTime">00:00</b></div>
-          </div>
-          <div class="info">
-            <span class="ic">SANS POMPE</span>
-            Aucune pompe électrique. Le réseau <b>supérieur</b> fait circuler l'eau de A vers B par gravité (turbine = énergie). Le réseau <b>inférieur</b> utilise un <b>bélier hydraulique</b> : l'eau de B descend, un clapet se ferme brutalement (coup de bélier), la surpression ouvre le clapet de refoulement et pousse une partie de l'eau <b>plus haut que sa source</b>, jusqu'à A.
-          </div>
-          <div class="legend">
-            <span><i class="dot g"></i> Réseau supérieur A→B</span>
-            <span><i class="dot o"></i> Réseau inférieur B→A</span>
-            <span><i class="dot c"></i> Bélier hydraulique</span>
-          </div>
-          <button class="reset" id="reset">↺ Réinitialiser la simulation</button>
-        </aside>
-      </div>
+      <div class="layout" data-sim="ram"></div>
     </div>
-    <script>
-    (function(){
-      "use strict";
-      const K_UPPER=950,K_RAM=420,ETA_RAM=.32,H_RES=20,ETA_TURB=.88,TIME_SCALE=90,CAP=4000000,MIN_LEVEL=4;
-      const initial=()=>({running:true,driveOpening:70,levelA:70,levelB:50,qTop:0,qPump:0,qWaste:0,dh:0,pressure:.15,
-        simTime:0,flowTopDash:0,flowBotDash:0,rotTurb:0,wasteOpen:1,deliveryOpen:0,hammerFlash:0,
-        ramPhase:0,ramPhaseTime:0,energy:0,pTurb:0});
-      let S=initial();
-      const $=id=>document.getElementById(id);
-      const D={waterA:$('waterA'),waterB:$('waterB'),surfA:$('surfA'),surfB:$('surfB'),flowTop:$('flowTop'),
-        flowBot:$('flowBot'),rotorTurb:$('rotorTurb'),ramWater:$('ramWater'),airLevel:$('airLevel'),
-        gaugeNeedle:$('gaugeNeedle'),wasteFlap:$('wasteFlap'),deliveryBall:$('deliveryBall'),
-        badgeA:$('badgeA'),badgeB:$('badgeB'),sQTop:$('sQTop'),sQPump:$('sQPump'),sDh:$('sDh'),
-        sQWaste:$('sQWaste'),sTurb:$('sTurb'),sEff:$('sEff'),lvA:$('lvA'),lvB:$('lvB'),
-        barA:$('barA'),barB:$('barB'),sTime:$('sTime'),
-        driveOpening:$('driveOpening'),driveVal:$('driveVal')};
-      const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-      const lerp=(a,b,t)=>a+(b-a)*t;
-      const fmtTime=s=>{const h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');};
-      const RAM_PHASES=[0.62,0.14,0.50,0.38];
-      function updateRamCycle(dt){
-        S.ramPhaseTime+=dt*(0.6+S.driveOpening/100*1.4);
-        if(S.ramPhaseTime>=RAM_PHASES[S.ramPhase]){
-          S.ramPhaseTime-=RAM_PHASES[S.ramPhase];S.ramPhase=(S.ramPhase+1)%4;
-          if(S.ramPhase===1)S.hammerFlash=1;
-        }
-      }
-      function step(dt){
-        if(!S.running){S.qTop*=.9;S.qPump*=.9;S.qWaste*=.9;return;}
-        const dhTop=Math.max(0,S.levelA-S.levelB);
-        S.qTop=K_UPPER*Math.sqrt(dhTop);
-        const dhRam=Math.max(0,S.levelB-MIN_LEVEL);
-        const qDrive=K_RAM*(S.driveOpening/100)*Math.sqrt(dhRam);
-        S.qPump=qDrive*ETA_RAM;S.qWaste=qDrive*(1-ETA_RAM);
-        const dtSim=dt*TIME_SCALE;
-        S.levelA+=(S.qPump-S.qTop)*dtSim/CAP*100;
-        S.levelB+=(S.qTop-S.qPump)*dtSim/CAP*100;
-        S.levelA=clamp(S.levelA,0,100);S.levelB=clamp(S.levelB,0,100);
-        S.dh=S.levelA-S.levelB;S.simTime+=dtSim;
-        const headTop=dhTop/100*H_RES;
-        S.pTurb=9.81*(S.qTop/1000)*headTop*ETA_TURB;
-        if(S.pTurb>0)S.energy+=S.pTurb*dtSim/3600;
-        updateRamCycle(dt);
-        const targetP=[.18,.92,.72,.32][S.ramPhase];
-        S.pressure=lerp(S.pressure,targetP,Math.min(1,dt*16));
-        const wT=[1,0,0,.55][S.ramPhase],dT=[0,.8,1,0][S.ramPhase];
-        S.wasteOpen=lerp(S.wasteOpen,wT,Math.min(1,dt*20));
-        S.deliveryOpen=lerp(S.deliveryOpen,dT,Math.min(1,dt*20));
-        S.hammerFlash*=.88;
-      }
-      function render(dt){
-        const hA=S.levelA/100*252;
-        D.waterA.setAttribute('y',466-hA);D.waterA.setAttribute('height',Math.max(0,hA));
-        D.surfA.setAttribute('y1',466-hA);D.surfA.setAttribute('y2',466-hA);
-        const hB=S.levelB/100*252;
-        D.waterB.setAttribute('y',466-hB);D.waterB.setAttribute('height',Math.max(0,hB));
-        D.surfB.setAttribute('y1',466-hB);D.surfB.setAttribute('y2',466-hB);
-        S.flowTopDash-=S.qTop*0.09*dt*60;
-        S.flowBotDash+=S.qPump*0.09*dt*60;
-        D.flowTop.setAttribute('stroke-dashoffset',S.flowTopDash.toFixed(1));
-        D.flowBot.setAttribute('stroke-dashoffset',S.flowBotDash.toFixed(1));
-        D.flowTop.setAttribute('opacity',clamp(.15+S.qTop/2500,.15,1));
-        D.flowBot.setAttribute('opacity',clamp(.15+S.qPump/800,.15,1));
-        S.rotTurb+=Math.min(520,S.qTop/8)*dt;
-        D.rotorTurb.setAttribute('transform',`rotate(${S.rotTurb.toFixed(1)} 450 340)`);
-        const ph=46*(.55+S.pressure*.5);
-        D.ramWater.setAttribute('height',ph.toFixed(1));
-        D.ramWater.setAttribute('y',(644-ph).toFixed(1));
-        D.ramWater.setAttribute('opacity',(.35+S.pressure*.5).toFixed(2));
-        D.wasteFlap.setAttribute('transform',`rotate(${(S.wasteOpen*38).toFixed(1)} 443 669)`);
-        D.deliveryBall.setAttribute('cy',(576-S.deliveryOpen*7).toFixed(1));
-        D.deliveryBall.setAttribute('fill',S.deliveryOpen>.5?'#42e39b':'url(#metalLight)');
-        const targetAngle=-50+S.pressure*100;
-        const currentAngle=parseFloat(D.gaugeNeedle.getAttribute('data-angle')||'0');
-        const newAngle=lerp(currentAngle,targetAngle,Math.min(1,dt*14));
-        D.gaugeNeedle.setAttribute('data-angle',newAngle);
-        D.gaugeNeedle.setAttribute('transform',`rotate(${newAngle.toFixed(1)} 450 524)`);
-        D.airLevel.setAttribute('y',(530+(1-S.pressure)*20).toFixed(1));
-        D.badgeA.textContent=S.levelA.toFixed(1)+' %';
-        D.badgeB.textContent=S.levelB.toFixed(1)+' %';
-        D.badgeA.setAttribute('fill',S.dh>.5?'#42e39b':'#5fd0ff');
-        D.badgeB.setAttribute('fill',S.dh>.5?'#ffa94d':'#5fd0ff');
-        D.sQTop.textContent=S.qTop.toFixed(0)+' L/s';
-        D.sQPump.textContent=S.qPump.toFixed(0)+' L/s';
-        D.sDh.textContent=S.dh.toFixed(1)+' %';
-        D.sQWaste.textContent=S.qWaste.toFixed(0)+' L/s';
-        D.sTurb.textContent=(S.pTurb||0).toFixed(2)+' kW';
-        D.sEff.textContent=(S.qTop>.5?(S.qPump/S.qTop*100):0).toFixed(1)+' %';
-        D.lvA.textContent=S.levelA.toFixed(1)+' %';
-        D.lvB.textContent=S.levelB.toFixed(1)+' %';
-        D.barA.style.width=S.levelA+'%';D.barB.style.width=S.levelB+'%';
-        D.sTime.textContent=fmtTime(S.simTime);
-      }
-      let last=0;
-      function loop(now){
-        if(!last)last=now;let dt=(now-last)/1000;last=now;dt=Math.min(dt,0.06);
-        step(dt);render(dt);requestAnimationFrame(loop);
-      }
-      $('btnRun').addEventListener('click',()=>{S.running=true;$('btnRun').classList.add('active');$('btnStop').classList.remove('active');});
-      $('btnStop').addEventListener('click',()=>{S.running=false;$('btnStop').classList.add('active');$('btnRun').classList.remove('active');});
-      D.driveOpening.addEventListener('input',e=>{
-        S.driveOpening=+e.target.value;D.driveVal.textContent=S.driveOpening+' %';
-        const pct=S.driveOpening;
-        e.target.style.background=`linear-gradient(90deg, var(--cyan) 0%, var(--cyan) ${pct}%, #16293a ${pct}%, #16293a 100%)`;
-      });
-      D.driveOpening.dispatchEvent(new Event('input'));
-      $('reset').addEventListener('click',()=>{
-        S=initial();last=0;$('btnRun').classList.add('active');$('btnStop').classList.remove('active');
-        D.driveOpening.value=70;D.driveOpening.dispatchEvent(new Event('input'));render(0);
-      });
-      requestAnimationFrame(loop);
-    })();
-    </script>
+    <script>buildDoubleNetwork("ram");</script>
   </template>
 
-  <!-- ================================================================
-       SIMULATION 5 · CIRCUIT FERMÉ GRAVITAIRE
-       ================================================================ -->
   <template id="tpl-4">
     <div class="wrap">
       <header>
-        <div class="brand">
-          <div class="logo">♾️</div>
-          <div>
-            <h1>Circuit Fermé · Refoulement par Propriétés Gravitaires de l'Eau</h1>
-            <p>Boucle hydraulique fermée · Remontée par bélier hydraulique · Aucune pompe · Aucune énergie externe</p>
-          </div>
-        </div>
+        <div class="brand"><div class="logo">🌀</div><div>
+          <h1>Circuit Fermé Gravitaire · Turbine + Pompe</h1>
+          <p>Boucle fermée : l'eau turbinée en A→B est refoulée par la pompe en B→A · Niveaux constants · Aucun apport extérieur</p>
+        </div></div>
       </header>
-      <div class="layout">
-        <div class="stage">
-          <svg viewBox="0 0 900 760" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0d2136"/><stop offset="55%" stop-color="#0a1725"/><stop offset="100%" stop-color="#061019"/>
-              </linearGradient>
-              <linearGradient id="waterTopG" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#8ceaff"/><stop offset="40%" stop-color="#2fa8e0"/><stop offset="100%" stop-color="#0f4a77"/>
-              </linearGradient>
-              <linearGradient id="waterDescG" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#5fd0ff"/><stop offset="100%" stop-color="#0d5a8c"/>
-              </linearGradient>
-              <linearGradient id="waterAscG" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#42e39b"/><stop offset="100%" stop-color="#0e6b48"/>
-              </linearGradient>
-              <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#6d8093"/><stop offset="45%" stop-color="#4a5c6e"/><stop offset="100%" stop-color="#2a3743"/>
-              </linearGradient>
-              <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#5b6d7f"/><stop offset="40%" stop-color="#3d4f61"/><stop offset="100%" stop-color="#1e2a35"/>
-              </linearGradient>
-              <linearGradient id="metalLight" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#7a8fa3"/><stop offset="100%" stop-color="#3d4f61"/>
-              </linearGradient>
-              <linearGradient id="pipeSkin" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#1a222b"/><stop offset="40%" stop-color="#3d4f61"/><stop offset="100%" stop-color="#1a222b"/>
-              </linearGradient>
-              <linearGradient id="gaugeGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0f2233"/><stop offset="100%" stop-color="#061019"/>
-              </linearGradient>
-              <clipPath id="clipTank"><rect x="120" y="90" width="660" height="90"/></clipPath>
-              <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-
-            <rect x="0" y="0" width="900" height="760" fill="url(#sky)"/>
-            <rect x="0" y="700" width="900" height="60" fill="#0a121a"/>
-            <line x1="0" y1="700" x2="900" y2="700" stroke="#2a4257" stroke-width="2"/>
-
-            <!-- RÉSERVOIR SUPÉRIEUR -->
-            <g>
-              <g clip-path="url(#clipTank)">
-                <rect id="tankWater" x="120" y="100" width="660" height="80" fill="url(#waterTopG)"/>
-                <path id="tankWave" d="M 120 110 Q 190 100, 260 110 T 400 110 T 540 110 T 680 110 T 820 110 L 820 130 L 120 130 Z" fill="#ffffff" opacity=".08">
-                  <animateTransform attributeName="transform" type="translate" values="0 0; 14 0; 0 0" dur="3.5s" repeatCount="indefinite"/>
-                </path>
-              </g>
-              <path d="M 100 80 L 120 80 L 120 180 L 780 180 L 780 80 L 800 80 L 800 200 L 100 200 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="2"/>
-              <line x1="110" y1="80" x2="110" y2="196" stroke="#8ea4b8" stroke-width="2.5" opacity=".3"/>
-              <line x1="790" y1="80" x2="790" y2="196" stroke="#8ea4b8" stroke-width="2.5" opacity=".3"/>
-              <line id="tankSurface" x1="120" y1="100" x2="780" y2="100" stroke="#bdf0ff" stroke-width="1.8" opacity=".6"/>
-              <text x="450" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#7d9ab3" letter-spacing="1.8">CHAMBRE DE RETOUR · NIVEAU CONSTANT</text>
-            </g>
-
-            <!-- COLONNE DESCENDANTE -->
-            <g>
-              <rect x="152" y="180" width="46" height="360" fill="url(#pipeSkin)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="158" y="180" width="34" height="360" fill="#08131e"/>
-              <rect id="descWater" x="158" y="180" width="34" height="360" fill="url(#waterDescG)" opacity=".85"/>
-              <line id="descFlow" x1="175" y1="180" x2="175" y2="540" stroke="#5fd0ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 16" opacity=".95" filter="url(#glow)"/>
-              <rect x="140" y="196" width="70" height="18" rx="4" fill="#4a5c6e" stroke="#0a121a" stroke-width="1.4"/>
-              <rect x="160" y="182" width="22" height="16" rx="3" fill="#5fd0ff" opacity=".85"/>
-              <text x="175" y="620" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5fd0ff" letter-spacing="1.3">COLONNE MOTRICE</text>
-              <text x="175" y="636" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5f7d94" letter-spacing="1">GRAVITAIRE ↓</text>
-            </g>
-
-            <!-- COLONNE MONTANTE -->
-            <g>
-              <rect x="702" y="180" width="46" height="360" fill="url(#pipeSkin)" stroke="#0a121a" stroke-width="2"/>
-              <rect x="708" y="180" width="34" height="360" fill="#08131e"/>
-              <rect id="ascWater" x="708" y="180" width="34" height="360" fill="url(#waterAscG)" opacity=".85"/>
-              <line id="ascFlow" x1="725" y1="540" x2="725" y2="180" stroke="#42e39b" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 16" opacity=".95" filter="url(#glow)"/>
-              <rect x="690" y="300" width="70" height="18" rx="4" fill="#4a5c6e" stroke="#0a121a" stroke-width="1.4"/>
-              <polygon points="700,304 726,309 700,314" fill="#42e39b" opacity=".75"/>
-              <text x="725" y="620" text-anchor="middle" font-size="10.5" font-weight="700" fill="#42e39b" letter-spacing="1.3">COLONNE DE REFOULEMENT</text>
-              <text x="725" y="636" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5f7d94" letter-spacing="1">↑ MONTÉE</text>
-            </g>
-
-            <!-- BÉLIER HYDRAULIQUE -->
-            <g>
-              <path d="M 175 540 L 175 580 L 420 580" stroke="#0a121a" stroke-width="26" stroke-linecap="round" fill="none"/>
-              <path d="M 175 540 L 175 580 L 420 580" stroke="#2a3f52" stroke-width="20" stroke-linecap="round" fill="none"/>
-              <path d="M 175 540 L 175 580 L 420 580" stroke="#08131e" stroke-width="13" stroke-linecap="round" fill="none"/>
-
-              <path d="M 480 580 L 725 580 L 725 540" stroke="#0a121a" stroke-width="26" stroke-linecap="round" fill="none"/>
-              <path d="M 480 580 L 725 580 L 725 540" stroke="#2a3f52" stroke-width="20" stroke-linecap="round" fill="none"/>
-              <path d="M 480 580 L 725 580 L 725 540" stroke="#08131e" stroke-width="13" stroke-linecap="round" fill="none"/>
-
-              <path id="bottomFlowIn" d="M 175 540 L 175 580 L 420 580" stroke="#5fd0ff" stroke-width="7" stroke-linecap="round" fill="none" stroke-dasharray="10 14" opacity=".9" filter="url(#softGlow)"/>
-              <path id="bottomFlowOut" d="M 480 580 L 725 580 L 725 540" stroke="#42e39b" stroke-width="7" stroke-linecap="round" fill="none" stroke-dasharray="10 14" opacity=".9" filter="url(#softGlow)"/>
-
-              <rect x="400" y="530" width="100" height="112" rx="14" fill="url(#metalGrad)" stroke="#0a121a" stroke-width="3"/>
-              <rect x="410" y="540" width="80" height="92" rx="9" fill="#08131e" stroke="#2a4257" stroke-width="1.4"/>
-              <rect id="ramWater" x="416" y="560" width="68" height="60" rx="5" fill="#124a6e" opacity=".55"/>
-
-              <rect x="420" y="440" width="60" height="100" rx="30" fill="url(#metalGrad)" stroke="#0a121a" stroke-width="2.5"/>
-              <rect x="426" y="446" width="48" height="88" rx="24" fill="#08131e" stroke="#2a4257" stroke-width="1.2"/>
-              <rect id="airLevel" x="426" y="490" width="48" height="44" fill="#124a6e" opacity=".55"/>
-
-              <g>
-                <circle cx="450" cy="482" r="20" fill="url(#gaugeGrad)" stroke="#4a5c6e" stroke-width="2"/>
-                <path d="M 436 482 A 14 14 0 0 1 464 482" fill="none" stroke="#2a4257" stroke-width="2.2"/>
-                <path d="M 440 473 A 14 14 0 0 1 460 473" fill="none" stroke="#1a3a52" stroke-width="1.4"/>
-                <line id="gaugeNeedle" x1="450" y1="482" x2="450" y2="468" stroke="#ffa94d" stroke-width="2.4" stroke-linecap="round"/>
-                <circle cx="450" cy="482" r="2.8" fill="#8ea4b8"/>
-                <path d="M 460 473 A 14 14 0 0 1 464 482" fill="none" stroke="#ff6b6b" stroke-width="2.2" opacity=".6"/>
-              </g>
-
-              <g id="wasteValve">
-                <rect x="435" y="640" width="30" height="8" rx="2" fill="#4a5c6e"/>
-                <g id="wasteFlap">
-                  <rect x="438" y="648" width="24" height="9" rx="2" fill="url(#metalLight)" stroke="#0a121a" stroke-width="1.2"/>
-                  <circle cx="439" cy="652" r="2.2" fill="#8ea4b8"/>
-                  <circle cx="461" cy="652" r="2.2" fill="#8ea4b8"/>
-                </g>
-                <path d="M 450 662 Q 450 672, 450 680" stroke="#6d8093" stroke-width="2" fill="none" opacity=".5"/>
-              </g>
-
-              <circle cx="450" cy="540" r="9" fill="#08131e" stroke="#4a5c6e" stroke-width="2"/>
-              <circle id="deliveryBall" cx="450" cy="540" r="6" fill="url(#metalLight)" stroke="#0a121a" stroke-width="1.2"/>
-
-              <text x="450" y="728" text-anchor="middle" font-size="11" font-weight="700" fill="#ffa94d" letter-spacing="1.6">BÉLIER HYDRAULIQUE · SANS POMPE</text>
-
-              <path d="M 450 662 L 450 700" stroke="#0a121a" stroke-width="16" stroke-linecap="round" fill="none"/>
-              <path d="M 450 662 L 450 700" stroke="#2a3f52" stroke-width="11" stroke-linecap="round" fill="none"/>
-              <path id="wasteFlow" d="M 450 662 L 450 700" stroke="#ffa94d" stroke-width="5" stroke-linecap="round" fill="none" stroke-dasharray="8 12" opacity=".9" filter="url(#softGlow)"/>
-              <text x="490" y="690" font-size="9.5" font-weight="700" fill="#ffa94d" letter-spacing="1" opacity=".8">DÉCHARGE</text>
-            </g>
-
-            <!-- FLÈCHES BOUCLE -->
-            <g opacity=".8">
-              <path d="M 130 260 L 130 360" stroke="#5fd0ff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-dasharray="6 8"/>
-              <polygon points="124,360 130,376 136,360" fill="#5fd0ff"/>
-              <text x="100" y="320" text-anchor="middle" font-size="10" font-weight="700" fill="#5fd0ff" letter-spacing="1.2" transform="rotate(-90 100 320)">↓ DESCENTE</text>
-
-              <path d="M 770 360 L 770 260" stroke="#42e39b" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-dasharray="6 8"/>
-              <polygon points="764,260 770,244 776,260" fill="#42e39b"/>
-              <text x="800" y="320" text-anchor="middle" font-size="10" font-weight="700" fill="#42e39b" letter-spacing="1.2" transform="rotate(90 800 320)">↑ REFOULEMENT</text>
-            </g>
-
-            <!-- PHASE -->
-            <g>
-              <rect x="20" y="20" width="260" height="56" rx="14" fill="#0a1622" stroke="#1f3a52" stroke-width="1.4"/>
-              <text x="40" y="42" font-size="9.5" font-weight="700" fill="#5f7d94" letter-spacing="1.5">PHASE DU CYCLE</text>
-              <circle id="phaseDot" cx="42" cy="60" r="5" fill="#5fd0ff"/>
-              <text id="phaseLabel" x="56" y="65" font-size="15" font-weight="800" fill="#5fd0ff" letter-spacing=".6">ACCÉLÉRATION</text>
-            </g>
-
-            <!-- BOUCLE POINTILLÉE -->
-            <g opacity=".18" pointer-events="none">
-              <path d="M 175 100 L 175 580 L 450 620 L 725 580 L 725 100" stroke="#5fd0ff" stroke-width="2" fill="none" stroke-dasharray="8 12" stroke-linecap="round"/>
-            </g>
-
-            <text x="450" y="748" text-anchor="middle" font-size="10" font-weight="600" fill="#4d6580" letter-spacing="2">CIRCUIT FERMÉ · ÉQUILIBRE GRAVITAIRE DYNAMIQUE</text>
-          </svg>
-        </div>
-        <aside class="panel">
-          <div class="card">
-            <h2>Commande</h2>
-            <div class="btn-row">
-              <button class="btn active" id="btnRun">▶ Marche</button>
-              <button class="btn stop" id="btnStop">⏹ Arrêt</button>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Phase actuelle</h2>
-            <div class="phase-badge">
-              <span class="phase-dot" id="phaseDot2"></span>
-              <span class="phase-text" id="phaseLabel2">Accélération</span>
-              <span class="phase-sub" id="phaseSub">Remplissage</span>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Ouverture vanne motrice</h2>
-            <input type="range" id="valve" min="10" max="100" value="70">
-            <div class="range-row"><span>10 %</span><b id="valveVal">70 %</b><span>100 %</span></div>
-          </div>
-          <div class="card">
-            <h2>Mesures instantanées</h2>
-            <div class="stats">
-              <div class="stat hl"><span>Q descente</span><b id="sQdesc">0 L/s</b></div>
-              <div class="stat gr"><span>Q montée</span><b id="sQasc">0 L/s</b></div>
-              <div class="stat or"><span>Q décharge</span><b id="sQwaste">0 L/s</b></div>
-              <div class="stat or"><span>Pression cloche</span><b id="sPress">0.0 bar</b></div>
-              <div class="stat hl"><span>Rendement</span><b id="sEff">—</b></div>
-              <div class="stat hl"><span>Cycles</span><b id="sCycles">0</b></div>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Boucle fermée</h2>
-            <div class="level"><div class="level-head"><span>▲ Colonne montante</span><b id="lvAsc">50.0 %</b></div><div class="bar up"><i id="barAsc" style="width:50%"></i></div></div>
-            <div class="level"><div class="level-head"><span>▼ Colonne descendante</span><b id="lvDesc">50.0 %</b></div><div class="bar"><i id="barDesc" style="width:50%"></i></div></div>
-            <div class="simtime"><span>Temps simulé</span><b id="sTime">00:00</b></div>
-          </div>
-          <div class="info">
-            <span class="ic">CIRCUIT FERMÉ</span>
-            L'eau descend par la <b>colonne motrice</b> (gauche) sous l'effet de la gravité. En bas, le <b>bélier hydraulique</b> transforme l'énergie cinétique en <b>coup de bélier</b> : un clapet se ferme brutalement, la surpression ouvre la bille de refoulement et pousse une partie de l'eau <b>plus haut que sa source</b> dans la <b>colonne montante</b> (droite). Cette eau rejoint la chambre de retour en haut, d'où elle redescend : <b>la boucle est fermée</b>.
-          </div>
-          <button class="reset" id="reset">↺ Réinitialiser la simulation</button>
-        </aside>
-      </div>
+      <div class="layout" data-sim="closed"></div>
     </div>
-    <script>
-    (function(){
-      "use strict";
-      const K_IN=320,ETA_RAM=.28,TIME_SCALE=120,CAP_ASC=220,PHASES=[0.60,0.14,0.50,0.34];
-      const initial=()=>({running:true,valve:70,qDesc:0,qAsc:0,qWaste:0,pressure:.15,cycles:0,simTime:0,energy:0,
-        lvlAsc:50,lvlDesc:50,descDash:0,ascDash:0,bottomInDash:0,bottomOutDash:0,wasteDash:0,gaugeAngle:-50,
-        phase:0,phaseTime:0,hammerFlash:0,wasteOpen:1,deliveryOpen:0,tankLevel:70});
-      let S=initial();
-      const $=id=>document.getElementById(id);
-      const D={tankWater:$('tankWater'),tankSurface:$('tankSurface'),descWater:$('descWater'),descFlow:$('descFlow'),
-        ascWater:$('ascWater'),ascFlow:$('ascFlow'),bottomFlowIn:$('bottomFlowIn'),bottomFlowOut:$('bottomFlowOut'),
-        wasteFlow:$('wasteFlow'),ramWater:$('ramWater'),airLevel:$('airLevel'),gaugeNeedle:$('gaugeNeedle'),
-        wasteFlap:$('wasteFlap'),deliveryBall:$('deliveryBall'),phaseDot:$('phaseDot'),phaseLabel:$('phaseLabel'),
-        phaseDot2:$('phaseDot2'),phaseLabel2:$('phaseLabel2'),phaseSub:$('phaseSub'),
-        sQdesc:$('sQdesc'),sQasc:$('sQasc'),sQwaste:$('sQwaste'),sPress:$('sPress'),sEff:$('sEff'),
-        sCycles:$('sCycles'),lvAsc:$('lvAsc'),lvDesc:$('lvDesc'),barAsc:$('barAsc'),barDesc:$('barDesc'),
-        sTime:$('sTime'),valve:$('valve'),valveVal:$('valveVal')};
-      const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-      const lerp=(a,b,t)=>a+(b-a)*t;
-      const fmtTime=s=>{const h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');};
-
-      function updateCycle(dt){
-        S.phaseTime+=dt*(0.7+S.valve/100*1.3);
-        if(S.phaseTime>=PHASES[S.phase]){
-          S.phaseTime-=PHASES[S.phase];S.phase=(S.phase+1)%4;
-          if(S.phase===1){S.cycles++;S.hammerFlash=1;}
-        }
-      }
-
-      function step(dt){
-        if(!S.running){S.qDesc*=.92;S.qAsc*=.92;S.qWaste*=.92;return;}
-
-        const headFactor=0.4+S.lvlDesc/100*0.6;
-        const of=S.valve/100;
-        const qDesc=K_IN*of*Math.sqrt(headFactor);
-
-        S.qAsc=lerp(S.qAsc,qDesc*ETA_RAM,Math.min(1,dt*7));
-        S.qWaste=lerp(S.qWaste,qDesc*(1-ETA_RAM),Math.min(1,dt*7));
-        S.qDesc=lerp(S.qDesc,qDesc,Math.min(1,dt*6));
-
-        const dtSim=dt*TIME_SCALE;
-        const transfer=(S.qAsc-S.qDesc*0.35)*dtSim/CAP_ASC;
-        S.lvlAsc=clamp(S.lvlAsc+transfer,5,95);
-        S.lvlDesc=clamp(S.lvlDesc-transfer,5,95);
-
-        S.tankLevel=clamp(S.tankLevel+(S.qAsc-S.qDesc)*0.004,55,85);
-
-        S.simTime+=dtSim;
-        S.energy+=S.qAsc*dtSim/1000*0.5;
-
-        updateCycle(dt);
-
-        const targetP=[.18,.94,.70,.30][S.phase];
-        S.pressure=lerp(S.pressure,targetP,Math.min(1,dt*16));
-
-        const wT=[1,0,0,.55][S.phase];
-        const dT=[0,.85,1,0][S.phase];
-        S.wasteOpen=lerp(S.wasteOpen,wT,Math.min(1,dt*20));
-        S.deliveryOpen=lerp(S.deliveryOpen,dT,Math.min(1,dt*20));
-
-        S.hammerFlash*=.88;
-      }
-
-      function render(dt){
-        const tankH=30+S.tankLevel/100*60;
-        const tankY=180-tankH;
-        D.tankWater.setAttribute('y',tankY.toFixed(1));
-        D.tankWater.setAttribute('height',tankH.toFixed(1));
-        D.tankSurface.setAttribute('y1',tankY.toFixed(1));
-        D.tankSurface.setAttribute('y2',tankY.toFixed(1));
-
-        const descH=60+S.lvlDesc/100*300;
-        const descY=540-descH;
-        D.descWater.setAttribute('y',descY.toFixed(1));
-        D.descWater.setAttribute('height',descH.toFixed(1));
-
-        const ascH=60+S.lvlAsc/100*300;
-        const ascY=540-ascH;
-        D.ascWater.setAttribute('y',ascY.toFixed(1));
-        D.ascWater.setAttribute('height',ascH.toFixed(1));
-
-        S.descDash-=S.qDesc*0.10*dt*60;
-        S.ascDash+=S.qAsc*0.10*dt*60;
-        S.bottomInDash-=S.qDesc*0.10*dt*60;
-        S.bottomOutDash+=S.qAsc*0.10*dt*60;
-        S.wasteDash+=S.qWaste*0.12*dt*60;
-
-        D.descFlow.setAttribute('stroke-dashoffset',S.descDash.toFixed(1));
-        D.ascFlow.setAttribute('stroke-dashoffset',S.ascDash.toFixed(1));
-        D.bottomFlowIn.setAttribute('stroke-dashoffset',S.bottomInDash.toFixed(1));
-        D.bottomFlowOut.setAttribute('stroke-dashoffset',S.bottomOutDash.toFixed(1));
-        D.wasteFlow.setAttribute('stroke-dashoffset',S.wasteDash.toFixed(1));
-
-        D.descFlow.setAttribute('opacity',clamp(0.2+S.qDesc/160,0.15,1));
-        D.ascFlow.setAttribute('opacity',clamp(0.2+S.qAsc/60,0.15,1));
-        D.bottomFlowIn.setAttribute('opacity',clamp(0.2+S.qDesc/160,0.15,1));
-        D.bottomFlowOut.setAttribute('opacity',clamp(0.2+S.qAsc/60,0.15,1));
-        D.wasteFlow.setAttribute('opacity',clamp(0.2+S.qWaste/120,0.15,1));
-
-        const ph=60*(0.5+S.pressure*0.5);
-        D.ramWater.setAttribute('height',ph.toFixed(1));
-        D.ramWater.setAttribute('y',(620-ph).toFixed(1));
-        D.ramWater.setAttribute('opacity',(0.35+S.pressure*0.5).toFixed(2));
-
-        D.wasteFlap.setAttribute('transform',`rotate(${(S.wasteOpen*38).toFixed(1)} 439 652)`);
-
-        D.deliveryBall.setAttribute('cy',(540-S.deliveryOpen*8).toFixed(1));
-        D.deliveryBall.setAttribute('fill',S.deliveryOpen>0.5?'#42e39b':'url(#metalLight)');
-
-        const targetAngle=-50+S.pressure*100;
-        S.gaugeAngle=lerp(S.gaugeAngle,targetAngle,Math.min(1,dt*14));
-        D.gaugeNeedle.setAttribute('transform',`rotate(${S.gaugeAngle.toFixed(1)} 450 482)`);
-
-        D.airLevel.setAttribute('y',(490+(1-S.pressure)*22).toFixed(1));
-
-        const phaseNames=['Accélération','Coup de bélier','Refoulement','Détente'];
-        const phaseColors=['#5fd0ff','#ffa94d','#42e39b','#7d9ab3'];
-        const phaseSubs=['Remplissage','Onde de choc','Montée utile','Retour élastique'];
-
-        D.phaseLabel.textContent=phaseNames[S.phase].toUpperCase();
-        D.phaseLabel.setAttribute('fill',phaseColors[S.phase]);
-        D.phaseDot.setAttribute('fill',phaseColors[S.phase]);
-        D.phaseLabel.setAttribute('opacity',S.hammerFlash>0.02?(0.4+S.hammerFlash*0.6).toFixed(2):'1');
-
-        D.phaseDot2.style.background=phaseColors[S.phase];
-        D.phaseDot2.style.color=phaseColors[S.phase];
-        D.phaseLabel2.textContent=phaseNames[S.phase];
-        D.phaseLabel2.style.color=phaseColors[S.phase];
-        D.phaseSub.textContent=phaseSubs[S.phase];
-
-        D.sQdesc.textContent=S.qDesc.toFixed(1)+' L/s';
-        D.sQasc.textContent=S.qAsc.toFixed(1)+' L/s';
-        D.sQwaste.textContent=S.qWaste.toFixed(1)+' L/s';
-        D.sPress.textContent=(S.pressure*6).toFixed(1)+' bar';
-        D.sCycles.textContent=S.cycles;
-
-        const eff=S.qDesc>0.5?(S.qAsc/S.qDesc*100):0;
-        D.sEff.textContent=eff.toFixed(1)+' %';
-
-        D.lvAsc.textContent=S.lvlAsc.toFixed(1)+' %';
-        D.lvDesc.textContent=S.lvlDesc.toFixed(1)+' %';
-        D.barAsc.style.width=S.lvlAsc+'%';
-        D.barDesc.style.width=S.lvlDesc+'%';
-        D.sTime.textContent=fmtTime(S.simTime);
-      }
-
-      let last=0;
-      function loop(now){
-        if(!last)last=now;
-        let dt=(now-last)/1000;last=now;dt=Math.min(dt,0.06);
-        step(dt);render(dt);requestAnimationFrame(loop);
-      }
-
-      $('btnRun').addEventListener('click',()=>{S.running=true;$('btnRun').classList.add('active');$('btnStop').classList.remove('active');});
-      $('btnStop').addEventListener('click',()=>{S.running=false;$('btnStop').classList.add('active');$('btnRun').classList.remove('active');});
-
-      D.valve.addEventListener('input',e=>{
-        S.valve=+e.target.value;
-        D.valveVal.textContent=S.valve+' %';
-        const pct=S.valve;
-        e.target.style.background=`linear-gradient(90deg, var(--cyan) 0%, var(--cyan) ${pct}%, #16293a ${pct}%, #16293a 100%)`;
-      });
-      D.valve.dispatchEvent(new Event('input'));
-
-      $('reset').addEventListener('click',()=>{
-        S=initial();last=0;
-        $('btnRun').classList.add('active');$('btnStop').classList.remove('active');
-        D.valve.value=70;D.valve.dispatchEvent(new Event('input'));
-        render(0);
-      });
-
-      requestAnimationFrame(loop);
-    })();
-    </script>
+    <script>buildDoubleNetwork("closed");</script>
   </template>
 
-  <!-- ================================================================
-       SIMULATION 6 · CROIX "X" À DEUX COULEURS · OPTIMISÉE ÉLECTRICITÉ
-       ================================================================ -->
   <template id="tpl-5">
     <div class="wrap">
       <header>
+        <div class="brand"><div class="logo">❌</div><div>
+          <h1>Croix "X" Optimisée · Turbine en Haut, Pompe au Point Bas</h1>
+          <p>Réseaux croisés à ±45° (perpendiculaires) · Turbine T1 sur le haut · Pompe T2 au point bas</p>
+        </div></div>
+      </header>
+      <div class="layout" data-sim="cross"></div>
+    </div>
+    <script>buildDoubleNetwork("cross");</script>
+  </template>
+
+  <!-- ================================================================
+       SIMULATION 7 · CIRCUIT FERMÉ PARALLÈLE · ÉDITION TRICOLORE 🇫🇷
+       Bleu : turbine T1 (A → B) · Rouge : pompe T2 (B → A) · Blanc : énergie
+       ================================================================ -->
+  <template id="tpl-6">
+    <style>
+      .tri-body{--bleu:#4d9fff;--bleu-off:#0055A4;--rouge:#ff5252;--rouge-off:#EF4135;--blanc:#ffffff}
+      .tri-body .logo{background:linear-gradient(90deg,#0055A4 0 33%,#f5f5f5 33% 66%,#EF4135 66% 100%)}
+      .tri-body .tricolore{display:flex;height:4px;border-radius:4px;overflow:hidden;margin-top:10px;max-width:420px}
+      .tri-body .tricolore i{flex:1}
+      .tri-body .tricolore i:nth-child(1){background:#0055A4}
+      .tri-body .tricolore i:nth-child(2){background:#fff}
+      .tri-body .tricolore i:nth-child(3){background:#EF4135}
+      .tri-body h2.c-b{color:var(--bleu)} .tri-body h2.c-r{color:var(--rouge)}
+      .tri-body .stat.bl b{color:var(--bleu)} .tri-body .stat.rd b{color:var(--rouge)} .tri-body .stat.wh b{color:var(--blanc)}
+      .tri-body .bar i{background:linear-gradient(90deg,#0055A4,#4d9fff);box-shadow:0 0 12px rgba(77,159,255,.45)}
+      .tri-body .bar.right i{background:linear-gradient(90deg,#EF4135,#ff8a80);box-shadow:0 0 12px rgba(255,82,82,.4)}
+      .tri-body input[type=range]::-webkit-slider-thumb{border-color:var(--bleu)}
+      .tri-body .info.tri{background:linear-gradient(135deg,#0a1c33,#140d18);border-color:#33445c;color:#c3d3e4}
+      .tri-body .info.tri b{color:#fff}
+      .tri-body .info.tri .ic{background:linear-gradient(90deg,#0055A4 0 33%,#fff 33% 66%,#EF4135 66% 100%);color:transparent}
+    </style>
+    <div class="wrap tri-body">
+      <header>
         <div class="brand">
-          <div class="logo">✕</div>
+          <div class="logo">⚡</div>
           <div>
-            <h1>Schéma en "X" · Deux Couleurs · Optimisé pour l'Électricité</h1>
-            <p>Réseau cyan (A→B) &nbsp;·&nbsp; Réseau orange (B→A) &nbsp;·&nbsp; Deux turbines indépendantes · Charge réglable pour maximiser la puissance</p>
+            <h1>Circuit Fermé · Édition Tricolore 🇫🇷</h1>
+            <p>Réseau bleu : turbine T1 · A → B &nbsp;·&nbsp; Réseau rouge : pompe T2 · refoulement B → A &nbsp;·&nbsp; Énergie en blanc &nbsp;·&nbsp; Boucle fermée sans apport d'eau</p>
+            <div class="tricolore"><i></i><i></i><i></i></div>
           </div>
         </div>
       </header>
@@ -1498,291 +557,181 @@
         <div class="stage">
           <svg viewBox="0 0 900 780" preserveAspectRatio="xMidYMid meet">
             <defs>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0d2136"/><stop offset="55%" stop-color="#0a1725"/><stop offset="100%" stop-color="#061019"/>
-              </linearGradient>
-              <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#16232f"/><stop offset="100%" stop-color="#0a121a"/>
-              </linearGradient>
-              <linearGradient id="waterG" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#8ceaff"/><stop offset="35%" stop-color="#2fa8e0"/><stop offset="100%" stop-color="#0f4a77"/>
-              </linearGradient>
-              <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#6d8093"/><stop offset="45%" stop-color="#4a5c6e"/><stop offset="100%" stop-color="#2a3743"/>
-              </linearGradient>
-              <linearGradient id="concreteTop" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#9aafc2"/><stop offset="100%" stop-color="#6d8093"/>
-              </linearGradient>
-              <linearGradient id="pipeCyan" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#a5eaff"/><stop offset="50%" stop-color="#3a9dcf"/><stop offset="100%" stop-color="#0e3a5a"/>
-              </linearGradient>
-              <linearGradient id="pipeOrange" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#ffd9a5"/><stop offset="50%" stop-color="#cc7a2a"/><stop offset="100%" stop-color="#5a3010"/>
-              </linearGradient>
-              <clipPath id="clipA"><rect x="76" y="260" width="248" height="400"/></clipPath>
-              <clipPath id="clipB"><rect x="576" y="260" width="248" height="400"/></clipPath>
-              <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
+              <linearGradient id="sky7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d2136"/><stop offset="55%" stop-color="#0a1725"/><stop offset="100%" stop-color="#061019"/></linearGradient>
+              <linearGradient id="waterG7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9cc4ff"/><stop offset="35%" stop-color="#3d7eff"/><stop offset="100%" stop-color="#0f3477"/></linearGradient>
+              <linearGradient id="concrete7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6d8093"/><stop offset="45%" stop-color="#4a5c6e"/><stop offset="100%" stop-color="#2a3743"/></linearGradient>
+              <linearGradient id="concreteTop7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9aafc2"/><stop offset="100%" stop-color="#6d8093"/></linearGradient>
+              <linearGradient id="pipeBleu" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d8ff"/><stop offset="50%" stop-color="#3d7eff"/><stop offset="100%" stop-color="#0f2a5a"/></linearGradient>
+              <linearGradient id="pipeRouge" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffc2b8"/><stop offset="50%" stop-color="#e04030"/><stop offset="100%" stop-color="#5a1008"/></linearGradient>
+              <clipPath id="clipA7"><rect x="76" y="260" width="248" height="400"/></clipPath>
+              <clipPath id="clipB7"><rect x="576" y="260" width="248" height="400"/></clipPath>
+              <filter id="glow7" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
             </defs>
-
-            <rect x="0" y="0" width="900" height="780" fill="url(#sky)"/>
-            <rect x="0" y="720" width="900" height="60" fill="url(#ground)"/>
+            <rect x="0" y="0" width="900" height="780" fill="url(#sky7)"/>
+            <rect x="0" y="720" width="900" height="60" fill="#0a121a"/>
             <line x1="0" y1="720" x2="900" y2="720" stroke="#2a4257" stroke-width="2"/>
-
-            <!-- TITRES -->
-            <text x="200" y="32" text-anchor="middle" font-size="14" font-weight="700"
-                  fill="#7d9ab3" letter-spacing="1.8">RÉSERVOIR A</text>
-            <text x="700" y="32" text-anchor="middle" font-size="14" font-weight="700"
-                  fill="#7d9ab3" letter-spacing="1.8">RÉSERVOIR B</text>
-            <text x="450" y="32" text-anchor="middle" font-size="11" font-weight="700"
-                  fill="#5f7d94" letter-spacing="1.4">MÊME HAUTEUR · DEUX RÉSEAUX EN "X"</text>
-
-            <!-- Ligne d'altitude -->
-            <line x1="60" y1="260" x2="840" y2="260"
-                  stroke="#5fd0ff" stroke-width="1.2" stroke-dasharray="6 8" opacity=".25"/>
-            <text x="450" y="252" text-anchor="middle" font-size="9.5" font-weight="700"
-                  fill="#5f7d94" letter-spacing="1.4">MÊME ALTITUDE DE RÉFÉRENCE</text>
-
+            <!-- Drapeau décoratif -->
+            <g>
+              <rect x="830" y="14" width="42" height="28" rx="4" fill="none" stroke="#2b4d68" stroke-width="1.5"/>
+              <rect x="832" y="16" width="12.6" height="24" fill="#0055A4"/>
+              <rect x="844.6" y="16" width="12.6" height="24" fill="#f5f5f5"/>
+              <rect x="857.2" y="16" width="12.6" height="24" fill="#EF4135"/>
+            </g>
+            <text x="200" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#8fa6bd" letter-spacing="1.8">RÉSERVOIR A</text>
+            <text x="700" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#8fa6bd" letter-spacing="1.8">RÉSERVOIR B</text>
+            <text x="430" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#5f7d94" letter-spacing="1.4">CIRCUIT FERMÉ · BLEU · BLANC · ROUGE</text>
+            <line x1="60" y1="260" x2="840" y2="260" stroke="#4d9fff" stroke-width="1.2" stroke-dasharray="6 8" opacity=".25"/>
             <!-- RÉSERVOIR A -->
             <g>
-              <path d="M 60 240 L 76 260 L 324 260 L 340 240 L 360 220 L 80 220 Z"
-                    fill="url(#concreteTop)" stroke="#0a121a" stroke-width="1.6"/>
-              <rect x="76" y="260" width="248" height="400"
-                    fill="url(#concrete)" stroke="#0a121a" stroke-width="1.8"/>
-              <line x1="76" y1="260" x2="76" y2="660" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
-              <line x1="324" y1="260" x2="324" y2="660" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
-              <g clip-path="url(#clipA)">
-                <rect id="waterA" x="76" y="340" width="248" height="320" fill="url(#waterG)"/>
-                <path id="waveA" d="M 76 360 Q 120 352, 170 360 T 270 360 T 370 360 L 370 380 L 76 380 Z"
-                      fill="#ffffff" opacity=".07">
-                  <animateTransform attributeName="transform" type="translate"
-                    values="0 0; 10 0; 0 0" dur="3.4s" repeatCount="indefinite"/>
+              <path d="M 60 240 L 76 260 L 324 260 L 340 240 L 360 220 L 80 220 Z" fill="url(#concreteTop7)" stroke="#0a121a" stroke-width="1.6"/>
+              <rect x="76" y="260" width="248" height="400" fill="url(#concrete7)" stroke="#0a121a" stroke-width="1.8"/>
+              <g clip-path="url(#clipA7)">
+                <rect id="waterA" x="76" y="340" width="248" height="320" fill="url(#waterG7)"/>
+                <path d="M 76 360 Q 120 352, 170 360 T 270 360 T 370 360 L 370 380 L 76 380 Z" fill="#ffffff" opacity=".07">
+                  <animateTransform attributeName="transform" type="translate" values="0 0; 10 0; 0 0" dur="3.4s" repeatCount="indefinite"/>
                 </path>
               </g>
-              <line id="surfA" x1="76" y1="340" x2="324" y2="340"
-                    stroke="#bdf0ff" stroke-width="1.8" opacity=".6"/>
-              <circle cx="340" cy="380" r="7" fill="#0e2a40" stroke="#5fd0ff" stroke-width="2"/>
-              <circle cx="340" cy="560" r="7" fill="#3a2010" stroke="#ffa94d" stroke-width="2"/>
+              <line id="surfA" x1="76" y1="340" x2="324" y2="340" stroke="#dceaff" stroke-width="1.8" opacity=".6"/>
+              <circle cx="340" cy="535" r="7" fill="#0e2a40" stroke="#4d9fff" stroke-width="2"/>
+              <circle cx="340" cy="645" r="7" fill="#3a1010" stroke="#ff5252" stroke-width="2"/>
             </g>
-
             <!-- RÉSERVOIR B -->
             <g>
-              <path d="M 560 240 L 576 260 L 824 260 L 840 240 L 860 220 L 580 220 Z"
-                    fill="url(#concreteTop)" stroke="#0a121a" stroke-width="1.6"/>
-              <rect x="576" y="260" width="248" height="400"
-                    fill="url(#concrete)" stroke="#0a121a" stroke-width="1.8"/>
-              <line x1="576" y1="260" x2="576" y2="660" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
-              <line x1="824" y1="260" x2="824" y2="660" stroke="#8ea4b8" stroke-width="2" opacity=".35"/>
-              <g clip-path="url(#clipB)">
-                <rect id="waterB" x="576" y="340" width="248" height="320" fill="url(#waterG)"/>
-                <path id="waveB" d="M 576 360 Q 620 352, 670 360 T 770 360 T 870 360 L 870 380 L 576 380 Z"
-                      fill="#ffffff" opacity=".07">
-                  <animateTransform attributeName="transform" type="translate"
-                    values="0 0; -8 0; 0 0" dur="3.9s" repeatCount="indefinite"/>
+              <path d="M 560 240 L 576 260 L 824 260 L 840 240 L 860 220 L 580 220 Z" fill="url(#concreteTop7)" stroke="#0a121a" stroke-width="1.6"/>
+              <rect x="576" y="260" width="248" height="400" fill="url(#concrete7)" stroke="#0a121a" stroke-width="1.8"/>
+              <g clip-path="url(#clipB7)">
+                <rect id="waterB" x="576" y="340" width="248" height="320" fill="url(#waterG7)"/>
+                <path d="M 576 360 Q 620 352, 670 360 T 770 360 T 870 360 L 870 380 L 576 380 Z" fill="#ffffff" opacity=".07">
+                  <animateTransform attributeName="transform" type="translate" values="0 0; -8 0; 0 0" dur="3.9s" repeatCount="indefinite"/>
                 </path>
               </g>
-              <line id="surfB" x1="576" y1="340" x2="824" y2="340"
-                    stroke="#bdf0ff" stroke-width="1.8" opacity=".6"/>
-              <circle cx="560" cy="380" r="7" fill="#3a2010" stroke="#ffa94d" stroke-width="2"/>
-              <circle cx="560" cy="560" r="7" fill="#0e2a40" stroke="#5fd0ff" stroke-width="2"/>
+              <line id="surfB" x1="576" y1="340" x2="824" y2="340" stroke="#dceaff" stroke-width="1.8" opacity=".6"/>
+              <circle cx="560" cy="645" r="7" fill="#3a1010" stroke="#ff5252" stroke-width="2"/>
+              <circle cx="560" cy="535" r="7" fill="#0e2a40" stroke="#4d9fff" stroke-width="2"/>
             </g>
-
-            <!-- RÉSEAU 2 (ORANGE) · B_haut → A_bas -->
+            <!-- RÉSEAU BLEU (DESSUS) A→B -->
             <g>
-              <line x1="340" y1="560" x2="560" y2="380"
-                    stroke="#0a121a" stroke-width="32" stroke-linecap="round"/>
-              <line x1="340" y1="560" x2="560" y2="380"
-                    stroke="url(#pipeOrange)" stroke-width="26" stroke-linecap="round"/>
-              <line x1="340" y1="560" x2="560" y2="380"
-                    stroke="#4a2508" stroke-width="14" stroke-linecap="round"/>
-              <line id="flow2" x1="340" y1="560" x2="560" y2="380"
-                    stroke="#ffa94d" stroke-width="7" stroke-linecap="round"
-                    stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
-              <text x="386" y="510" font-size="10" font-weight="700" fill="#ffa94d"
-                    letter-spacing="1.1" transform="rotate(-40 386 510)">RÉSEAU 2 · B→A</text>
+              <line x1="340" y1="535" x2="560" y2="535" stroke="#0a121a" stroke-width="32" stroke-linecap="round"/>
+              <line x1="340" y1="535" x2="560" y2="535" stroke="url(#pipeBleu)" stroke-width="26" stroke-linecap="round"/>
+              <line id="flow1" x1="340" y1="535" x2="560" y2="535" stroke="#4d9fff" stroke-width="7" stroke-linecap="round" stroke-dasharray="14 18" opacity=".95" filter="url(#glow7)"/>
+              <text x="350" y="517" font-size="9.5" font-weight="700" fill="#4d9fff" letter-spacing="1.1">RÉSEAU BLEU · A→B</text>
+              <path d="M 370 529 L 384 535 L 370 541 Z" fill="#b8d8ff"/>
             </g>
-
-            <!-- RÉSEAU 1 (CYAN) · A_haut → B_bas -->
+            <!-- RÉSEAU ROUGE (DESSOUS) B→A -->
             <g>
-              <line x1="340" y1="380" x2="560" y2="560"
-                    stroke="#0a121a" stroke-width="32" stroke-linecap="round"/>
-              <line x1="340" y1="380" x2="560" y2="560"
-                    stroke="url(#pipeCyan)" stroke-width="26" stroke-linecap="round"/>
-              <line x1="340" y1="380" x2="560" y2="560"
-                    stroke="#0e2a40" stroke-width="14" stroke-linecap="round"/>
-              <line id="flow1" x1="340" y1="380" x2="560" y2="560"
-                    stroke="#5fd0ff" stroke-width="7" stroke-linecap="round"
-                    stroke-dasharray="14 18" opacity=".95" filter="url(#glow)"/>
-              <text x="386" y="440" font-size="10" font-weight="700" fill="#5fd0ff"
-                    letter-spacing="1.1" transform="rotate(40 386 440)">RÉSEAU 1 · A→B</text>
+              <line x1="560" y1="645" x2="340" y2="645" stroke="#0a121a" stroke-width="32" stroke-linecap="round"/>
+              <line x1="560" y1="645" x2="340" y2="645" stroke="url(#pipeRouge)" stroke-width="26" stroke-linecap="round"/>
+              <line id="flow2" x1="560" y1="645" x2="340" y2="645" stroke="#ff5252" stroke-width="7" stroke-linecap="round" stroke-dasharray="14 18" opacity=".95" filter="url(#glow7)"/>
+              <text x="350" y="676" font-size="9.5" font-weight="700" fill="#ff5252" letter-spacing="1.1">RÉSEAU ROUGE · B→A</text>
+              <path d="M 390 639 L 376 645 L 390 651 Z" fill="#ffc2b8"/>
             </g>
-
-            <!-- MARQUEUR DE CROISEMENT -->
+            <!-- TURBINE T1 (BLEU) -->
             <g>
-              <circle cx="450" cy="470" r="18" fill="none"
-                      stroke="#5fd0ff" stroke-width="1.5" stroke-dasharray="3 5" opacity=".55"/>
-              <circle cx="450" cy="470" r="26" fill="none"
-                      stroke="#ffa94d" stroke-width="1.2" stroke-dasharray="3 6" opacity=".4"/>
-              <circle cx="450" cy="470" r="4" fill="#dbe7f3"/>
-            </g>
-
-            <!-- TURBINE 1 (cyan) -->
-            <g>
-              <circle cx="384" cy="416" r="34" fill="#0a1520" stroke="#0a121a" stroke-width="3"/>
-              <circle cx="384" cy="416" r="30" fill="#0a1520" stroke="#5fd0ff" stroke-width="2.5"/>
+              <circle cx="450" cy="535" r="46" fill="#4d9fff" opacity=".1"/>
+              <circle cx="450" cy="535" r="38" fill="#0a121a"/>
+              <circle cx="450" cy="535" r="34" fill="#0a1520" stroke="#4d9fff" stroke-width="3"/>
               <g id="rotor1">
-                <line x1="384" y1="391" x2="384" y2="441" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
-                <line x1="359" y1="416" x2="409" y2="416" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
-                <line x1="366" y1="398" x2="402" y2="434" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
-                <line x1="402" y1="398" x2="366" y2="434" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="450" y1="508" x2="450" y2="562" stroke="#4d9fff" stroke-width="4.5" stroke-linecap="round"/>
+                <line x1="423" y1="535" x2="477" y2="535" stroke="#4d9fff" stroke-width="4.5" stroke-linecap="round"/>
+                <line x1="431" y1="516" x2="469" y2="554" stroke="#4d9fff" stroke-width="4.5" stroke-linecap="round"/>
+                <line x1="469" y1="516" x2="431" y2="554" stroke="#4d9fff" stroke-width="4.5" stroke-linecap="round"/>
               </g>
-              <circle cx="384" cy="416" r="6" fill="#5fd0ff"/>
-              <text x="384" y="466" text-anchor="middle" font-size="9" font-weight="700"
-                    fill="#5fd0ff" letter-spacing="1">T1</text>
+              <circle cx="450" cy="535" r="7" fill="#4d9fff"/>
+              <rect x="496" y="519" width="106" height="30" rx="8" fill="#0a1622" stroke="#4d9fff" stroke-width="1.4"/>
+              <text x="549" y="539" text-anchor="middle" font-size="11" font-weight="800" fill="#4d9fff" letter-spacing="1">T1 · TURBINE</text>
+              <text x="549" y="562" text-anchor="middle" font-size="9" font-weight="700" fill="#4d9fff" opacity=".75">BLEU · A → B</text>
             </g>
-
-            <!-- TURBINE 2 (orange) -->
+            <!-- POMPE T2 (ROUGE) -->
             <g>
-              <circle cx="516" cy="416" r="34" fill="#0a1520" stroke="#0a121a" stroke-width="3"/>
-              <circle cx="516" cy="416" r="30" fill="#0a1520" stroke="#ffa94d" stroke-width="2.5"/>
+              <circle cx="450" cy="645" r="46" fill="#ff5252" opacity=".12"/>
+              <circle cx="450" cy="645" r="38" fill="#0a121a"/>
+              <circle cx="450" cy="645" r="34" fill="#0a1520" stroke="#ff5252" stroke-width="3"/>
               <g id="rotor2">
-                <line x1="516" y1="391" x2="516" y2="441" stroke="#ffa94d" stroke-width="4" stroke-linecap="round"/>
-                <line x1="491" y1="416" x2="541" y2="416" stroke="#ffa94d" stroke-width="4" stroke-linecap="round"/>
-                <line x1="498" y1="398" x2="534" y2="434" stroke="#ffa94d" stroke-width="4" stroke-linecap="round"/>
-                <line x1="534" y1="398" x2="498" y2="434" stroke="#ffa94d" stroke-width="4" stroke-linecap="round"/>
+                <line x1="450" y1="618" x2="450" y2="672" stroke="#ff5252" stroke-width="4.5" stroke-linecap="round"/>
+                <line x1="423" y1="645" x2="477" y2="645" stroke="#ff5252" stroke-width="4.5" stroke-linecap="round"/>
+                <line x1="431" y1="626" x2="469" y2="664" stroke="#ff5252" stroke-width="4.5" stroke-linecap="round"/>
+                <line x1="469" y1="626" x2="431" y2="664" stroke="#ff5252" stroke-width="4.5" stroke-linecap="round"/>
               </g>
-              <circle cx="516" cy="416" r="6" fill="#ffa94d"/>
-              <text x="516" y="466" text-anchor="middle" font-size="9" font-weight="700"
-                    fill="#ffa94d" letter-spacing="1">T2</text>
+              <circle cx="450" cy="645" r="7" fill="#ff5252"/>
+              <rect x="496" y="629" width="106" height="30" rx="8" fill="#0a1622" stroke="#ff5252" stroke-width="1.4"/>
+              <text x="549" y="649" text-anchor="middle" font-size="11" font-weight="800" fill="#ff5252" letter-spacing="1">T2 · POMPE</text>
+              <text x="549" y="672" text-anchor="middle" font-size="9" font-weight="700" fill="#ff5252" opacity=".75">ROUGE · B → A</text>
             </g>
-
-            <!-- CÂBLES ÉLECTRIQUES -->
+            <!-- AUTO-ALIMENTATION (BLANC) -->
             <g>
-              <path d="M 384 450 Q 384 620, 450 690"
-                    fill="none" stroke="#1a2e1a" stroke-width="6" stroke-linecap="round"/>
-              <path id="cable1" d="M 384 450 Q 384 620, 450 690"
-                    fill="none" stroke="#42e39b" stroke-width="3" stroke-linecap="round"
-                    stroke-dasharray="10 12" filter="url(#softGlow)"/>
-
-              <path d="M 516 450 Q 516 620, 450 690"
-                    fill="none" stroke="#2e1a0a" stroke-width="6" stroke-linecap="round"/>
-              <path id="cable2" d="M 516 450 Q 516 620, 450 690"
-                    fill="none" stroke="#42e39b" stroke-width="3" stroke-linecap="round"
-                    stroke-dasharray="10 12" filter="url(#softGlow)"/>
+              <path d="M 450 573 L 450 607" fill="none" stroke="#3a4a5a" stroke-width="4" stroke-linecap="round"/>
+              <path d="M 450 573 L 450 607" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 8">
+                <animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1.2s" repeatCount="indefinite"/>
+              </path>
+              <text x="460" y="594" font-size="8.5" font-weight="700" fill="#ffffff" letter-spacing=".8" opacity=".9">AUTO-ALIM. BLANCHE</text>
             </g>
-
-            <!-- RÉSEAU ÉLECTRIQUE -->
+            <!-- CÂBLES + RÉSEAU -->
+            <path d="M 426 562 C 398 612, 386 656, 396 690" fill="none" stroke="#1a2e3a" stroke-width="6" stroke-linecap="round"/>
+            <path id="cable1" d="M 426 562 C 398 612, 386 656, 396 690" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 12"/>
+            <path d="M 471 677 Q 490 689, 502 690" fill="none" stroke="#3a2a2a" stroke-width="4" stroke-linecap="round"/>
             <g>
-              <rect x="390" y="690" width="120" height="60" rx="14"
-                    fill="#0d1b28" stroke="#2b4d68" stroke-width="2"/>
-              <path d="M450 704 L 438 740 M 450 704 L 462 740 M 442 726 L 458 726"
-                    stroke="#42e39b" stroke-width="3" stroke-linecap="round" fill="none"/>
-              <circle cx="450" cy="700" r="4" fill="#42e39b" class="pulse"/>
-              <text x="450" y="768" text-anchor="middle" font-size="10.5" font-weight="700"
-                    fill="#8fb8d4" letter-spacing="1.6">RÉSEAU ÉLECTRIQUE</text>
+              <rect x="390" y="690" width="120" height="60" rx="14" fill="#0d1b28" stroke="#3b5a7a" stroke-width="2"/>
+              <path d="M450 704 L 438 740 M 450 704 L 462 740 M 442 726 L 458 726" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <text x="450" y="768" text-anchor="middle" font-size="10.5" font-weight="700" fill="#c9d8e8" letter-spacing="1.6">RÉSEAU ÉLECTRIQUE</text>
             </g>
-
-            <!-- PUISSANCE INSTANTANÉE -->
+            <!-- BILAN -->
             <g>
-              <rect x="330" y="60" width="240" height="58" rx="14"
-                    fill="#0a1622" stroke="#1f3a52" stroke-width="1.4"/>
-              <text x="450" y="80" text-anchor="middle" font-size="9.5" font-weight="700"
-                    fill="#5f7d94" letter-spacing="1.6">PRODUCTION INSTANTANÉE</text>
-              <text id="powerBig" x="450" y="106" text-anchor="middle" font-size="17" font-weight="800"
-                    fill="#42e39b" letter-spacing="1">0.0 kW</text>
+              <rect x="330" y="60" width="240" height="70" rx="14" fill="#0a1622" stroke="#33445c" stroke-width="1.4"/>
+              <text x="450" y="80" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5f7d94" letter-spacing="1.6">PRODUCTION NETTE</text>
+              <text id="powerBig" x="450" y="105" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff" letter-spacing="1">0.0 kW</text>
+              <text x="450" y="122" text-anchor="middle" font-size="9" font-weight="700" fill="#5f7d94" letter-spacing="1">T1 − T2</text>
             </g>
-
             <!-- LÉGENDE -->
             <g>
-              <rect x="20" y="620" width="220" height="60" rx="12"
-                    fill="#0a1622" stroke="#1f3a52" stroke-width="1.2" opacity=".9"/>
-              <circle cx="40" cy="642" r="6" fill="#5fd0ff"/>
-              <text x="54" y="646" font-size="10.5" font-weight="700" fill="#8fb0c8">Réseau 1 · cyan · A→B</text>
-              <circle cx="40" cy="666" r="6" fill="#ffa94d"/>
-              <text x="54" y="670" font-size="10.5" font-weight="700" fill="#8fb0c8">Réseau 2 · orange · B→A</text>
+              <rect x="20" y="620" width="290" height="80" rx="12" fill="#0a1622" stroke="#1f3a52" stroke-width="1.2" opacity=".95"/>
+              <circle cx="40" cy="642" r="6" fill="#4d9fff"/>
+              <text x="54" y="646" font-size="10.5" font-weight="700" fill="#c3d3e4">BLEU · T1 turbine · A → B</text>
+              <circle cx="40" cy="666" r="6" fill="#ff5252"/>
+              <text x="54" y="670" font-size="10.5" font-weight="700" fill="#c3d3e4">ROUGE · T2 pompe · B → A</text>
+              <circle cx="40" cy="690" r="6" fill="#ffffff"/>
+              <text x="54" y="694" font-size="10.5" font-weight="700" fill="#c3d3e4">BLANC · énergie · circuit fermé</text>
             </g>
           </svg>
         </div>
         <aside class="panel">
           <div class="card">
             <h2>Contrôles</h2>
-            <div class="btn-row" style="margin-bottom:8px">
+            <div class="btn-row">
               <button class="btn active" id="btnPause">⏸ Pause</button>
-              <button class="btn kick" id="btnKick">⚡ Recharger Δh</button>
-            </div>
-            <button class="reset" id="reset" style="width:100%">↺ Réinitialiser</button>
-          </div>
-
-          <div class="card">
-            <h2 style="color:var(--cyan)">Charge Turbine 1 · Réseau Cyan</h2>
-            <input type="range" id="load1" min="0" max="100" value="50">
-            <div class="range-row">
-              <span>0 %</span><b id="load1Val" style="color:var(--cyan)">50 %</b><span>100 %</span>
-            </div>
-            <div style="margin-top:10px;height:6px;border-radius:6px;background:#0a1622;border:1px solid #16293a;overflow:hidden;position:relative">
-              <i id="eff1Bar" style="display:block;height:100%;width:50%;background:linear-gradient(90deg,#1a7fb8,#5fd0ff);transition:width .1s"></i>
-              <div style="position:absolute;top:0;bottom:0;width:8px;left:calc(50% - 4px);background:rgba(66,227,155,.35);border-left:1px solid rgba(66,227,155,.7);border-right:1px solid rgba(66,227,155,.7)"></div>
-            </div>
-            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:3px">
-              <span>Rendement T1</span>
-              <span style="color:var(--green)">Optimal ≈ 50 %</span>
-              <b id="eff1" style="color:var(--cyan)">—</b>
+              <button class="reset" id="reset" style="width:auto;flex:1">↺ Réinitialiser</button>
             </div>
           </div>
-
           <div class="card">
-            <h2 style="color:var(--orange)">Charge Turbine 2 · Réseau Orange</h2>
+            <h2 class="c-b">Turbine T1 · Réseau Bleu</h2>
+            <input type="range" id="load1" min="0" max="100" value="65">
+            <div class="range-row"><span>0 %</span><b id="load1Val" style="color:#4d9fff">65 %</b><span>100 %</span></div>
+            <div class="range-row"><span>Rendement T1</span><b id="eff1" style="color:#4d9fff">—</b></div>
+          </div>
+          <div class="card">
+            <h2 class="c-r">Pompe T2 · Réseau Rouge</h2>
             <input type="range" id="load2" min="0" max="100" value="50">
-            <div class="range-row">
-              <span>0 %</span><b id="load2Val" style="color:var(--orange)">50 %</b><span>100 %</span>
-            </div>
-            <div style="margin-top:10px;height:6px;border-radius:6px;background:#0a1622;border:1px solid #16293a;overflow:hidden;position:relative">
-              <i id="eff2Bar" style="display:block;height:100%;width:50%;background:linear-gradient(90deg,#b86f1a,#ffa94d);transition:width .1s"></i>
-              <div style="position:absolute;top:0;bottom:0;width:8px;left:calc(50% - 4px);background:rgba(66,227,155,.35);border-left:1px solid rgba(66,227,155,.7);border-right:1px solid rgba(66,227,155,.7)"></div>
-            </div>
-            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:3px">
-              <span>Rendement T2</span>
-              <span style="color:var(--green)">Optimal ≈ 50 %</span>
-              <b id="eff2" style="color:var(--orange)">—</b>
-            </div>
+            <div class="range-row"><span>0 %</span><b id="load2Val" style="color:#ff5252">50 %</b><span>100 %</span></div>
+            <div class="range-row"><span>Rendement T2</span><b id="eff2" style="color:#ff5252">—</b></div>
           </div>
-
           <div class="card">
-            <h2>Mesures</h2>
+            <h2>Bilan énergétique</h2>
             <div class="stats">
-              <div class="stat hl"><span>Q1 (cyan)</span><b id="sQ1">0 L/s</b></div>
-              <div class="stat or"><span>Q2 (orange)</span><b id="sQ2">0 L/s</b></div>
-              <div class="stat gr" style="grid-column:1/-1"><span>Puissance totale</span><b id="sPtot" style="font-size:18px">0.00 kW</b></div>
-              <div class="stat"><span>Δh A–B</span><b id="sDh">0.0 %</b></div>
-              <div class="stat gr"><span>Énergie produite</span><b id="sE">0.00 kWh</b></div>
+              <div class="stat bl"><span>P T1 (produit)</span><b id="sP1">0.00 kW</b></div>
+              <div class="stat rd"><span>P T2 (consommé)</span><b id="sP2">0.00 kW</b></div>
+              <div class="stat wh" style="grid-column:1/-1"><span>Puissance nette au réseau</span><b id="sPnet" style="font-size:18px">0.00 kW</b></div>
+              <div class="stat"><span>Q circulation</span><b id="sQ">0 L/s</b></div>
+              <div class="stat wh"><span>Énergie cumulée</span><b id="sE">0.00 kWh</b></div>
             </div>
           </div>
-
           <div class="card">
             <h2>Niveaux des réservoirs</h2>
-            <div class="level">
-              <div class="level-head"><span>▲ Réservoir A</span><b id="lvA">95.0 %</b></div>
-              <div class="bar"><i id="barA" style="width:95%"></i></div>
-            </div>
-            <div class="level">
-              <div class="level-head"><span>▲ Réservoir B</span><b id="lvB">75.0 %</b></div>
-              <div class="bar right"><i id="barB" style="width:75%"></i></div>
-            </div>
+            <div class="level"><div class="level-head"><span>▲ Réservoir A</span><b id="lvA">88.0 %</b></div><div class="bar"><i id="barA" style="width:88%"></i></div></div>
+            <div class="level"><div class="level-head"><span>▲ Réservoir B</span><b id="lvB">88.0 %</b></div><div class="bar right"><i id="barB" style="width:88%"></i></div></div>
             <div class="simtime"><span>Temps simulé</span><b id="sTime">00:00</b></div>
           </div>
-
-          <div class="info">
-            <span class="ic">OPTIMISATION</span>
-            Ajustez les <b>charges T1 et T2</b> autour de <b>50 %</b> pour maximiser la puissance. En dessous, la turbine « patine » ; au-dessus, elle freine trop le débit. Le rendement suit une courbe en cloche, avec un pic marqué sur la barre verte.
-          </div>
-
-          <div class="info" style="background:linear-gradient(135deg,#2a1010,#1a0a0a);border-color:#5a2020;color:#e0b0b0">
-            <span class="ic" style="background:var(--red);color:#1a0505">LIMITE PHYSIQUE</span>
-            Les deux réseaux puisent dans <b style="color:var(--red)">le même Δh</b> : quand les niveaux s'égalisent, plus rien ne coule. Cliquez sur <b style="color:var(--red)">⚡ Recharger Δh</b> pour remonter A et baisser B — c'est l'apport externe nécessaire (pluie, pompage, etc.).
+          <div class="info tri">
+            <span class="ic">TRICOLORE</span>
+            Circuit fermé : l'eau turbinée par <b>T1 (bleu)</b> est intégralement refoulée par <b>T2 (rouge)</b>. Les niveaux restent constants — <b>aucun apport d'eau</b>. L'auto-alimentation et l'énergie sont en <b>blanc</b>.
           </div>
         </aside>
       </div>
@@ -1790,370 +739,359 @@
     <script>
     (function(){
       "use strict";
-
-      /* ============================================================
-         PARAMÈTRES PHYSIQUES
-         ============================================================ */
-      const H_REAL      = 50;
-      const C_FLOW      = 30;
-      const CAP         = 1000000;
-      const TIME_SCALE  = 60;
-
-      const A_CONN_1 = 70, B_CONN_1 = 25;
-      const A_CONN_2 = 25, B_CONN_2 = 70;
-
-      /* ============================================================
-         ÉTAT
-         ============================================================ */
-      const initial = () => ({
-        running: true,
-        levelA: 95,
-        levelB: 75,
-        load1: 50,
-        load2: 50,
-        q1: 0,
-        q2: 0,
-        p1: 0,
-        p2: 0,
-        energy: 0,
-        simTime: 0,
-        dash1: 0,
-        dash2: 0,
-        cable1: 0,
-        cable2: 0,
-        rot1: 0,
-        rot2: 0
-      });
-      let S = initial();
-
-      /* ============================================================
-         DOM
-         ============================================================ */
-      const $ = id => document.getElementById(id);
-      const D = {
-        waterA:  $('waterA'), waterB: $('waterB'),
-        surfA:   $('surfA'),  surfB:  $('surfB'),
-        flow1:   $('flow1'),  flow2:  $('flow2'),
-        cable1:  $('cable1'), cable2: $('cable2'),
-        rotor1:  $('rotor1'), rotor2: $('rotor2'),
-        powerBig:$('powerBig'),
-        sQ1:     $('sQ1'),    sQ2:    $('sQ2'),
-        sPtot:   $('sPtot'),  sDh:    $('sDh'), sE: $('sE'),
-        lvA:     $('lvA'),    lvB:    $('lvB'),
-        barA:    $('barA'),   barB:   $('barB'),
-        sTime:   $('sTime'),
-        load1:   $('load1'),  load1Val: $('load1Val'),
-        load2:   $('load2'),  load2Val: $('load2Val'),
-        eff1:    $('eff1'),   eff2:   $('eff2'),
-        eff1Bar: $('eff1Bar'),eff2Bar:$('eff2Bar')
-      };
-
-      /* ============================================================
-         UTILITAIRES
-         ============================================================ */
-      const clamp = (v,a,b) => Math.min(b, Math.max(a,v));
-      const lerp  = (a,b,t) => a + (b-a)*t;
-      const fmtTime = s => {
-        const h = Math.floor(s/3600);
-        const m = Math.floor((s%3600)/60);
-        return String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0');
-      };
-
-      /* ============================================================
-         PHYSIQUE
-         ============================================================ */
-      function step(dt) {
-        if (!S.running) return;
-
-        const pipe1 = S.levelA > A_CONN_1 && S.levelB > B_CONN_1;
-        const pipe2 = S.levelA > A_CONN_2 && S.levelB > B_CONN_2;
-
-        const dh_m = (S.levelA - S.levelB) / 100 * H_REAL;
-        const dh_abs = Math.abs(dh_m);
-        const sign = dh_m >= 0 ? 1 : -1;
-
-        const Qnat = C_FLOW * Math.sqrt(dh_abs);
-
-        const Q1t = pipe1 ? Qnat * (1 - 0.20 * S.load1) * sign : 0;
-        const Q2t = pipe2 ? Qnat * (1 - 0.20 * S.load2) * sign : 0;
-
-        S.q1 = lerp(S.q1, Q1t, Math.min(1, dt*3));
-        S.q2 = lerp(S.q2, Q2t, Math.min(1, dt*3));
-
-        const eta1 = pipe1 ? 0.90 * Math.sin(Math.PI * S.load1) : 0;
-        const eta2 = pipe2 ? 0.90 * Math.sin(Math.PI * S.load2) : 0;
-
-        S.p1 = 9.81 * Math.abs(S.q1/1000) * dh_abs * eta1;
-        S.p2 = 9.81 * Math.abs(S.q2/1000) * dh_abs * eta2;
-
-        const dtSim = dt * TIME_SCALE;
-        const volOut = (S.q1 + S.q2) * dtSim;
-        S.levelA = clamp(S.levelA - volOut / CAP * 100, 0, 100);
-        S.levelB = clamp(S.levelB + volOut / CAP * 100, 0, 100);
-
-        S.energy += (S.p1 + S.p2) * dtSim / 3600;
-
-        S.simTime += dtSim;
+      const H_REAL=50,C_FLOW=22,TIME_SCALE=60;
+      const initial=()=>({running:true,levelA:88,levelB:88,load1:.65,load2:.5,q1:0,q2:0,p1:0,p2:0,energy:0,simTime:0,dash1:0,dash2:0,cable1:0,rot1:0,rot2:0});
+      let S=initial();
+      const $=id=>document.getElementById(id);
+      const D={waterA:$('waterA'),waterB:$('waterB'),surfA:$('surfA'),surfB:$('surfB'),flow1:$('flow1'),flow2:$('flow2'),
+        cable1:$('cable1'),rotor1:$('rotor1'),rotor2:$('rotor2'),powerBig:$('powerBig'),sP1:$('sP1'),sP2:$('sP2'),
+        sPnet:$('sPnet'),sQ:$('sQ'),sE:$('sE'),lvA:$('lvA'),lvB:$('lvB'),barA:$('barA'),barB:$('barB'),sTime:$('sTime'),
+        load1:$('load1'),load2:$('load2'),load1Val:$('load1Val'),load2Val:$('load2Val'),eff1:$('eff1'),eff2:$('eff2')};
+      const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+      const lerp=(a,b,t)=>a+(b-a)*t;
+      const fmtTime=s=>{const h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');};
+      function step(dt){
+        if(!S.running)return;
+        const h=Math.max(1,S.levelA/100*H_REAL);
+        const target=C_FLOW*Math.sqrt(h/H_REAL)*(1+0.06*Math.sin(S.simTime*0.25));
+        S.q1=lerp(S.q1,target,Math.min(1,dt*2));
+        S.q2=lerp(S.q2,S.q1,Math.min(1,dt*1.2));
+        const eta1=Math.max(.05,.92*Math.sin(Math.PI*S.load1));
+        const eta2=Math.max(.05,.85*Math.sin(Math.PI*S.load2));
+        S.p1=9.81*(S.q1/1000)*h*eta1;
+        S.p2=9.81*(S.q2/1000)*h*(1/eta2)*0.55;
+        const dtSim=dt*TIME_SCALE,d=(S.q2-S.q1)*dtSim;
+        S.levelA=clamp(S.levelA+d/1000000*100,5,100);
+        S.levelB=clamp(S.levelB-d/1000000*100,5,100);
+        S.energy+=(S.p1-S.p2)*dtSim/3600;
+        S.simTime+=dtSim;
       }
-
-      /* ============================================================
-         RENDU
-         ============================================================ */
-      function render(dt) {
-        const yA = 660 - S.levelA/100 * 400;
-        D.waterA.setAttribute('y', yA.toFixed(1));
-        D.waterA.setAttribute('height', (660-yA).toFixed(1));
-        D.surfA.setAttribute('y1', yA.toFixed(1));
-        D.surfA.setAttribute('y2', yA.toFixed(1));
-
-        const yB = 660 - S.levelB/100 * 400;
-        D.waterB.setAttribute('y', yB.toFixed(1));
-        D.waterB.setAttribute('height', (660-yB).toFixed(1));
-        D.surfB.setAttribute('y1', yB.toFixed(1));
-        D.surfB.setAttribute('y2', yB.toFixed(1));
-
-        S.dash1 -= S.q1 * 0.5 * dt * 60;
-        S.dash2 -= S.q2 * 0.5 * dt * 60;
-        D.flow1.setAttribute('stroke-dashoffset', S.dash1.toFixed(1));
-        D.flow2.setAttribute('stroke-dashoffset', S.dash2.toFixed(1));
-        D.flow1.setAttribute('opacity', clamp(0.15 + Math.abs(S.q1)/5, 0.15, 1));
-        D.flow2.setAttribute('opacity', clamp(0.15 + Math.abs(S.q2)/5, 0.15, 1));
-
-        const spin1 = Math.min(720, Math.abs(S.q1) * 6);
-        const spin2 = Math.min(720, Math.abs(S.q2) * 6);
-        S.rot1 += Math.sign(S.q1) * spin1 * dt;
-        S.rot2 += Math.sign(S.q2) * spin2 * dt;
-        D.rotor1.setAttribute('transform', `rotate(${S.rot1.toFixed(1)} 384 416)`);
-        D.rotor2.setAttribute('transform', `rotate(${S.rot2.toFixed(1)} 516 416)`);
-
-        S.cable1 -= (S.p1 > 0.01 ? 1 : 0) * 60 * dt;
-        S.cable2 -= (S.p2 > 0.01 ? 1 : 0) * 60 * dt;
-        D.cable1.setAttribute('stroke-dashoffset', S.cable1.toFixed(1));
-        D.cable2.setAttribute('stroke-dashoffset', S.cable2.toFixed(1));
-        D.cable1.setAttribute('opacity', S.p1 > 0.01 ? clamp(0.3 + S.p1/30, 0.3, 1) : 0.08);
-        D.cable2.setAttribute('opacity', S.p2 > 0.01 ? clamp(0.3 + S.p2/30, 0.3, 1) : 0.08);
-
-        D.sQ1.textContent = S.q1.toFixed(1) + ' L/s';
-        D.sQ2.textContent = S.q2.toFixed(1) + ' L/s';
-        const ptot = S.p1 + S.p2;
-        D.sPtot.textContent = ptot.toFixed(2) + ' kW';
-        D.powerBig.textContent = ptot.toFixed(1) + ' kW';
-        D.powerBig.setAttribute('fill', ptot > 0.5 ? '#42e39b' : '#5f7d94');
-
-        const dh = S.levelA - S.levelB;
-        D.sDh.textContent = Math.abs(dh).toFixed(2) + ' %';
-        D.sE.textContent  = S.energy.toFixed(3) + ' kWh';
-
-        D.lvA.textContent = S.levelA.toFixed(1) + ' %';
-        D.lvB.textContent = S.levelB.toFixed(1) + ' %';
-        D.barA.style.width = S.levelA + '%';
-        D.barB.style.width = S.levelB + '%';
-        D.sTime.textContent = fmtTime(S.simTime);
-
-        const eta1 = 0.90 * Math.sin(Math.PI * S.load1);
-        const eta2 = 0.90 * Math.sin(Math.PI * S.load2);
-        D.eff1.textContent = (eta1 * 100).toFixed(0) + ' %';
-        D.eff2.textContent = (eta2 * 100).toFixed(0) + ' %';
-        D.eff1Bar.style.width = (eta1 / 0.90 * 100).toFixed(0) + '%';
-        D.eff2Bar.style.width = (eta2 / 0.90 * 100).toFixed(0) + '%';
+      function render(dt){
+        const yA=660-S.levelA/100*400;
+        D.waterA.setAttribute('y',yA.toFixed(1));D.waterA.setAttribute('height',(660-yA).toFixed(1));
+        D.surfA.setAttribute('y1',yA.toFixed(1));D.surfA.setAttribute('y2',yA.toFixed(1));
+        const yB=660-S.levelB/100*400;
+        D.waterB.setAttribute('y',yB.toFixed(1));D.waterB.setAttribute('height',(660-yB).toFixed(1));
+        D.surfB.setAttribute('y1',yB.toFixed(1));D.surfB.setAttribute('y2',yB.toFixed(1));
+        S.dash1-=S.q1*0.5*dt*60;S.dash2-=S.q2*0.5*dt*60;
+        D.flow1.setAttribute('stroke-dashoffset',S.dash1.toFixed(1));
+        D.flow2.setAttribute('stroke-dashoffset',S.dash2.toFixed(1));
+        D.flow1.setAttribute('opacity',clamp(.15+S.q1/5,.15,1));
+        D.flow2.setAttribute('opacity',clamp(.15+S.q2/5,.15,1));
+        S.rot1+=Math.min(720,S.q1*6)*dt;S.rot2-=Math.min(720,S.q2*6)*dt;
+        D.rotor1.setAttribute('transform',`rotate(${S.rot1.toFixed(1)} 450 535)`);
+        D.rotor2.setAttribute('transform',`rotate(${S.rot2.toFixed(1)} 450 645)`);
+        S.cable1-=(S.p1>0.01?1:0)*60*dt;
+        D.cable1.setAttribute('stroke-dashoffset',S.cable1.toFixed(1));
+        D.cable1.setAttribute('opacity',clamp(.4+S.p1/40,.4,1));
+        const pnet=S.p1-S.p2;
+        D.sP1.textContent=S.p1.toFixed(2)+' kW';
+        D.sP2.textContent=S.p2.toFixed(2)+' kW';
+        D.sPnet.textContent=pnet.toFixed(2)+' kW';
+        D.powerBig.textContent=pnet.toFixed(1)+' kW';
+        D.powerBig.setAttribute('fill',pnet>0.5?'#ffffff':'#ff8a80');
+        D.sQ.textContent=((S.q1+S.q2)/2).toFixed(1)+' L/s';
+        D.sE.textContent=S.energy.toFixed(3)+' kWh';
+        D.lvA.textContent=S.levelA.toFixed(1)+' %';
+        D.lvB.textContent=S.levelB.toFixed(1)+' %';
+        D.barA.style.width=S.levelA+'%';D.barB.style.width=S.levelB+'%';
+        D.sTime.textContent=fmtTime(S.simTime);
+        const eta1=Math.max(.05,.92*Math.sin(Math.PI*S.load1));
+        const eta2=Math.max(.05,.85*Math.sin(Math.PI*S.load2));
+        D.eff1.textContent=(eta1*100).toFixed(0)+' %';
+        D.eff2.textContent=(eta2*100).toFixed(0)+' %';
       }
-
-      /* ============================================================
-         BOUCLE
-         ============================================================ */
-      let last = 0;
-      function loop(now) {
-        if (!last) last = now;
-        let dt = (now - last) / 1000;
-        last = now;
-        dt = Math.min(dt, 0.05);
-        step(dt);
-        render(dt);
-        requestAnimationFrame(loop);
+      let last=0;
+      function loop(now){
+        if(!last)last=now;let dt=(now-last)/1000;last=now;dt=Math.min(dt,0.05);
+        step(dt);render(dt);requestAnimationFrame(loop);
       }
-
-      /* ============================================================
-         INTERFACE
-         ============================================================ */
-      $('btnPause').addEventListener('click', e => {
-        S.running = !S.running;
-        e.currentTarget.textContent = S.running ? '⏸ Pause' : '▶ Reprendre';
+      $('btnPause').addEventListener('click',e=>{
+        S.running=!S.running;
+        e.currentTarget.textContent=S.running?'⏸ Pause':'▶ Reprendre';
       });
-
-      $('btnKick').addEventListener('click', () => {
-        S.levelA = clamp(S.levelA + 20, 0, 100);
-        S.levelB = clamp(S.levelB - 20, 0, 100);
-        S.running = true;
-        $('btnPause').textContent = '⏸ Pause';
-      });
-
-      $('reset').addEventListener('click', () => {
-        S = initial();
-        last = 0;
-        $('btnPause').textContent = '⏸ Pause';
-        D.load1.value = 50; D.load2.value = 50;
+      $('reset').addEventListener('click',()=>{
+        S=initial();last=0;$('btnPause').textContent='⏸ Pause';
+        D.load1.value=65;D.load2.value=50;
         D.load1.dispatchEvent(new Event('input'));
-        D.load2.dispatchEvent(new Event('input'));
-        render(0);
+        D.load2.dispatchEvent(new Event('input'));render(0);
       });
-
-      D.load1.addEventListener('input', e => {
-        S.load1 = +e.target.value / 100;
-        D.load1Val.textContent = e.target.value + ' %';
-        const pct = e.target.value;
-        e.target.style.background =
-          `linear-gradient(90deg, var(--cyan) 0%, var(--cyan) ${pct}%, #16293a ${pct}%, #16293a 100%)`;
+      D.load1.addEventListener('input',e=>{
+        S.load1=+e.target.value/100;D.load1Val.textContent=e.target.value+' %';
+        const p=e.target.value;
+        e.target.style.background=`linear-gradient(90deg,#4d9fff 0%,#4d9fff ${p}%,#16293a ${p}%,#16293a 100%)`;
       });
       D.load1.dispatchEvent(new Event('input'));
-
-      D.load2.addEventListener('input', e => {
-        S.load2 = +e.target.value / 100;
-        D.load2Val.textContent = e.target.value + ' %';
-        const pct = e.target.value;
-        e.target.style.background =
-          `linear-gradient(90deg, var(--orange) 0%, var(--orange) ${pct}%, #16293a ${pct}%, #16293a 100%)`;
+      D.load2.addEventListener('input',e=>{
+        S.load2=+e.target.value/100;D.load2Val.textContent=e.target.value+' %';
+        const p=e.target.value;
+        e.target.style.background=`linear-gradient(90deg,#ff5252 0%,#ff5252 ${p}%,#16293a ${p}%,#16293a 100%)`;
       });
       D.load2.dispatchEvent(new Event('input'));
-
       requestAnimationFrame(loop);
     })();
     </script>
   </template>
 
-  <!-- ================================================================
-       SHARED CSS + INITIALISATION DES 6 IFRAMES
-       ================================================================ -->
   <script>
-  (function(){
-    const BASE_CSS = `
-:root{--bg:#060b12;--panel:#0e1a26;--panel-2:#132435;--line:#1f3a52;--cyan:#5fd0ff;--green:#42e39b;--orange:#ffa94d;--text:#dbe7f3;--muted:#7d9ab3;--red:#ff6b6b}
-*{box-sizing:border-box}
-body{margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  background:radial-gradient(1200px 700px at 15% -10%,#14304a 0%,#08111c 55%,#04080d 100%);
-  color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1560px;margin:0 auto;padding:14px 18px 24px}
-header{margin-bottom:14px}
-.brand{display:flex;align-items:center;gap:14px}
-.logo{width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;border-radius:14px;
-  background:linear-gradient(150deg,#12384f,#0b1d2c);border:1px solid #2b5270;font-size:22px;
-  box-shadow:0 0 26px rgba(95,208,255,.22)}
-h1{margin:0;font-size:18px;letter-spacing:.2px;font-weight:700}
-header p{margin:3px 0 0;font-size:12.5px;color:var(--muted)}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:16px;align-items:start}
-@media(max-width:1100px){.layout{grid-template-columns:1fr}}
-.stage{background:linear-gradient(180deg,#0b1522,#08111b);border:1px solid var(--line);
-  border-radius:20px;padding:8px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
-.stage svg{display:block;width:100%;height:auto;border-radius:14px}
-.panel{display:flex;flex-direction:column;gap:12px}
-.card{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);
-  border-radius:16px;padding:13px 15px 15px}
-.card h2{margin:0 0 11px;font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;
-  color:var(--muted);font-weight:700}
-.btn-row{display:flex;gap:8px}
-.btn,.mode-btn{flex:1;padding:11px 8px;border-radius:12px;border:1px solid var(--line);
-  background:#0b1725;color:var(--muted);font-weight:600;font-size:12.5px;font-family:inherit;
-  cursor:pointer;transition:all .18s ease;display:flex;align-items:center;justify-content:center;gap:6px}
-.btn:hover,.mode-btn:hover{border-color:#2e5c7d;color:var(--text);transform:translateY(-1px)}
-.btn.active,.mode-btn.active{background:linear-gradient(180deg,#12384f,#0d2537);
-  border-color:var(--cyan);color:var(--cyan);
-  box-shadow:0 0 20px rgba(95,208,255,.2),inset 0 0 14px rgba(95,208,255,.06)}
-.btn.stop.active{border-color:var(--red);color:var(--red);box-shadow:0 0 20px rgba(255,107,107,.2)}
-.btn.kick{background:linear-gradient(180deg,#3a2810,#2a1e08);border-color:var(--orange);color:var(--orange)}
-.btn.kick:hover{box-shadow:0 0 20px rgba(255,169,77,.3)}
-.modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.mode-btn.wide{grid-column:1/-1}
-.mode-btn .ico{font-size:14px;line-height:1}
-.switch{display:flex;align-items:center;gap:9px;margin-top:12px;font-size:12.5px;
-  color:var(--muted);cursor:pointer;user-select:none}
-.switch input{accent-color:var(--cyan);width:16px;height:16px;cursor:pointer}
-input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:6px;
-  background:linear-gradient(90deg,var(--cyan) 0%,var(--cyan) 60%,#16293a 60%,#16293a 100%);
-  outline:none;cursor:pointer;margin-top:4px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
-  border-radius:50%;background:#eaf7ff;border:3px solid var(--cyan);
-  box-shadow:0 0 14px rgba(95,208,255,.6);cursor:grab}
-input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;
-  background:#eaf7ff;border:3px solid var(--cyan);box-shadow:0 0 14px rgba(95,208,255,.6);cursor:grab}
-.range-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px;
-  font-size:11px;color:#57748c}
-.range-row b{color:var(--cyan);font-size:13px;font-variant-numeric:tabular-nums}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-.stat{background:#0a1420;border:1px solid #16293a;border-radius:12px;padding:8px 10px}
-.stat span{display:block;font-size:9.5px;text-transform:uppercase;letter-spacing:.09em;
-  color:var(--muted);margin-bottom:3px}
-.stat b{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.2px}
-.stat.hl b{color:var(--cyan)}
-.stat.gr b{color:var(--green)}
-.stat.or b{color:var(--orange)}
-.level{margin-bottom:10px}
-.level:last-of-type{margin-bottom:4px}
-.level-head{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);
-  margin-bottom:5px}
-.level-head b{color:var(--text);font-variant-numeric:tabular-nums}
-.bar{height:9px;border-radius:9px;background:#0a1622;border:1px solid #16293a;overflow:hidden}
-.bar i{display:block;height:100%;border-radius:9px;
-  background:linear-gradient(90deg,#1a7fb8,#5fd0ff);
-  box-shadow:0 0 12px rgba(95,208,255,.45);transition:width .1s linear}
-.bar.right i,.bar.down i{background:linear-gradient(90deg,#15688f,#3ba9d8);
-  box-shadow:0 0 12px rgba(59,169,216,.4)}
-.bar.up i{background:linear-gradient(90deg,#1a9a6a,#42e39b);box-shadow:0 0 12px rgba(66,227,155,.4)}
-.simtime{margin-top:10px;padding-top:9px;border-top:1px solid #16293a;font-size:11.5px;
-  color:var(--muted);display:flex;justify-content:space-between}
-.simtime b{color:var(--text);font-variant-numeric:tabular-nums}
-.reset{padding:12px;border-radius:14px;border:1px solid var(--line);background:#0b1725;
-  color:var(--muted);font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;
-  transition:all .18s}
-.reset:hover{border-color:#2e5c7d;color:var(--text);background:#101f2e}
-.info{background:linear-gradient(135deg,#0a1f2e,#0d1824);border:1px solid #1a3a52;
-  border-radius:14px;padding:11px 13px;font-size:11px;line-height:1.55;color:#8fb0c8}
-.info b{color:var(--cyan)}
-.info .ic{display:inline-block;background:var(--cyan);color:#04121c;font-size:9px;
-  font-weight:800;padding:1px 6px;border-radius:6px;margin-right:5px;letter-spacing:.05em}
-.legend{display:flex;gap:14px;margin-top:10px;font-size:10.5px;color:var(--muted);flex-wrap:wrap}
-.legend span{display:flex;align-items:center;gap:6px}
-.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
-.dot.g{background:var(--green);box-shadow:0 0 8px rgba(66,227,155,.6)}
-.dot.o{background:var(--orange);box-shadow:0 0 8px rgba(255,169,77,.6)}
-.dot.c{background:var(--cyan);box-shadow:0 0 8px rgba(95,208,255,.6)}
-#rotor,#rotorTurb,#rotorPump,#rotor1,#rotor2{transform-box:fill-box;transform-origin:center}
-.pulse{animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
-.phase-badge{display:flex;align-items:center;gap:10px;background:#0a1622;border:1px solid #1f3a52;
-  border-radius:12px;padding:10px 12px;margin-top:4px}
-.phase-dot{width:10px;height:10px;border-radius:50%;background:var(--cyan);
-  box-shadow:0 0 12px currentColor;flex:0 0 10px}
-.phase-text{font-size:13px;font-weight:700;letter-spacing:.6px}
-.phase-sub{font-size:10.5px;color:var(--muted);margin-left:auto}
-`;
-
-    const frames = document.getElementById('frames');
-    const iframes = [];
-    const TOTAL = 6;
-
-    for (let i = 0; i < TOTAL; i++) {
-      const tpl = document.getElementById('tpl-' + i);
-      if (!tpl) continue;
-      const content = tpl.innerHTML;
-      const doc = '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">' +
-                  '<style>' + BASE_CSS + '</style></head><body>' + content + '</body></html>';
-
-      const iframe = document.createElement('iframe');
-      iframe.className = 'sim-frame';
-      iframe.title = 'Simulation ' + (i + 1);
-      iframe.srcdoc = doc;
-      if (i !== 0) iframe.hidden = true;
-      frames.appendChild(iframe);
-      iframes.push(iframe);
-    }
-
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const idx = +tab.dataset.tab;
-        tabs.forEach(t => t.classList.toggle('active', t === tab));
-        iframes.forEach((f, i) => { f.hidden = (i !== idx); });
+  /* ================================================================
+     Moteur commun pour les simulations 3 à 6 (rendus paramétrés)
+     ================================================================ */
+  function buildDoubleNetwork(mode){
+    (function(){
+      "use strict";
+      const CFG={
+        pump:  {title2:"POMPE DE REFOULEMENT", col2:"#ffa94d", pumpPower:1.0,  ram:false, msg:"La pompe consomme PLUS que la turbine ne produit : bilan net négatif (physique réelle)."},
+        ram:   {title2:"BÉLIER DE REFOULEMENT",col2:"#42e39b", pumpPower:0.35, ram:true,  msg:"Le bélier refoule ~20 % du débit sans électricité, mais A se vide lentement (l'eau perdue part au bas)."},
+        closed:{title2:"POMPE DE REFOULEMENT", col2:"#ffa94d", pumpPower:0.55, ram:false, msg:"Mode démo « auto-entretenu » : facteur pompe réduit pour garder un bilan positif (fictif)."},
+        cross: {title2:"POMPE T2 · POINT BAS", col2:"#ffa94d", pumpPower:0.55, ram:false, cross:true, msg:"Réseaux en X perpendiculaire (±45°) : T1 en haut productrice, T2 au point bas."}
+      }[mode];
+      const host=document.querySelector('[data-sim]');
+      const cross=!!CFG.cross;
+      const yT=339, yP=599;
+      const lineT=cross?`<line x1="336" y1="240" x2="564" y2="438" stroke="#0a121a" stroke-width="30" stroke-linecap="round"/>
+        <line id="flowT" x1="336" y1="240" x2="564" y2="438" stroke="#5fd0ff" stroke-width="9" stroke-linecap="round" stroke-dasharray="14 18" filter="url(#glow)"/>`
+        :`<rect x="336" y="${yT-13}" width="228" height="26" rx="13" fill="#26323e" stroke="#0a121a" stroke-width="2"/>
+        <line id="flowT" x1="342" y1="${yT}" x2="558" y2="${yT}" stroke="#5fd0ff" stroke-width="9" stroke-linecap="round" stroke-dasharray="12 16" filter="url(#glow)"/>`;
+      const lineB=cross?`<line x1="564" y1="262" x2="336" y2="460" stroke="#0a121a" stroke-width="30" stroke-linecap="round"/>
+        <line id="flowB" x1="564" y1="262" x2="336" y2="460" stroke="${CFG.col2}" stroke-width="9" stroke-linecap="round" stroke-dasharray="14 18" filter="url(#glow)"/>`
+        :`<rect x="186" y="466" width="26" height="146" fill="#22303c" stroke="#0a121a" stroke-width="2"/>
+        <rect x="186" y="586" width="528" height="26" fill="#22303c" stroke="#0a121a" stroke-width="2"/>
+        <rect x="688" y="466" width="26" height="146" fill="#22303c" stroke="#0a121a" stroke-width="2"/>
+        <path id="flowB" d="M 700 480 L 700 599 L 200 599 L 200 480" stroke="${CFG.col2}" stroke-width="9" stroke-linecap="round" fill="none" stroke-dasharray="14 18" filter="url(#glow)"/>`;
+      host.innerHTML=`
+        <div class="stage">
+        <svg viewBox="0 0 900 700" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d2136"/><stop offset="55%" stop-color="#0a1725"/><stop offset="100%" stop-color="#061019"/></linearGradient>
+            <linearGradient id="waterG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8ceaff"/><stop offset="35%" stop-color="#2fa8e0"/><stop offset="100%" stop-color="#0f4a77"/></linearGradient>
+            <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6d8093"/><stop offset="45%" stop-color="#4a5c6e"/><stop offset="100%" stop-color="#2a3743"/></linearGradient>
+            <clipPath id="clipA"><rect x="64" y="234" width="272" height="232"/></clipPath>
+            <clipPath id="clipB"><rect x="564" y="234" width="272" height="232"/></clipPath>
+            <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="900" height="700" fill="url(#sky)"/>
+          <rect y="480" width="900" height="220" fill="#0a121a"/>
+          <line x1="0" y1="480" x2="900" y2="480" stroke="#2a4257" stroke-width="2"/>
+          <text x="200" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR A</text>
+          <text x="700" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#7d9ab3" letter-spacing="1.6">RÉSERVOIR B</text>
+          <g><g clip-path="url(#clipA)"><rect id="waterA" x="64" y="300" width="272" height="166" fill="url(#waterG)"/></g>
+          <path d="M 50 220 L 64 220 L 64 466 L 336 466 L 336 220 L 350 220 L 350 480 L 50 480 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
+          <line id="surfA" x1="64" y1="300" x2="336" y2="300" stroke="#bdf0ff" stroke-width="1.6" opacity=".5"/></g>
+          <g><g clip-path="url(#clipB)"><rect id="waterB" x="564" y="300" width="272" height="166" fill="url(#waterG)"/></g>
+          <path d="M 550 220 L 564 220 L 564 466 L 836 466 L 836 220 L 850 220 L 850 480 L 550 480 Z" fill="url(#concrete)" stroke="#0a121a" stroke-width="1.6"/>
+          <line id="surfB" x1="564" y1="300" x2="836" y2="300" stroke="#bdf0ff" stroke-width="1.6" opacity=".5"/></g>
+          ${lineT}
+          <g>
+            <circle cx="450" cy="${cross?339:yT}" r="26" fill="#0a1520" stroke="#3d5b73" stroke-width="3"/>
+            <g id="rotorT">
+              <line x1="450" y1="${(cross?339:yT)-20}" x2="450" y2="${(cross?339:yT)+20}" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
+              <line x1="430" y1="${cross?339:yT}" x2="470" y2="${cross?339:yT}" stroke="#5fd0ff" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            <text x="450" y="${(cross?339:yT)-34}" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5fd0ff" letter-spacing="1.2">TURBINE T1 · A → B</text>
+          </g>
+          ${lineB}
+          <g>
+            <rect x="${cross?422:398}" y="${cross?470:554}" width="104" height="88" rx="14" fill="#3d4f61" stroke="#0a121a" stroke-width="3"/>
+            <circle cx="450" cy="${cross?514:yP}" r="27" fill="#0a1520" stroke="${CFG.col2}" stroke-width="3"/>
+            <g id="rotorP">
+              <line x1="450" y1="${(cross?514:yP)-19}" x2="450" y2="${(cross?514:yP)+19}" stroke="${CFG.col2}" stroke-width="5" stroke-linecap="round"/>
+              <line x1="431" y1="${cross?514:yP}" x2="469" y2="${cross?514:yP}" stroke="${CFG.col2}" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <text x="${cross?474:450}" y="${cross?586:686}" text-anchor="middle" font-size="10" font-weight="700" fill="${CFG.col2}" letter-spacing="1.4">${CFG.title2} · B → A</text>
+          </g>
+        </svg>
+        </div>
+        <aside class="panel">
+          <div class="card">
+            <h2>Contrôles</h2>
+            <div class="btn-row">
+              <button class="btn active" id="btnPause">⏸ Pause</button>
+              <button class="reset" id="reset" style="width:auto;flex:1">↺ Réinitialiser</button>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Débit de circulation</h2>
+            <input type="range" id="qSet" min="0" max="100" value="60">
+            <div class="range-row"><span>0</span><b id="qVal">60 %</b><span>100</span></div>
+          </div>
+          <div class="card">
+            <h2>Bilan énergétique</h2>
+            <div class="stats">
+              <div class="stat hl"><span>P turbine (produit)</span><b id="sP1">0.00 kW</b></div>
+              <div class="stat or"><span>P ${CFG.ram?"bélier":"pompe"} (consommé)</span><b id="sP2">0.00 kW</b></div>
+              <div class="stat ${CFG.pumpPower<0.6?"gr":"rd"}" style="grid-column:1/-1"><span>Puissance nette</span><b id="sPnet" style="font-size:18px">0.00 kW</b></div>
+              <div class="stat"><span>Q réseau haut</span><b id="sQ1">0 L/s</b></div>
+              <div class="stat gr"><span>Q refoulé B→A</span><b id="sQ2">0 L/s</b></div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Niveaux</h2>
+            <div class="level"><div class="level-head"><span>▲ Réservoir A</span><b id="lvA">80 %</b></div><div class="bar"><i id="barA" style="width:80%"></i></div></div>
+            <div class="level"><div class="level-head"><span>▲ Réservoir B</span><b id="lvB">80 %</b></div><div class="bar right"><i id="barB" style="width:80%"></i></div></div>
+            <div class="simtime"><span>Temps simulé</span><b id="sTime">00:00</b></div>
+          </div>
+          <div class="info ${CFG.pumpPower<0.6?"ok":""}"><span class="ic">INFO</span>${CFG.msg}</div>
+        </aside>`;
+      const $=id=>document.getElementById(id);
+      const D={waterA:$('waterA'),waterB:$('waterB'),surfA:$('surfA'),surfB:$('surfB'),flowT:$('flowT'),flowB:$('flowB'),
+        rotorT:$('rotorT'),rotorP:$('rotorP'),sP1:$('sP1'),sP2:$('sP2'),sPnet:$('sPnet'),sQ1:$('sQ1'),sQ2:$('sQ2'),
+        lvA:$('lvA'),lvB:$('lvB'),barA:$('barA'),barB:$('barB'),sTime:$('sTime')};
+      const CAP=1000000,H=12,TS=60;
+      const S={run:true,lA:80,lB:80,q:45,qSet:.6,p1:0,p2:0,t:0,d1:0,d2:0,r1:0,r2:0};
+      const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+      const fmt=s=>{const h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');};
+      const ramRatio=()=>0.20;
+      function step(dt){
+        if(!S.run)return;
+        S.q=45*S.qSet;
+        const dtSim=dt*TS;
+        const q2=CFG.ram?S.q*ramRatio():(mode==="closed"||mode==="cross")?S.q*0.98:S.q;
+        const h=Math.max(1,Math.min(S.lA,S.lB)/100*H);
+        S.p1=9.81*(S.q/1000)*h*0.9;
+        S.p2=CFG.ram?0:9.81*(q2/1000)*h/0.85*(CFG.ram?1:CFG.pumpPower);
+        if(CFG.ram)S.p2=0;
+        const dA=(q2-S.q)*dtSim, dB=(S.q-q2)*dtSim;
+        S.lA=clamp(S.lA+dA/CAP*100,2,100);
+        S.lB=clamp(S.lB+dB/CAP*100,2,100);
+        S.t+=dtSim;
+        S.d1-=S.q*0.4*dt*60; S.d2-=q2*0.5*dt*60;
+        S.r1+=Math.min(500,S.q*5)*dt; S.r2-=Math.min(500,q2*5)*dt;
+      }
+      function render(){
+        const yA=466-S.lA/100*232,yB=466-S.lB/100*232;
+        D.waterA.setAttribute('y',yA);D.waterA.setAttribute('height',466-yA);
+        D.waterB.setAttribute('y',yB);D.waterB.setAttribute('height',466-yB);
+        D.surfA.setAttribute('y1',yA);D.surfA.setAttribute('y2',yA);
+        D.surfB.setAttribute('y1',yB);D.surfB.setAttribute('y2',yB);
+        D.flowT.setAttribute('stroke-dashoffset',S.d1.toFixed(1));
+        D.flowB.setAttribute('stroke-dashoffset',S.d2.toFixed(1));
+        const cy=cross?339:339;
+        D.rotorT.setAttribute('transform',`rotate(${S.r1.toFixed(1)} 450 ${cy})`);
+        D.rotorP.setAttribute('transform',`rotate(${S.r2.toFixed(1)} 450 ${cross?514:599})`);
+        const net=S.p1-S.p2;
+        D.sP1.textContent=S.p1.toFixed(2)+' kW';
+        D.sP2.textContent=S.p2.toFixed(2)+' kW';
+        D.sPnet.textContent=net.toFixed(2)+' kW';
+        D.sQ1.textContent=S.q.toFixed(1)+' L/s';
+        D.sQ2.textContent=(CFG.ram?S.q*ramRatio():(mode==="closed"||mode==="cross")?S.q*0.98:S.q).toFixed(1)+' L/s';
+        D.lvA.textContent=S.lA.toFixed(1)+' %';
+        D.lvB.textContent=S.lB.toFixed(1)+' %';
+        D.barA.style.width=S.lA+'%';D.barB.style.width=S.lB+'%';
+        D.sTime.textContent=fmt(S.t);
+      }
+      let last=0;
+      function loop(now){
+        if(!last)last=now;let dt=(now-last)/1000;last=now;dt=Math.min(dt,0.05);
+        step(dt);render();requestAnimationFrame(loop);
+      }
+      $('btnPause').addEventListener('click',e=>{S.run=!S.run;e.currentTarget.textContent=S.run?'⏸ Pause':'▶ Reprendre';});
+      $('reset').addEventListener('click',()=>{S.lA=80;S.lB=80;S.t=0;S.qSet=.6;$('qSet').value=60;$('qSet').dispatchEvent(new Event('input'));});
+      $('qSet').addEventListener('input',e=>{
+        S.qSet=+e.target.value/100;$('qVal').textContent=e.target.value+' %';
+        const p=e.target.value;
+        e.target.style.background=`linear-gradient(90deg,var(--cyan) 0%,var(--cyan) ${p}%,#16293a ${p}%,#16293a 100%)`;
       });
-    });
+      $('qSet').dispatchEvent(new Event('input'));
+      requestAnimationFrame(loop);
+    })();
+  }
+  </script>
+
+  <script>
+  /* ================================================================
+     GESTION DES ONGLETS · injection des templates dans des iframes
+     ================================================================ */
+  (function(){
+    "use strict";
+    const COMMON_CSS = `
+      html,body{height:100%}
+      body{margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+        background:radial-gradient(1200px 700px at 15% -10%,#14304a 0%,#08111c 55%,#04080d 100%);
+        color:#dbe7f3;-webkit-font-smoothing:antialiased;
+        --cyan:#5fd0ff;--green:#42e39b;--orange:#ffa94d;--muted:#7d9ab3;
+        --line:#1f3a52;--panel:#0e1a26;--panel-2:#132435}
+      .wrap{max-width:1600px;margin:0 auto;padding:16px 20px 26px}
+      header{margin-bottom:14px}.brand{display:flex;align-items:center;gap:14px}
+      .logo{width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;border-radius:14px;
+        background:linear-gradient(150deg,#12384f,#0b1d2c);border:1px solid #2b5270;font-size:23px;
+        box-shadow:0 0 24px rgba(95,208,255,.22)}
+      h1{margin:0;font-size:18px;font-weight:700}header p{margin:3px 0 0;font-size:12.5px;color:var(--muted)}
+      .layout{display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:16px;align-items:start}
+      @media(max-width:1180px){.layout{grid-template-columns:1fr}}
+      .stage{background:linear-gradient(180deg,#0b1522,#08111b);border:1px solid var(--line);
+        border-radius:20px;padding:8px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+      .stage svg{display:block;width:100%;height:auto;border-radius:14px}
+      .panel{display:flex;flex-direction:column;gap:12px}
+      .card{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);
+        border-radius:16px;padding:13px 15px}
+      .card h2{margin:0 0 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;
+        color:var(--muted);font-weight:700}
+      .btn-row{display:flex;gap:8px}
+      .btn,.reset{padding:11px;border-radius:12px;border:1px solid var(--line);background:#0b1725;
+        color:var(--muted);font:600 12.5px 'Inter',system-ui,sans-serif;cursor:pointer;transition:all .18s;width:100%}
+      .btn:hover,.reset:hover{border-color:#2e5c7d;color:#dbe7f3}
+      .btn.active{border-color:#5fd0ff;color:#5fd0ff}
+      .btn.stop.active{border-color:#ff6b6b;color:#ff6b6b}
+      input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:6px;
+        background:#16293a;outline:none;cursor:pointer;margin-top:4px}
+      input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+        background:#eaf7ff;border:3px solid var(--cyan);box-shadow:0 0 12px rgba(95,208,255,.6);cursor:grab}
+      input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#eaf7ff;
+        border:3px solid var(--cyan);cursor:grab}
+      .range-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;
+        font-size:11px;color:#57748c}
+      .range-row b{font-size:13px;color:var(--cyan);font-variant-numeric:tabular-nums}
+      .stats{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+      .stat{background:#0a1420;border:1px solid #16293a;border-radius:12px;padding:8px 10px}
+      .stat span{display:block;font-size:9.5px;text-transform:uppercase;letter-spacing:.09em;
+        color:var(--muted);margin-bottom:3px}
+      .stat b{font-size:14.5px;font-weight:700;font-variant-numeric:tabular-nums}
+      .stat.hl b{color:var(--cyan)}.stat.gr b{color:var(--green)}.stat.or b{color:var(--orange)}.stat.rd b{color:#ff6b6b}
+      .stat.warn b{color:var(--orange)!important}
+      .level{margin-bottom:10px}.level-head{display:flex;justify-content:space-between;font-size:11.5px;
+        color:var(--muted);margin-bottom:5px}
+      .level-head b{color:#dbe7f3;font-variant-numeric:tabular-nums}
+      .bar{height:9px;border-radius:9px;background:#0a1622;border:1px solid #16293a;overflow:hidden}
+      .bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#1a7fb8,#5fd0ff);
+        box-shadow:0 0 12px rgba(95,208,255,.45);transition:width .1s linear}
+      .bar.down i,.bar.right i{background:linear-gradient(90deg,#15688f,#3ba9d8)}
+      .simtime{margin-top:10px;padding-top:9px;border-top:1px solid #16293a;font-size:11.5px;
+        color:var(--muted);display:flex;justify-content:space-between}
+      .simtime b{color:#dbe7f3;font-variant-numeric:tabular-nums}
+      .info{background:linear-gradient(135deg,#0a1f2e,#0d1824);border:1px solid #1a3a52;border-radius:14px;
+        padding:11px 13px;font-size:11px;line-height:1.55;color:#8fb0c8}
+      .info b{color:var(--cyan)}
+      .info .ic{display:inline-block;background:var(--cyan);color:#04121c;font-size:9px;font-weight:800;
+        padding:1px 6px;border-radius:6px;margin-right:5px;letter-spacing:.05em}
+      .info.ok{background:linear-gradient(135deg,#0a2a1e,#0d2419);border-color:#1a4a32;color:#9fd4b8}
+      .info.ok b{color:var(--green)}.info.ok .ic{background:var(--green);color:#021a0e}
+      .modes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+      .mode-btn{padding:11px 6px;border-radius:12px;border:1px solid var(--line);background:#0b1725;
+        color:var(--muted);font:600 12.5px 'Inter',system-ui,sans-serif;cursor:pointer}
+      .mode-btn.active{border-color:#5fd0ff;color:#5fd0ff;background:#0d2537}
+      .mode-btn.wide{grid-column:1/-1}
+      .switch{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer}
+      #rotor,#rotorT,#rotorP,#rotorTurb,#rotorPump,#rotor1,#rotor2{transform-box:fill-box;transform-origin:center}
+      .pulse{animation:pulse 2s ease-in-out infinite}
+      @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+    `;
+    const frames=document.getElementById('frames');
+    const tabs=[...document.querySelectorAll('.tab')];
+    const made={};
+    function show(i){
+      tabs.forEach(t=>t.classList.toggle('active',+t.dataset.tab===i));
+      for(const k in made) made[k].hidden=(+k!==i);
+      if(made[i])return;
+      const tpl=document.getElementById('tpl-'+i);
+      const f=document.createElement('iframe');
+      f.className='sim-frame';
+      f.srcdoc='<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><style>'+COMMON_CSS+'</style></head><body>'+tpl.innerHTML+'</body></html>';
+      frames.appendChild(f);
+      made[i]=f;
+    }
+    tabs.forEach(t=>t.addEventListener('click',()=>show(+t.dataset.tab)));
+    show(0);
   })();
   </script>
 </body>
