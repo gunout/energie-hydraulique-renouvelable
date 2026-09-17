@@ -127,7 +127,6 @@ Distribué sous licence **MIT**. Voir [LICENSE](LICENSE) pour plus de détails.
 
 ---
 
-<p align="center">Fait avec 💧 et ⚡ — <a href="https://gunout.github.io/energie-hydraulique-renouvelable/">essayer la démo</a></p>
 ```
 
 **Pour l'utiliser :**
@@ -135,9 +134,7 @@ Distribué sous licence **MIT**. Voir [LICENSE](LICENSE) pour plus de détails.
 2. Sur GitHub : `Add file` → `Create new file` → nommez-le `README.md` → collez → `Commit`
 3. Les blocs de code sont en indentation (compatible partout), le README s'affichera parfaitement
 
-💡 Bonus : pour la licence MIT, allez sur <https://choosealicense.com/licenses/mit/>, copiez le texte, remplacez `[year]` par 2025 et `[fullname]` par votre nom, puis créez un fichier `LICENSE`.
-
-
+```
 
 ---
 
